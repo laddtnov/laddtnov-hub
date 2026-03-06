@@ -14,7 +14,7 @@ you can see the live version of this project here:
 
 A modern, cyberpunk-themed portfolio website showcasing my web development projects and skills.
 
-🌐 **[Live Demo](https://laddtnov.github.io/portfolio-website//)** | 📁 **[Source Code](https://laddtnov.github.io/portfolio-website//)**
+🌐 **[Live Demo](https://laddtnov-dev.netlify.app/)** | 📁 **[Source Code](https://laddtnov-dev.netlify.app/)**
 
 ![Portfolio Preview](Screenshot-1.png)
 

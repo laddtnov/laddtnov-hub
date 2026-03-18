@@ -1,7 +1,7 @@
 # portfolio-website
 My personal portfolio website built with HTML5, CSS3, and animations. Cyberpunk-themed design showcasing my projects and skills.
 you can see the live version of this project here: 
-👉 ** https://portfolio-website-six-wine-21.vercel.app/**
+👉 ** https://portfolio-website.laddtnov.xyz/**
 # Personal Portfolio Website 💼
 
 <div align="center">
@@ -13,7 +13,7 @@ you can see the live version of this project here:
 
 A modern, cyberpunk-themed portfolio website showcasing my web development projects and skills.
 
-🌐 **[Live Demo](https://portfolio-website-six-wine-21.vercel.app/)** | 📁 **[Source Code](https://portfolio-website-six-wine-21.vercel.app/)**
+🌐 **[Live Demo](https://portfolio-website.laddtnov.xyz/)** | 📁 **[Source Code](https://portfolio-website.laddtnov.xyz/)**
 
 ![Portfolio Preview](Screenshot-1.png)
 

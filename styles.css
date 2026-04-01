@@ -523,6 +523,42 @@ body {
   animation: glitch-shake 0.35s steps(2) infinite;
 }
 
+/* Nav CV Button */
+.nav-cv-btn {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #000;
+  background: var(--neon-cyan);
+  padding: 8px 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
+  letter-spacing: 0.05em;
+}
+
+.nav-cv-btn:hover {
+  background: var(--neon-pink);
+  box-shadow: 0 0 20px var(--neon-pink);
+  transform: translateY(-2px);
+}
+
+.nav-cv-btn::after {
+  display: none;
+}
+
+/* CV Download Section (bottom) */
+.cv-download-section {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.cv-btn .btn-icon {
+  font-size: 1.3rem;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
   #navbar {

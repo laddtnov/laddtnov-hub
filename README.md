@@ -1,8 +1,7 @@
-# portfolio-website
+# Personal Portfolio Website 💼
 My personal portfolio website built with HTML5, CSS3, and animations. Cyberpunk-themed design showcasing my projects and skills.
 you can see the live version of this project here: 
 👉 ** https://laddtnov.xyz/**
-# Personal Portfolio Website 💼
 
 <div align="center">
 

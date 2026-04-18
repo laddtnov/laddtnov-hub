@@ -98,7 +98,7 @@ The website is fully responsive with breakpoints at:
 
 | Project | Technologies | Link |
 |---------|-------------|------|
-| 🌌 Solar System Simulator | CSS Animations, Transform | [Live Demo](https://laddtnov.github.io/css-solar-system-ultimate/) |
+| 🌌 Solar System Simulator | CSS Animations, Transform | [Live Demo](https://solar.laddtnov.xyz/) |
 | 🌃 Neo-Tokyo Times | CSS Grid, Variables | [View Project](#) |
 | 📚 Technical Documentation | Responsive, Media Queries | [View Project](#) |
 | 📖 Book Inventory System | Attribute Selectors, Tables | [View Project](#) |

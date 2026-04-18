@@ -6,6 +6,18 @@
       "runtimeExecutable": "/opt/homebrew/bin/python3.14",
       "runtimeArgs": ["-m", "http.server", "8082"],
       "port": 8082
+    },
+    {
+      "name": "cards",
+      "runtimeExecutable": "/opt/homebrew/bin/python3.14",
+      "runtimeArgs": ["-m", "http.server", "8083", "-d", "/Users/laddtnov/Library/CloudStorage/ProtonDrive-novytskiyvladislav@proton.me-folder/Learning/HTML_Css/Playing-Cards"],
+      "port": 8083
+    },
+    {
+      "name": "sudoku",
+      "runtimeExecutable": "/opt/homebrew/bin/python3.14",
+      "runtimeArgs": ["-m", "http.server", "8084", "-d", "/Users/laddtnov/Library/CloudStorage/ProtonDrive-novytskiyvladislav@proton.me-folder/Learning/HTML_Css/Sudoku"],
+      "port": 8084
     }
   ]
 }

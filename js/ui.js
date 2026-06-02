@@ -1,5 +1,27 @@
 import { emit, EVENTS } from "./events.js";
 
+export function initNavToggle() {
+  const navbar = document.querySelector("#navbar");
+  const toggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (!navbar || !toggle || !navLinks) return;
+
+  // TODO: implement the hamburger toggle behavior (~8–10 lines)
+  //
+  // Toggle open/closed on button click
+  toggle.addEventListener("click", () => {
+    navbar.classList.toggle("nav-open");
+    const isOpen = navbar.classList.contains("nav-open");
+    toggle.setAttribute("aria-expanded", isOpen);
+  });
+
+  // Close the menu when any nav link is clicked (single-page navigation)
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => navbar.classList.remove("nav-open"));
+  });
+}
+
 export function initUI() {
   const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
   const sections = navLinks

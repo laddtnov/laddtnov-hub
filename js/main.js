@@ -1,5 +1,5 @@
 import { initMotionPreferences } from './motion.js';
-import { initUI } from './ui.js';
+import { initUI, initNavToggle } from './ui.js';
 import { initProjects } from './projects.js';
 import { initSettings } from './settings.js';
 import { initAnalytics } from './analytics.js';
@@ -8,6 +8,7 @@ import { on, EVENTS } from './events.js';
 function init() {
   initMotionPreferences();
   initUI();
+  initNavToggle();
   initProjects();
   initSettings();
   initAnalytics();

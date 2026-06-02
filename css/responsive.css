@@ -1,71 +1,165 @@
 /* --- Media Queries & Responsiveness --- */
 
-/* Tablet View: Adjusting spacing for mid-sized screens (e.g., iPads) */
+/* Hamburger toggle: hidden on desktop, revealed in mobile query below */
+.nav-toggle {
+  display: none;
+}
+
+/* Anchor scroll offset — accounts for the fixed navbar height */
+html {
+  scroll-padding-top: 60px;
+}
+
+/* ─── Tablet (≤ 992px) ─────────────────────────────────────── */
 @media (max-width: 992px) {
   #navbar {
     padding: 10px 20px;
   }
-  .nav-right-group {
-    gap: 20px;
-  }
 }
 
-/* Mobile View: Switching navigation to a vertical stack */
+/* ─── Mobile (≤ 768px) ─────────────────────────────────────── */
 @media (max-width: 768px) {
+
+  /* Scroll offset increase — mobile navbar is slightly taller */
+  html {
+    scroll-padding-top: 70px;
+  }
+
+  /* ── Navbar ── */
   #navbar {
-    flex-direction: column;
-    padding: 20px;
+    flex-wrap: wrap;
+    padding: 12px 20px;
+    gap: 0;
+    justify-content: space-between;
+    align-items: center;
     height: auto;
-    gap: 20px;
-    text-align: center;
-  }
-  
-  /* Stack nav links vertically */
-  .nav-links {
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
   }
 
-  /* Ensure the CV button and links are centered in mobile mode */
-  .nav-right-group {
+  /* Hamburger button */
+  .nav-toggle {
+    display: flex;
     flex-direction: column;
-    width: 100%;
-    gap: 20px;
-  }
-
-  /* Compact CV button on mobile — stands out from nav links */
-  .nav-cv-btn {
-    width: auto;
-    max-width: 180px;
-    margin: 0 auto;
     justify-content: center;
-    font-size: 0.75rem;
-    padding: 6px 16px;
+    gap: 5px;
+    background: transparent;
     border: 1px solid var(--neon-cyan);
     border-radius: 4px;
+    padding: 8px 10px;
+    cursor: pointer;
+    order: 2;         /* sits beside the logo on the first row */
+    flex-shrink: 0;
+  }
+
+  .nav-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--neon-cyan);
+    border-radius: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Animate bars → × when menu is open */
+  #navbar.nav-open .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  #navbar.nav-open .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+  #navbar.nav-open .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Nav links: collapsed by default, drop to full row below logo + button */
+  .nav-links {
+    order: 3;
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease, margin 0.35s ease;
+    gap: 0;
+  }
+
+  #navbar.nav-open .nav-links {
+    max-height: 400px;
+    margin-top: 12px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(0, 242, 255, 0.2);
   }
 
   .nav-links a {
     font-size: 0.95rem;
+    padding: 10px 4px;
+    border-bottom: 1px solid rgba(0, 242, 255, 0.08);
+    width: 100%;
   }
-  
-  /* Responsive Typography: Reducing font sizes for smaller viewports */
+
+  /* CV button inside the collapsed menu */
+  .nav-cv-btn {
+    font-size: 0.8rem;
+    padding: 10px 4px;
+    border: none;
+    border-radius: 0;
+    border-bottom: none;
+    margin: 4px 0 0;
+    max-width: unset;
+    width: 100%;
+  }
+
+  /* ── Welcome / Hero ── */
+  #welcome-section {
+    /* svh = "small viewport height" — excludes mobile browser chrome */
+    min-height: 100svh;
+    padding-top: 80px;
+  }
+
   .glitch-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
-  
+
   .welcome-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
-  
-  .section-title {
+
+  .welcome-prefix {
+    font-size: 1rem;
+  }
+
+  .welcome-tagline {
+    font-size: 1.1rem;
+  }
+
+  .scroll-indicator span {
     font-size: 2rem;
   }
-  
-  /* Projects Grid: Switching to a single-column layout */
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ── Sections ── */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  #projects,
+  #skills,
+  #contact {
+    padding: 60px 20px;
+  }
+
+  /* ── Projects ── */
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
     padding: 0 10px;
   }
 
@@ -85,41 +179,61 @@
   .project-actions {
     flex-direction: column;
   }
-  
-  /* Reducing section padding to save vertical space */
-  #projects,
-  #skills,
-  #contact {
-    padding: 60px 20px;
+
+  /* Reduce the lift effect — hover fires on tap on touch screens */
+  .project-tile:hover {
+    transform: translateY(-6px);
   }
-  
-  /* Contact section layout adjustments */
+
+  /* ── Contact ── */
+  .contact-text {
+    font-size: 1.1rem;
+  }
+
   .contact-links {
     flex-direction: column;
     align-items: center;
+    gap: 16px;
   }
-  
+
   .contact-btn {
     width: 100%;
     max-width: 300px;
+    font-size: 0.95rem;
+    padding: 14px 24px;
+    justify-content: center;
   }
-} 
+}
 
-/* Small Mobile Devices: Final tweaks for very narrow screens */
+/* ─── Small mobile (≤ 480px) ───────────────────────────────── */
 @media (max-width: 480px) {
-  .glitch-title {
-    font-size: 2.2rem;
+  #navbar {
+    padding: 10px 12px;
   }
-  
+
+  .glitch-title {
+    font-size: 2rem;
+  }
+
   .welcome-subtitle {
     font-size: 1.1rem;
   }
-  
-  .section-title {
-    font-size: 1.6rem;
+
+  .welcome-tagline {
+    font-size: 1rem;
   }
 
-  #navbar {
-    padding: 15px 10px;
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+
+  .contact-btn {
+    font-size: 0.85rem;
+    padding: 12px 20px;
+  }
+
+  .contact-text {
+    font-size: 1rem;
   }
 }

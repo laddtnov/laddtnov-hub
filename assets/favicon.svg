@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Laddtnov favicon">
+  <defs>
+    <filter id="fg" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="32" height="32" fill="#0a0a0c" rx="4"/>
+  <rect x="1" y="1" width="30" height="30" fill="none" stroke="#00f2ff" stroke-width="0.8" rx="3.5" opacity="0.5"/>
+  <!-- L shape -->
+  <path d="M10 7 L10 25 L22 25" stroke="#00f2ff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#fg)"/>
+  <!-- Pink accent dot -->
+  <circle cx="25.5" cy="25" r="2" fill="#ff00ff" filter="url(#fg)"/>
+</svg>

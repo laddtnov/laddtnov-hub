@@ -25,17 +25,19 @@
     />
     <meta name="twitter:image" content="https://laddtnov.xyz/Screenshot-1.png" />
     <title>Laddtnov - Front-End Developer Portfolio</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/welcome.css">
-  <link rel="stylesheet" href="css/projects.css">
-  <link rel="stylesheet" href="css/skills.css">
-  <link rel="stylesheet" href="css/contact.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/welcome.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
   </head>
   <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -50,15 +52,16 @@
     </div>
     <div class="nav-links" id="nav-links">
       <a href="#welcome-section">Home</a>
+      <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <a href="cv-vladislav-novytskiy.pdf" download class="nav-cv-btn">Download CV ↓</a>
+      <a href="cv-vladislav-novytskiy.pdf" download class="nav-cv-btn">Download CV <span aria-hidden="true">↓</span></a>
     </div>
     <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation" aria-controls="nav-links">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
     </button>
   </nav>
   <main id="main-content">
@@ -69,7 +72,7 @@
       <p class="welcome-subtitle">
         <span class="typing">FRONT-END DEVELOPER</span>
       </p>
-      <p class="welcome-tagline">Building the future, one line of code at a time</p>
+      <p class="welcome-tagline">Crafting interactive experiences at the intersection of design and code.</p>
       <div class="hero-cta">
         <a href="#projects" class="hero-cta-btn hero-cta-primary">[ VIEW PROJECTS ]</a>
         <a href="#contact" class="hero-cta-btn hero-cta-secondary">[ CONTACT ]</a>
@@ -80,20 +83,62 @@
       </div>
     </div>
   </section>
+
+  <!-- About / Bio section -->
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title" class="section-title">
+      <span class="title-bracket" aria-hidden="true">[</span>
+      ABOUT ME
+      <span class="title-bracket" aria-hidden="true">]</span>
+    </h2>
+    <div class="about-container scroll-animate">
+      <div class="about-avatar-wrap">
+        <img
+          src="assets/avatar.svg"
+          alt="Cyberpunk avatar representing Vladislav Novytskiy"
+          class="about-avatar"
+          width="220"
+          height="220"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+      <div class="about-text">
+        <p class="about-label">&gt;_ WHO AM I</p>
+        <p class="about-bio">
+          I'm Vladislav Novytskiy — a front-end developer who turns ideas into interactive experiences.
+          I specialise in creative UI, game-style interfaces, and modular vanilla JavaScript,
+          building everything from 3D solar systems to cyberpunk memory games.
+          Currently open to freelance projects and full-time front-end roles.
+        </p>
+        <div class="about-tags">
+          <span class="about-tag about-tag--available">Available for hire</span>
+          <span class="about-tag">Cyberpunk UI</span>
+          <span class="about-tag">Interactive Web</span>
+          <span class="about-tag">Game Dev</span>
+          <span class="about-tag">Open to Freelance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="projects" aria-labelledby="projects-title">
     <h2 id="projects-title" class="section-title">
-      <span class="title-bracket">[</span>
+      <span class="title-bracket" aria-hidden="true">[</span>
       FEATURED PROJECTS
-      <span class="title-bracket">]</span>
+      <span class="title-bracket" aria-hidden="true">]</span>
     </h2>
+
+    <!-- Screen-reader live region for filter result announcements (WCAG 4.1.3) -->
+    <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" id="filter-status"></p>
 
     <div class="projects-explorer" aria-label="Project explorer controls">
       <div class="filter-group" role="group" aria-label="Filter projects">
-        <button class="filter-btn is-active" type="button" data-filter="all">ALL</button>
-        <button class="filter-btn" type="button" data-filter="game">GAMES</button>
-        <button class="filter-btn" type="button" data-filter="tool">TOOLS</button>
-        <button class="filter-btn" type="button" data-filter="productivity">PRODUCTIVITY</button>
-        <button class="filter-btn" type="button" data-filter="experiment">EXPERIMENTS</button>
+        <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">ALL</button>
+        <button class="filter-btn" type="button" data-filter="game" aria-pressed="false">GAMES</button>
+        <button class="filter-btn" type="button" data-filter="tool" aria-pressed="false">TOOLS</button>
+        <button class="filter-btn" type="button" data-filter="productivity" aria-pressed="false">PRODUCTIVITY</button>
+        <button class="filter-btn" type="button" data-filter="experiment" aria-pressed="false">EXPERIMENTS</button>
       </div>
       <label class="sort-wrap" for="project-sort">
         <span>SORT:</span>
@@ -108,15 +153,15 @@
     <div class="projects-grid">
       <!-- Project 1: Orrery -->
       <article
-        class="project-tile"
+        class="project-tile scroll-animate"
         data-category="experiment"
         data-year="2026"
         data-summary="3D orrery with Fallout 3 inspired terminal interactions and sound."
       >
         <div class="project-image">
           <img src="assets/thumbnails/solar-system-thumb.svg" alt="Orrery project preview" loading="lazy" decoding="async">
-          <div class="project-overlay">
-            <span class="view-project">TERMINAL READY</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">3D SIMULATION</span>
           </div>
         </div>
         <div class="project-info">
@@ -133,15 +178,15 @@
 
       <!-- Project 2: Libra -->
       <article
-        class="project-tile"
+        class="project-tile scroll-animate"
         data-category="tool"
         data-year="2026"
         data-summary="Book tracking app with terminal visuals, neon panels, and progress modules."
       >
         <div class="project-image">
           <img src="assets/thumbnails/libra-thumb.svg" alt="Libra project preview" loading="lazy" decoding="async">
-          <div class="project-overlay">
-            <span class="view-project">TERMINAL READY</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">BOOK TRACKER</span>
           </div>
         </div>
         <div class="project-info">
@@ -158,15 +203,15 @@
 
       <!-- Project 3: Breach OS -->
       <article
-        class="project-tile"
+        class="project-tile scroll-animate"
         data-category="game"
         data-year="2025"
         data-summary="Cyberpunk memory game with mission loops, animations, and arcade progression."
       >
         <div class="project-image">
           <img src="assets/thumbnails/breach-os-thumb.jpg" alt="Breach OS project preview" loading="lazy" decoding="async">
-          <div class="project-overlay">
-            <span class="view-project">TERMINAL READY</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">CARD GAME</span>
           </div>
         </div>
         <div class="project-info">
@@ -183,15 +228,15 @@
 
       <!-- Project 4: Cogsworth -->
       <article
-        class="project-tile"
+        class="project-tile scroll-animate"
         data-category="game tool"
         data-year="2025"
         data-summary="Steampunk sudoku with rank systems, survival mode, and PWA install support."
       >
         <div class="project-image">
           <img src="assets/thumbnails/breach-engine-thumb.jpg" alt="Cogsworth project preview" loading="lazy" decoding="async">
-          <div class="project-overlay">
-            <span class="view-project">TERMINAL READY</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">SUDOKU PWA</span>
           </div>
         </div>
         <div class="project-info">
@@ -208,15 +253,16 @@
 
       <!-- Project 5: TimeFlow -->
       <article
-        class="project-tile"
+        class="project-tile scroll-animate"
         data-category="tool productivity"
         data-year="2026"
         data-summary="React + Vite appointment tracker with weekly calendar view, event creation, and real-time scheduling."
       >
         <div class="project-image">
           <img src="assets/thumbnails/timeflow-thumb.svg" alt="TimeFlow project preview" loading="lazy" decoding="async">
-          <div class="project-overlay">
-            <span class="view-project">TERMINAL READY</span>
+          <span class="project-badge-new">NEW</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">REACT APP</span>
           </div>
         </div>
         <div class="project-info">
@@ -231,17 +277,18 @@
         </div>
       </article>
 
-      <!-- Project 7: GrowFlow -->
+      <!-- Project 6: GrowFlow -->
       <article
-        class="project-tile"
+        class="project-tile scroll-animate"
         data-category="tool productivity"
         data-year="2026"
         data-summary="Personal finance tracker with neon dashboard, income/expense logging, and interactive growth charts."
       >
         <div class="project-image">
           <img src="assets/thumbnails/growflow-thumb.svg" alt="GrowFlow project preview" loading="lazy" decoding="async">
-          <div class="project-overlay">
-            <span class="view-project">TERMINAL READY</span>
+          <span class="project-badge-new">NEW</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">FINANCE TOOL</span>
           </div>
         </div>
         <div class="project-info">
@@ -256,17 +303,17 @@
         </div>
       </article>
 
-      <!-- Project 6: Vitrum -->
+      <!-- Project 7: Vitrum -->
       <article
-        class="project-tile"
+        class="project-tile scroll-animate"
         data-category="game experiment"
         data-year="2024"
         data-summary="Glassmorphism chess experience focused on elegant visuals and smooth piece motion."
       >
         <div class="project-image">
           <img src="assets/thumbnails/glass-chess-thumb.svg" alt="Vitrum project preview" loading="lazy" decoding="async">
-          <div class="project-overlay">
-            <span class="view-project">TERMINAL READY</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">CHESS GAME</span>
           </div>
         </div>
         <div class="project-info">
@@ -294,75 +341,122 @@
       </div>
     </dialog>
   </section>
+
   <section id="skills" aria-labelledby="skills-title">
     <h2 id="skills-title" class="section-title">
-      <span class="title-bracket">[</span>
+      <span class="title-bracket" aria-hidden="true">[</span>
       TECH STACK
-      <span class="title-bracket">]</span>
+      <span class="title-bracket" aria-hidden="true">]</span>
     </h2>
-    
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon">HTML5</div>
-        <div class="skill-bar">
-          <div class="skill-progress" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="HTML5 proficiency 95%" style="width: 95%"></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">CSS3</div>
-        <div class="skill-bar">
-          <div class="skill-progress" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="CSS3 proficiency 90%" style="width: 90%"></div>
+
+    <div class="skills-categories">
+      <div class="skill-category scroll-animate">
+        <h3 class="skill-category-title">LANGUAGES</h3>
+        <div class="skill-badges">
+          <span class="skill-badge">HTML5</span>
+          <span class="skill-badge">CSS3</span>
+          <span class="skill-badge">JavaScript ES6+</span>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-icon">Flexbox</div>
-        <div class="skill-bar">
-          <div class="skill-progress" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Flexbox proficiency 95%" style="width: 95%"></div>
+      <div class="skill-category scroll-animate">
+        <h3 class="skill-category-title">FRAMEWORKS &amp; TOOLS</h3>
+        <div class="skill-badges">
+          <span class="skill-badge">React</span>
+          <span class="skill-badge">Vite</span>
+          <span class="skill-badge">Chart.js</span>
+          <span class="skill-badge">Web Audio API</span>
+          <span class="skill-badge">Canvas API</span>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-icon">Grid</div>
-        <div class="skill-bar">
-          <div class="skill-progress" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="CSS Grid proficiency 90%" style="width: 90%"></div>
+      <div class="skill-category scroll-animate">
+        <h3 class="skill-category-title">CSS &amp; DESIGN</h3>
+        <div class="skill-badges">
+          <span class="skill-badge">Flexbox</span>
+          <span class="skill-badge">CSS Grid</span>
+          <span class="skill-badge">CSS Animations</span>
+          <span class="skill-badge">Responsive Design</span>
+          <span class="skill-badge">Glassmorphism</span>
         </div>
       </div>
 
-      <div class="skill-card">
-        <div class="skill-icon">Animations</div>
-        <div class="skill-bar">
-          <div class="skill-progress" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="CSS Animations proficiency 85%" style="width: 85%"></div>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">Responsive</div>
-        <div class="skill-bar">
-          <div class="skill-progress" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Responsive Design proficiency 90%" style="width: 90%"></div>
+      <div class="skill-category scroll-animate">
+        <h3 class="skill-category-title">WORKFLOW</h3>
+        <div class="skill-badges">
+          <span class="skill-badge">Git &amp; GitHub</span>
+          <span class="skill-badge">ES Modules</span>
+          <span class="skill-badge">LocalStorage</span>
+          <span class="skill-badge">PWA</span>
         </div>
       </div>
     </div>
   </section>
+
   <section id="contact" aria-labelledby="contact-title">
     <h2 id="contact-title" class="section-title">
-      <span class="title-bracket">[</span>
+      <span class="title-bracket" aria-hidden="true">[</span>
       LET'S CONNECT
-      <span class="title-bracket">]</span>
+      <span class="title-bracket" aria-hidden="true">]</span>
     </h2>
-    
+
     <p class="contact-text">Ready to build something amazing together?</p>
-    
+
+    <!-- Contact form — powered by Formspree -->
+    <!-- TODO: replace YOUR_FORM_ID after signing up at formspree.io -->
+    <form
+      class="contact-form scroll-animate"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+    >
+      <div class="form-group">
+        <label for="contact-name">Name</label>
+        <input
+          type="text"
+          id="contact-name"
+          name="name"
+          required
+          autocomplete="name"
+          placeholder=">_ Your name"
+        >
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email</label>
+        <input
+          type="email"
+          id="contact-email"
+          name="email"
+          required
+          autocomplete="email"
+          placeholder=">_ your@email.com"
+        >
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message</label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows="5"
+          required
+          placeholder=">_ Your message..."
+        ></textarea>
+      </div>
+      <button type="submit" class="contact-form-submit">[ SEND MESSAGE ]</button>
+    </form>
+
+    <p class="contact-divider">— OR REACH ME DIRECTLY —</p>
+
     <div class="contact-links">
       <a id="profile-link" href="https://github.com/laddtnov" target="_blank" rel="noopener noreferrer" class="contact-btn">
         <span class="btn-text">GitHub</span>
         <span class="btn-icon" aria-hidden="true">→</span>
       </a>
-      
+
       <a href="https://www.linkedin.com/in/laddtnov/" target="_blank" rel="noopener noreferrer" class="contact-btn">
         <span class="btn-text">LinkedIn</span>
         <span class="btn-icon" aria-hidden="true">→</span>
       </a>
-      
+
       <a href="mailto:novytskiyvladislav@proton.me" class="contact-btn">
         <span class="btn-text">Email</span>
         <span class="btn-icon" aria-hidden="true">→</span>
@@ -380,11 +474,15 @@
       </a>
     </div>
     <div class="footer">
-    <p>&lt;Dev/&gt; Built with passion and CSS magic</p>
-  <p>© 2026 Laddtnov</p>
+      <p>&lt;Dev/&gt; Built with passion and CSS magic</p>
+      <p>© 2026 Laddtnov</p>
     </div>
   </section>
   </main>
+
+  <!-- Back-to-top button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Scroll back to top" hidden>↑</button>
+
   <div class="settings-panel" id="settings-panel">
     <button
       class="settings-toggle"

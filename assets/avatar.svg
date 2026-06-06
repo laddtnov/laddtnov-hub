@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Cyberpunk developer avatar">
+  <defs>
+    <pattern id="av-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0L0 0 0 20" fill="none" stroke="rgba(0,242,255,0.04)" stroke-width="0.5"/>
+    </pattern>
+    <filter id="av-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="av-glow-strong" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="200" height="200" fill="#07070b" rx="10"/>
+  <rect width="200" height="200" fill="url(#av-grid)" rx="10"/>
+  <rect x="2" y="2" width="196" height="196" fill="none" stroke="#00f2ff" stroke-width="1" rx="9" opacity="0.35"/>
+
+  <!-- Corner brackets -->
+  <path d="M8 8 L8 20 M8 8 L20 8" stroke="#00f2ff" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M192 8 L192 20 M192 8 L180 8" stroke="#00f2ff" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M8 192 L8 180 M8 192 L20 192" stroke="#00f2ff" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M192 192 L192 180 M192 192 L180 192" stroke="#00f2ff" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+  <!-- Body / shoulders -->
+  <path d="M25 200 L25 160 Q25 148 38 143 L74 132 Q87 128 100 128 Q113 128 126 132 L162 143 Q175 148 175 160 L175 200Z" fill="#0f0f14" stroke="#00f2ff" stroke-width="1.2" filter="url(#av-glow)"/>
+
+  <!-- Collar accent lines -->
+  <line x1="90" y1="128" x2="78" y2="142" stroke="#9d00ff" stroke-width="0.8" opacity="0.55"/>
+  <line x1="110" y1="128" x2="122" y2="142" stroke="#9d00ff" stroke-width="0.8" opacity="0.55"/>
+
+  <!-- Neck -->
+  <rect x="87" y="106" width="26" height="26" fill="#0f0f14" stroke="#00f2ff" stroke-width="1" filter="url(#av-glow)"/>
+
+  <!-- Head — angular / geometric -->
+  <path d="M60 82 L60 56 Q60 36 80 34 L100 32 L120 34 Q140 36 140 56 L140 82 Q140 103 131 110 L100 115 L69 110 Q60 103 60 82Z" fill="#0f0f14" stroke="#00f2ff" stroke-width="1.5" filter="url(#av-glow)"/>
+
+  <!-- Temple side panels -->
+  <path d="M60 62 L52 68 L52 85 L60 91" stroke="#00f2ff" stroke-width="0.8" fill="none" opacity="0.4"/>
+  <path d="M140 62 L148 68 L148 85 L140 91" stroke="#00f2ff" stroke-width="0.8" fill="none" opacity="0.4"/>
+
+  <!-- Eyes — neon rectangular (Deus Ex style) -->
+  <rect x="72" y="65" width="20" height="11" rx="2" fill="#00f2ff" opacity="0.92" filter="url(#av-glow-strong)"/>
+  <rect x="108" y="65" width="20" height="11" rx="2" fill="#00f2ff" opacity="0.92" filter="url(#av-glow-strong)"/>
+  <!-- Eye scan lines -->
+  <line x1="72" y1="70.5" x2="92" y2="70.5" stroke="#000" stroke-width="0.7" opacity="0.3"/>
+  <line x1="108" y1="70.5" x2="128" y2="70.5" stroke="#000" stroke-width="0.7" opacity="0.3"/>
+
+  <!-- Nose bridge -->
+  <path d="M98 80 L96 90 L100 92 L104 90 L102 80" stroke="#00f2ff" stroke-width="0.8" fill="none" opacity="0.35"/>
+
+  <!-- Mouth -->
+  <path d="M87 98 Q100 103 113 98" stroke="#00f2ff" stroke-width="1.2" fill="none" opacity="0.55"/>
+
+  <!-- Cheekbone circuit lines -->
+  <path d="M60 80 L65 83 L68 80 L72 83" stroke="#ff00ff" stroke-width="0.8" fill="none" opacity="0.5"/>
+  <path d="M140 80 L135 83 L132 80 L128 83" stroke="#ff00ff" stroke-width="0.8" fill="none" opacity="0.5"/>
+
+  <!-- Forehead circuit -->
+  <path d="M82 50 L82 41 L95 41 M118 50 L118 41 L105 41" stroke="#00f2ff" stroke-width="0.8" fill="none" opacity="0.45"/>
+  <line x1="95" y1="41" x2="105" y2="41" stroke="#00f2ff" stroke-width="0.8" opacity="0.35"/>
+  <circle cx="100" cy="41" r="2" fill="#ff00ff" opacity="0.75" filter="url(#av-glow)"/>
+
+  <!-- Side circuit nodes -->
+  <circle cx="52" cy="76" r="2.5" fill="#9d00ff" opacity="0.75" filter="url(#av-glow)"/>
+  <circle cx="148" cy="76" r="2.5" fill="#9d00ff" opacity="0.75" filter="url(#av-glow)"/>
+
+  <!-- Data lines -->
+  <path d="M25 152 L45 152 L45 141 L52 137" stroke="#00f2ff" stroke-width="0.8" fill="none" opacity="0.35"/>
+  <circle cx="45" cy="152" r="2" fill="#00f2ff" opacity="0.5"/>
+  <path d="M175 152 L155 152 L155 141 L148 137" stroke="#00f2ff" stroke-width="0.8" fill="none" opacity="0.35"/>
+  <circle cx="155" cy="152" r="2" fill="#00f2ff" opacity="0.5"/>
+</svg>

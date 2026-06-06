@@ -97,3 +97,97 @@
 .cv-btn .btn-icon {
   font-size: 1.3rem;
 }
+
+/* ── Contact Form ──────────────────────────────────────────── */
+.contact-form {
+  max-width: 560px;
+  margin: 0 auto 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--neon-cyan);
+  letter-spacing: 0.09em;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(15, 15, 20, 0.9);
+  border: 1px solid rgba(0, 242, 255, 0.28);
+  border-radius: 6px;
+  color: var(--text-gray);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+  padding: 11px 14px;
+  outline: none;
+  resize: vertical;
+  width: 100%;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(209, 209, 209, 0.3);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 14px rgba(0, 242, 255, 0.18);
+}
+
+.contact-form-submit {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--neon-cyan);
+  background: transparent;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 6px;
+  padding: 13px 26px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-submit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--neon-cyan);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.contact-form-submit:hover {
+  color: #000;
+  box-shadow: 0 0 24px rgba(0, 242, 255, 0.45);
+}
+
+.contact-form-submit:hover::before {
+  transform: translateX(0);
+}
+
+.contact-divider {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  color: rgba(209, 209, 209, 0.35);
+  text-align: center;
+  letter-spacing: 0.12em;
+  margin: 12px 0;
+}

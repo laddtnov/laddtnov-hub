@@ -160,3 +160,36 @@
   color: #000;
   font-weight: bold;
 }
+
+/* ── Back-to-Top Button ─────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 1.5rem;
+  z-index: 190;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: var(--dark-card);
+  border: 2px solid var(--neon-purple);
+  color: var(--neon-purple);
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 0 14px rgba(157, 0, 255, 0.35);
+  transition: border-color 0.25s, color 0.25s, box-shadow 0.25s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-to-top:hover {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 24px rgba(0, 242, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.back-to-top[hidden] {
+  display: none !important;
+}

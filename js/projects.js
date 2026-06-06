@@ -35,6 +35,29 @@ export function initProjects() {
 
   let activeFilter = "all";
 
+  // Inject count badges into each filter button
+  const updateFilterCounts = () => {
+    filterButtons.forEach(btn => {
+      const filter = btn.dataset.filter ?? "all";
+      const count = filter === "all"
+        ? projectTiles.length
+        : projectTiles.filter(t =>
+            (t.dataset.category ?? "").split(" ").includes(filter)
+          ).length;
+
+      let countEl = btn.querySelector(".filter-count");
+      if (!countEl) {
+        countEl = document.createElement("span");
+        countEl.className = "filter-count";
+        countEl.setAttribute("aria-hidden", "true");
+        btn.appendChild(countEl);
+      }
+      countEl.textContent = count;
+    });
+  };
+
+  const filterStatus = document.getElementById("filter-status");
+
   const applyFilter = () => {
     projectTiles.forEach((tile) => {
       const categories = (tile.dataset.category ?? "").split(" ");
@@ -42,6 +65,14 @@ export function initProjects() {
         activeFilter === "all" || categories.includes(activeFilter);
       tile.hidden = !visible;
     });
+
+    // Announce result to screen readers (WCAG 4.1.3)
+    if (filterStatus) {
+      const visibleCount = projectTiles.filter(t => !t.hidden).length;
+      filterStatus.textContent =
+        `Showing ${visibleCount} of ${projectTiles.length} projects`;
+    }
+
     emit(EVENTS.PROJECT_FILTER_CHANGED, { filter: activeFilter });
   };
 
@@ -158,6 +189,7 @@ export function initProjects() {
     });
   });
 
+  updateFilterCounts();
   applySort();
   applyFilter();
 }

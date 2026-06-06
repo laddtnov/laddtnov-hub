@@ -256,3 +256,28 @@
   margin-bottom: 10px;
   letter-spacing: 0.04em;
 }
+
+/* Filter button count badge */
+.filter-count {
+  font-size: 0.72em;
+  opacity: 0.6;
+  margin-left: 4px;
+}
+
+/* "NEW" badge on latest project tiles */
+.project-badge-new {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #000;
+  background: var(--neon-cyan);
+  border-radius: 3px;
+  padding: 3px 8px;
+  box-shadow: 0 0 12px rgba(0, 242, 255, 0.65);
+  z-index: 2;
+  pointer-events: none;
+}

@@ -1,6 +1,24 @@
-#navbar {
+/* ── Ukrainian flag accent — neon-treated top stripe ─────────── */
+body::before {
+  content: '';
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(to bottom, #1a6fff 50%, #ffe135 50%);
+  box-shadow:
+    0 0 8px rgba(26, 111, 255, 0.9),
+    0 0 20px rgba(26, 111, 255, 0.45),
+    0 3px 8px rgba(255, 225, 53, 0.9),
+    0 3px 20px rgba(255, 225, 53, 0.45);
+  z-index: 1001;
+  pointer-events: none;
+}
+
+#navbar {
+  position: fixed;
+  top: 6px;
   width: 100%;
   background: rgba(10, 10, 12, 0.95);
   backdrop-filter: blur(10px);

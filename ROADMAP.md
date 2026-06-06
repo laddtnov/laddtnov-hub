@@ -57,7 +57,7 @@
 
 ## Story & Authenticity
 - [ ] "Currently learning" widget — small card in About section showing what you're studying right now (e.g. "Go · Backend basics")
-- [ ] Ukrainian flag accent — subtle `🇺🇦` or blue/yellow detail; your background is part of your story
+- [x] Ukrainian flag accent — neon-treated 6px stripe at top of page (blue `#1a6fff` + yellow `#ffe135` with glow, sits above navbar)
 - [ ] Project devlog line — one sentence per project card explaining what you learned building it
 
 ## Technical Flex

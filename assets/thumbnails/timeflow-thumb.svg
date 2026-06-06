@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
   <title id="t">TimeFlow thumbnail</title>
-  <desc id="d">Neon cyberpunk styled time tracking dashboard.</desc>
+  <desc id="d">Neon cyberpunk styled appointment tracker calendar interface.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#07070b"/>
@@ -8,46 +8,71 @@
     </linearGradient>
   </defs>
   <rect width="1200" height="675" fill="url(#bg)"/>
+
   <!-- Outer frame -->
-  <rect x="120" y="90" width="960" height="470" rx="18" fill="none" stroke="#00f2ff" stroke-width="3" opacity="0.4"/>
-  <!-- Clock face -->
-  <circle cx="340" cy="338" r="180" fill="none" stroke="#00f2ff" stroke-width="3" opacity="0.5"/>
-  <circle cx="340" cy="338" r="155" fill="none" stroke="#ff00ff" stroke-width="1.5" opacity="0.25"/>
-  <!-- Hour ticks -->
-  <g stroke="#00f2ff" stroke-width="3" opacity="0.7">
-    <line x1="340" y1="168" x2="340" y2="188"/>
-    <line x1="510" y1="338" x2="490" y2="338"/>
-    <line x1="340" y1="508" x2="340" y2="488"/>
-    <line x1="170" y1="338" x2="190" y2="338"/>
+  <rect x="100" y="80" width="1000" height="510" rx="16" fill="none" stroke="#00f2ff" stroke-width="2.5" opacity="0.45"/>
+
+  <!-- Calendar header bar -->
+  <rect x="100" y="80" width="1000" height="72" rx="16" fill="#151518" stroke="#00f2ff" stroke-width="2.5" opacity="0.9"/>
+  <!-- Header corner fix (bottom-left/right straight) -->
+  <rect x="100" y="120" width="1000" height="32" fill="#151518" opacity="0.9"/>
+
+  <!-- Month label area -->
+  <rect x="130" y="97" width="220" height="36" rx="6" fill="none" stroke="#ff00ff" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Day headers -->
+  <g font-family="'Share Tech Mono', monospace" font-size="22" fill="#00f2ff" opacity="0.5" text-anchor="middle">
+    <text x="185" y="186">MON</text>
+    <text x="327" y="186">TUE</text>
+    <text x="469" y="186">WED</text>
+    <text x="611" y="186">THU</text>
+    <text x="753" y="186">FRI</text>
+    <text x="895" y="186">SAT</text>
+    <text x="1037" y="186">SUN</text>
   </g>
-  <!-- Minute ticks -->
-  <g stroke="#00f2ff" stroke-width="1.5" opacity="0.3">
-    <line x1="425" y1="173" x2="418" y2="185"/>
-    <line x1="493" y1="253" x2="482" y2="260"/>
-    <line x1="255" y1="173" x2="262" y2="185"/>
-    <line x1="187" y1="253" x2="198" y2="260"/>
-    <line x1="187" y1="423" x2="198" y2="416"/>
-    <line x1="255" y1="503" x2="262" y2="491"/>
-    <line x1="425" y1="503" x2="418" y2="491"/>
-    <line x1="493" y1="423" x2="482" y2="416"/>
+
+  <!-- Horizontal divider under day headers -->
+  <line x1="100" y1="198" x2="1100" y2="198" stroke="#00f2ff" stroke-width="1" opacity="0.2"/>
+
+  <!-- Vertical column dividers -->
+  <g stroke="#00f2ff" stroke-width="1" opacity="0.12">
+    <line x1="256" y1="152" x2="256" y2="590"/>
+    <line x1="398" y1="152" x2="398" y2="590"/>
+    <line x1="540" y1="152" x2="540" y2="590"/>
+    <line x1="682" y1="152" x2="682" y2="590"/>
+    <line x1="824" y1="152" x2="824" y2="590"/>
+    <line x1="966" y1="152" x2="966" y2="590"/>
   </g>
-  <!-- Hour hand -->
-  <line x1="340" y1="338" x2="340" y2="218" stroke="#00f2ff" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
-  <!-- Minute hand -->
-  <line x1="340" y1="338" x2="460" y2="288" stroke="#ff00ff" stroke-width="3.5" stroke-linecap="round" opacity="0.9"/>
-  <!-- Second hand -->
-  <line x1="340" y1="338" x2="290" y2="440" stroke="#00f2ff" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-  <!-- Center dot -->
-  <circle cx="340" cy="338" r="8" fill="#00f2ff" opacity="0.9"/>
-  <!-- Right panel: time blocks -->
-  <rect x="580" y="130" width="460" height="70" rx="10" fill="#151518" stroke="#00f2ff" stroke-width="2" opacity="0.85"/>
-  <rect x="580" y="225" width="460" height="70" rx="10" fill="#151518" stroke="#ff00ff" stroke-width="2" opacity="0.85"/>
-  <rect x="580" y="320" width="460" height="70" rx="10" fill="#151518" stroke="#00f2ff" stroke-width="2" opacity="0.85"/>
-  <rect x="580" y="415" width="460" height="70" rx="10" fill="#151518" stroke="#ff00ff" stroke-width="2" opacity="0.7"/>
-  <!-- Progress bars inside panels -->
-  <rect x="596" y="172" width="300" height="8" rx="4" fill="#00f2ff" opacity="0.5"/>
-  <rect x="596" y="267" width="200" height="8" rx="4" fill="#ff00ff" opacity="0.5"/>
-  <rect x="596" y="362" width="380" height="8" rx="4" fill="#00f2ff" opacity="0.4"/>
-  <rect x="596" y="457" width="140" height="8" rx="4" fill="#ff00ff" opacity="0.35"/>
-  <text x="58" y="624" fill="#00f2ff" font-family="'Share Tech Mono', monospace" font-size="56">TIMEFLOW</text>
+
+  <!-- Horizontal row dividers -->
+  <g stroke="#00f2ff" stroke-width="1" opacity="0.12">
+    <line x1="100" y1="300" x2="1100" y2="300"/>
+    <line x1="100" y1="395" x2="1100" y2="395"/>
+    <line x1="100" y1="490" x2="1100" y2="490"/>
+  </g>
+
+  <!-- Today highlight column (WED) -->
+  <rect x="399" y="152" width="141" height="438" fill="#00f2ff" opacity="0.04"/>
+
+  <!-- Appointment blocks — row 1 -->
+  <rect x="116" y="215" width="124" height="68" rx="6" fill="#ff00ff" opacity="0.18" stroke="#ff00ff" stroke-width="1.5"/>
+  <rect x="399" y="215" width="124" height="50" rx="6" fill="#00f2ff" opacity="0.25" stroke="#00f2ff" stroke-width="2"/>
+  <rect x="683" y="215" width="124" height="68" rx="6" fill="#ff00ff" opacity="0.15" stroke="#ff00ff" stroke-width="1.5"/>
+  <rect x="967" y="215" width="116" height="42" rx="6" fill="#00f2ff" opacity="0.12" stroke="#00f2ff" stroke-width="1"/>
+
+  <!-- Appointment blocks — row 2 -->
+  <rect x="257" y="315" width="124" height="56" rx="6" fill="#9d00ff" opacity="0.22" stroke="#9d00ff" stroke-width="1.5"/>
+  <rect x="399" y="315" width="124" height="68" rx="6" fill="#00f2ff" opacity="0.28" stroke="#00f2ff" stroke-width="2"/>
+  <rect x="825" y="315" width="124" height="44" rx="6" fill="#ff00ff" opacity="0.18" stroke="#ff00ff" stroke-width="1.5"/>
+
+  <!-- Appointment blocks — row 3 -->
+  <rect x="116" y="410" width="124" height="56" rx="6" fill="#00f2ff" opacity="0.12" stroke="#00f2ff" stroke-width="1"/>
+  <rect x="541" y="410" width="124" height="62" rx="6" fill="#9d00ff" opacity="0.2" stroke="#9d00ff" stroke-width="1.5"/>
+  <rect x="683" y="410" width="124" height="44" rx="6" fill="#00f2ff" opacity="0.18" stroke="#00f2ff" stroke-width="1.5"/>
+  <rect x="967" y="410" width="116" height="62" rx="6" fill="#ff00ff" opacity="0.2" stroke="#ff00ff" stroke-width="1.5"/>
+
+  <!-- "Today" marker line on WED column -->
+  <line x1="469" y1="198" x2="469" y2="590" stroke="#00f2ff" stroke-width="2" opacity="0.5" stroke-dasharray="6 4"/>
+
+  <text x="58" y="638" fill="#00f2ff" font-family="'Share Tech Mono', monospace" font-size="52">TIMEFLOW</text>
 </svg>

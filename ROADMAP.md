@@ -6,12 +6,19 @@
 - [ ] Delete `styles.css` at root — dead file, not linked anywhere
 
 ## Accessibility / WCAG fixes (tracked as GitHub issues)
-- [ ] #10 — Filter buttons missing `aria-pressed` state (WCAG 4.1.2)
-- [ ] #11 — Skill progress bars missing `role="progressbar"` + aria value attributes (WCAG 1.3.1)
-- [ ] #12 — "Inspect" buttons have no project-specific aria-label (WCAG 2.4.6)
-- [ ] #13 — Decorative arrow icons (→ ↓) in contact buttons not hidden from screen readers (WCAG 1.1.1)
-- [ ] #14 — `glitch-skew` navbar animation not stopped by manual motion toggle (WCAG 2.3.1)
-- [ ] #15 — `.project-metrics` colour at 60% opacity fails contrast for small text (WCAG 1.4.3)
+- [x] #10 — Filter buttons missing `aria-pressed` state (WCAG 4.1.2)
+- [x] #11 — Skill progress bars missing `role="progressbar"` + aria value attributes (WCAG 1.3.1)
+- [x] #12 — "Inspect" buttons have no project-specific aria-label (WCAG 2.4.6)
+- [x] #13 — Decorative arrow icons (→ ↓) in contact buttons not hidden from screen readers (WCAG 1.1.1)
+- [x] #14 — `glitch-skew` navbar animation not stopped by manual motion toggle (WCAG 2.3.1)
+- [x] #15 — `.project-metrics` colour at 60% opacity fails contrast for small text (WCAG 1.4.3)
+- [ ] #17 — `nav-toggle-bar` empty spans missing `aria-hidden` (WCAG 1.1.1)
+- [ ] #18 — `title-bracket` decorative `[` `]` spans not hidden from screen readers (WCAG 1.1.1)
+- [ ] #19 — Nav "Download CV ↓" arrow character read aloud (WCAG 1.1.1)
+- [ ] #20 — `dot-blink` / `glitch-shake` animations not stopped by manual motion toggle (WCAG 2.2.2)
+- [ ] #21 — No `aria-live` region for filter results (WCAG 4.1.3)
+- [ ] #22 — Filter row may overflow at 320px viewport (WCAG 1.4.10)
+- [ ] #23 — Modal focus trap needs cross-browser verification (WCAG 2.4.3)
 
 ## High recruiter impact
 - [ ] Real project thumbnails — custom screenshots of each project, replace stock photos and placeholders

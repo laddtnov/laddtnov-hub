@@ -4,7 +4,7 @@
 - [ ] Replace LinkedIn placeholder URL (`linkedin.com/in/yourprofile` → real profile)
 - [x] Rewrite hero tagline — make it specific ("Crafting interactive experiences at the intersection of design and code.")
 - [ ] Delete `styles.css` at root — dead file, not linked anywhere
-- [ ] Replace Formspree placeholder: sign up at formspree.io and swap `YOUR_FORM_ID` in `index.html`
+- [x] Replace Formspree placeholder: activated with form ID `xojzejvr`
 
 ## Accessibility / WCAG fixes (tracked as GitHub issues)
 - [x] #10 — Filter buttons missing `aria-pressed` state (WCAG 4.1.2)

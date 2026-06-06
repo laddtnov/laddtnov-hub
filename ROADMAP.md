@@ -23,7 +23,8 @@
 
 ## High recruiter impact
 - [ ] Real project thumbnails — custom screenshots of each project, replace stock photos and placeholders
-- [x] About/bio section — added between hero and projects with bio, available-for-hire tag, and interest tags
+- [x] Libra thumbnail — redesigned as book tracker UI (open book, stats panel, bookshelf, bookmark ribbon)
+- [x] About/bio section — rewritten to reflect genuine hobbyist background; removed hire/freelance framing
 - [x] Hero photo or cyberpunk-styled avatar — SVG avatar created at `assets/avatar.svg`
 - [x] Rewrite hero tagline to be specific to your stack and style
 

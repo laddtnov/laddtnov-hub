@@ -64,7 +64,8 @@ My-Portfolio-Page/
 │       ├── libra-thumb.svg
 │       ├── breach-os-thumb.jpg
 │       ├── breach-engine-thumb.jpg
-│       ├── gea776-thumb.jpg
+│       ├── growflow-thumb.svg
+│       ├── timeflow-thumb.svg
 │       └── glass-chess-thumb.svg
 └── README.md
 ```
@@ -77,7 +78,8 @@ My-Portfolio-Page/
 | Libra | [libra.laddtnov.xyz](https://libra.laddtnov.xyz/) |
 | Breach OS | [breachos.laddtnov.xyz](https://breachos.laddtnov.xyz/) |
 | Cogsworth | [cogsworth.laddtnov.xyz](https://cogsworth.laddtnov.xyz/) |
-| GEA776 | [gea776.laddtnov.xyz](https://gea776.laddtnov.xyz/) |
+| GrowFlow | [growflow.laddtnov.xyz](https://growflow.laddtnov.xyz/) |
+| TimeFlow | [timeflow.laddtnov.xyz](https://timeflow.laddtnov.xyz/) |
 | Vitrum | [vitrum.bynov.one](https://vitrum.bynov.one/) |
 
 ## Quick Start

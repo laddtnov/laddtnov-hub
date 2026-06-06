@@ -5,9 +5,9 @@
   display: none;
 }
 
-/* Anchor scroll offset — accounts for the fixed navbar height */
+/* Anchor scroll offset — accounts for fixed navbar + 6px flag stripe */
 html {
-  scroll-padding-top: 60px;
+  scroll-padding-top: 66px;
 }
 
 /* ─── Tablet (≤ 992px) ─────────────────────────────────────── */
@@ -22,7 +22,7 @@ html {
 
   /* Scroll offset increase — mobile navbar is slightly taller */
   html {
-    scroll-padding-top: 70px;
+    scroll-padding-top: 76px;
   }
 
   /* ── Navbar ── */

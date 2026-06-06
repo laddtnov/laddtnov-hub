@@ -75,6 +75,12 @@
   animation: glitch-skew 1s infinite;
 }
 
+/* Stop glitch when manual motion toggle is set to reduced/off */
+.reduced-motion .glitch,
+.motion-off .glitch {
+  animation: none;
+}
+
 @keyframes glitch-skew {
   0% { transform: skew(0deg); }
   20% { transform: skew(0deg); }

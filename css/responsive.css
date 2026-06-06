@@ -336,3 +336,80 @@ html {
     justify-content: center;
   }
 }
+
+/* ─── About section ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #about {
+    padding: 60px 20px;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .about-avatar-wrap {
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
+  }
+
+  .about-tags {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-bio {
+    font-size: 1rem;
+  }
+}
+
+/* ─── Skills badge grid ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  #skills {
+    padding: 60px 20px;
+  }
+
+  .skills-categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Contact form ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 0 4px;
+  }
+
+  .contact-form-submit {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+/* ─── Back-to-top touch target ──────────────────────────────── */
+@media (pointer: coarse) {
+  .back-to-top {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+/* ─── Touch: disable hover on skill categories / about ──────── */
+@media (hover: none) and (pointer: coarse) {
+  .skill-category:hover {
+    border-color: rgba(157, 0, 255, 0.3);
+    box-shadow: none;
+  }
+
+  .about-tag:hover {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .back-to-top:hover {
+    transform: none;
+  }
+}

@@ -1,5 +1,55 @@
 import { emit, EVENTS } from "./events.js";
 
+/* ── Back-to-top button ─────────────────────────────────────── */
+export function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.hidden = window.scrollY < 400;
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ── Pause cyber-grid when tab is hidden (saves battery) ────── */
+export function initPageVisibility() {
+  const grid = document.querySelector('.cyber-grid');
+  if (!grid) return;
+
+  document.addEventListener('visibilitychange', () => {
+    grid.style.animationPlayState = document.hidden ? 'paused' : 'running';
+  });
+}
+
+/* ── Scroll entrance animations (IntersectionObserver) ──────── */
+export function initScrollAnimations() {
+  const targets = [...document.querySelectorAll('.scroll-animate')];
+  if (!targets.length) return;
+
+  // Under reduced-motion (OS or manual), skip animation — reveal immediately
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const manualReduced  = document.body.classList.contains('reduced-motion') ||
+                         document.body.classList.contains('motion-off');
+
+  if (prefersReduced || manualReduced) {
+    targets.forEach(t => t.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target); // fire once, then stop watching
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  targets.forEach(t => observer.observe(t));
+}
+
 export function initNavToggle() {
   const navbar = document.querySelector("#navbar");
   const toggle = document.querySelector(".nav-toggle");

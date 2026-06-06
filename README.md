@@ -10,6 +10,7 @@ Cyberpunk-style front-end portfolio built with semantic HTML5, modular CSS, and 
 [![Reduced Motion](https://img.shields.io/badge/Prefers--Reduced--Motion-Supported-9d00ff?style=for-the-badge)](https://developer.mozilla.org/docs/Web/CSS/@media/prefers-reduced-motion)
 [![Project Explorer](https://img.shields.io/badge/Project%20Explorer-Filters%20%2B%20Modal-00f2ff?style=for-the-badge)](https://laddtnov.xyz/)
 [![Performance](https://img.shields.io/badge/Performance-Lazy%20Images%20%2B%20Local%20Thumbs-ff00ff?style=for-the-badge)](https://developer.mozilla.org/docs/Web/Performance)
+[![Mobile](https://img.shields.io/badge/Mobile-Responsive%20%2B%20Hamburger%20Nav-00f2ff?style=for-the-badge)](https://developer.mozilla.org/docs/Web/CSS/CSS_media_queries)
 
 ![Portfolio Preview](Screenshot-1.png)
 
@@ -21,7 +22,7 @@ Cyberpunk-style front-end portfolio built with semantic HTML5, modular CSS, and 
 ## Features
 
 - Cyberpunk UI with neon glow, glitch accents, and terminal-inspired layout
-- Fully responsive sections for desktop/tablet/mobile
+- Fully responsive — hamburger nav, touch-optimised targets, landscape & small-screen breakpoints
 - SEO and social meta tags (Open Graph + Twitter)
 - Project Explorer upgrades: category filters, sorting, and inspect modal
 - Local optimized thumbnail pipeline for faster project grid rendering
@@ -57,7 +58,9 @@ My-Portfolio-Page/
 │   ├── events.js
 │   ├── motion.js
 │   ├── ui.js
-│   └── projects.js
+│   ├── projects.js
+│   ├── settings.js
+│   └── analytics.js
 ├── assets/
 │   └── thumbnails/
 │       ├── solar-system-thumb.svg
@@ -72,15 +75,15 @@ My-Portfolio-Page/
 
 ## Featured Projects
 
-| Project | Link |
-|---------|------|
-| Orrery | [orrery.laddtnov.xyz](https://orrery.laddtnov.xyz/) |
-| Libra | [libra.laddtnov.xyz](https://libra.laddtnov.xyz/) |
-| Breach OS | [breachos.laddtnov.xyz](https://breachos.laddtnov.xyz/) |
-| Cogsworth | [cogsworth.laddtnov.xyz](https://cogsworth.laddtnov.xyz/) |
-| GrowFlow | [growflow.laddtnov.xyz](https://growflow.laddtnov.xyz/) |
-| TimeFlow | [timeflow.laddtnov.xyz](https://timeflow.laddtnov.xyz/) |
-| Vitrum | [vitrum.bynov.one](https://vitrum.bynov.one/) |
+| Project | Description | Link |
+|---------|-------------|------|
+| Orrery | 3D solar system with Fallout 3-style terminal and audio | [orrery.laddtnov.xyz](https://orrery.laddtnov.xyz/) |
+| Libra | Futuristic book tracker with terminal UI and progress stats | [libra.laddtnov.xyz](https://libra.laddtnov.xyz/) |
+| Breach OS | Cyberpunk memory card game with missions and neon effects | [breachos.laddtnov.xyz](https://breachos.laddtnov.xyz/) |
+| Cogsworth | Steampunk Sudoku with rank system, survival mode and PWA | [cogsworth.laddtnov.xyz](https://cogsworth.laddtnov.xyz/) |
+| GrowFlow | Personal finance tracker with Chart.js dashboard | [growflow.laddtnov.xyz](https://growflow.laddtnov.xyz/) |
+| TimeFlow | React + Vite appointment tracker with weekly calendar | [timeflow.laddtnov.xyz](https://timeflow.laddtnov.xyz/) |
+| Vitrum | Glassmorphism chess with smooth animations | [vitrum.bynov.one](https://vitrum.bynov.one/) |
 
 ## Quick Start
 

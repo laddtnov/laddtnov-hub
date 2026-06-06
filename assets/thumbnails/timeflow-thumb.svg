@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+  <title id="t">TimeFlow thumbnail</title>
+  <desc id="d">Neon cyberpunk styled time tracking dashboard.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07070b"/>
+      <stop offset="100%" stop-color="#0d0a1a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <!-- Outer frame -->
+  <rect x="120" y="90" width="960" height="470" rx="18" fill="none" stroke="#00f2ff" stroke-width="3" opacity="0.4"/>
+  <!-- Clock face -->
+  <circle cx="340" cy="338" r="180" fill="none" stroke="#00f2ff" stroke-width="3" opacity="0.5"/>
+  <circle cx="340" cy="338" r="155" fill="none" stroke="#ff00ff" stroke-width="1.5" opacity="0.25"/>
+  <!-- Hour ticks -->
+  <g stroke="#00f2ff" stroke-width="3" opacity="0.7">
+    <line x1="340" y1="168" x2="340" y2="188"/>
+    <line x1="510" y1="338" x2="490" y2="338"/>
+    <line x1="340" y1="508" x2="340" y2="488"/>
+    <line x1="170" y1="338" x2="190" y2="338"/>
+  </g>
+  <!-- Minute ticks -->
+  <g stroke="#00f2ff" stroke-width="1.5" opacity="0.3">
+    <line x1="425" y1="173" x2="418" y2="185"/>
+    <line x1="493" y1="253" x2="482" y2="260"/>
+    <line x1="255" y1="173" x2="262" y2="185"/>
+    <line x1="187" y1="253" x2="198" y2="260"/>
+    <line x1="187" y1="423" x2="198" y2="416"/>
+    <line x1="255" y1="503" x2="262" y2="491"/>
+    <line x1="425" y1="503" x2="418" y2="491"/>
+    <line x1="493" y1="423" x2="482" y2="416"/>
+  </g>
+  <!-- Hour hand -->
+  <line x1="340" y1="338" x2="340" y2="218" stroke="#00f2ff" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+  <!-- Minute hand -->
+  <line x1="340" y1="338" x2="460" y2="288" stroke="#ff00ff" stroke-width="3.5" stroke-linecap="round" opacity="0.9"/>
+  <!-- Second hand -->
+  <line x1="340" y1="338" x2="290" y2="440" stroke="#00f2ff" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <!-- Center dot -->
+  <circle cx="340" cy="338" r="8" fill="#00f2ff" opacity="0.9"/>
+  <!-- Right panel: time blocks -->
+  <rect x="580" y="130" width="460" height="70" rx="10" fill="#151518" stroke="#00f2ff" stroke-width="2" opacity="0.85"/>
+  <rect x="580" y="225" width="460" height="70" rx="10" fill="#151518" stroke="#ff00ff" stroke-width="2" opacity="0.85"/>
+  <rect x="580" y="320" width="460" height="70" rx="10" fill="#151518" stroke="#00f2ff" stroke-width="2" opacity="0.85"/>
+  <rect x="580" y="415" width="460" height="70" rx="10" fill="#151518" stroke="#ff00ff" stroke-width="2" opacity="0.7"/>
+  <!-- Progress bars inside panels -->
+  <rect x="596" y="172" width="300" height="8" rx="4" fill="#00f2ff" opacity="0.5"/>
+  <rect x="596" y="267" width="200" height="8" rx="4" fill="#ff00ff" opacity="0.5"/>
+  <rect x="596" y="362" width="380" height="8" rx="4" fill="#00f2ff" opacity="0.4"/>
+  <rect x="596" y="457" width="140" height="8" rx="4" fill="#ff00ff" opacity="0.35"/>
+  <text x="58" y="624" fill="#00f2ff" font-family="'Share Tech Mono', monospace" font-size="56">TIMEFLOW</text>
+</svg>

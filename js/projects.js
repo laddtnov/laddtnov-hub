@@ -100,11 +100,20 @@ export function initProjects() {
     emit(EVENTS.PROJECT_MODAL_CLOSED, {});
   };
 
+  // Set initial aria-pressed state
+  filterButtons.forEach((btn) =>
+    btn.setAttribute("aria-pressed", btn.classList.contains("is-active") ? "true" : "false")
+  );
+
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       activeFilter = button.dataset.filter ?? "all";
-      filterButtons.forEach((item) => item.classList.remove("is-active"));
+      filterButtons.forEach((item) => {
+        item.classList.remove("is-active");
+        item.setAttribute("aria-pressed", "false");
+      });
       button.classList.add("is-active");
+      button.setAttribute("aria-pressed", "true");
       applyFilter();
     });
   });

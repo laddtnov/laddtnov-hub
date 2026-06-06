@@ -236,4 +236,103 @@ html {
   .contact-text {
     font-size: 1rem;
   }
+
+  /* Reduce project image height to save vertical space */
+  .project-image {
+    height: 180px;
+  }
+
+  /* Filter buttons: smaller text, still tappable */
+  .filter-btn,
+  .sort-select {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}
+
+/* ─── Very small screens (≤ 360px) ─────────────────────────── */
+@media (max-width: 360px) {
+  .glitch-title {
+    font-size: 1.7rem;
+  }
+
+  .hero-cta-btn {
+    font-size: 0.75rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .filter-btn {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+}
+
+/* ─── Landscape mobile ──────────────────────────────────────── */
+/* Short viewport in landscape — hero would fill 2 screens tall */
+@media (max-height: 500px) and (orientation: landscape) {
+  #welcome-section {
+    min-height: auto;
+    padding: 100px 20px 60px;
+  }
+
+  .glitch-title {
+    font-size: 2.2rem;
+    margin: 10px 0;
+  }
+
+  .welcome-subtitle {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ─── Touch devices: disable hover lift entirely ────────────── */
+/* hover: none = device has no hover pointer (phones, tablets)  */
+@media (hover: none) and (pointer: coarse) {
+  .project-tile:hover {
+    transform: none;
+    border-color: rgba(0, 242, 255, 0.3);
+    box-shadow: none;
+  }
+
+  .project-tile:hover .project-image img {
+    transform: none;
+    filter: brightness(0.7);
+  }
+
+  .project-tile:hover .project-overlay {
+    opacity: 0;
+  }
+
+  .contact-btn:hover {
+    transform: none;
+  }
+
+  .skill-card:hover {
+    transform: none;
+  }
+}
+
+/* ─── Touch target minimum sizes (WCAG 2.5.5) ──────────────── */
+@media (pointer: coarse) {
+  .filter-btn,
+  .sort-select,
+  .project-visit-btn,
+  .project-inspect-btn,
+  .nav-toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .project-visit-btn,
+  .project-inspect-btn {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

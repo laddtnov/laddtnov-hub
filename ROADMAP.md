@@ -49,6 +49,27 @@
 - [ ] Compress `Screenshot-1.png` (684KB) → WebP, used as og:image
 - [ ] Consider making the portfolio itself PWA-installable (you already built Cogsworth as a PWA)
 
+## Personality & Fun
+- [ ] Konami code Easter egg — `↑↑↓↓←→←→BA` triggers a cyberpunk secret (glitch screen, hidden message, or matrix rain)
+- [ ] Custom cursor — glowing neon crosshair or dot following the mouse (desktop only)
+- [ ] Typewriter effect on hero tagline — characters type in one by one, blinking cursor at end
+- [ ] Click sound effects — subtle sci-fi UI blips on buttons, toggleable via existing settings panel
+
+## Story & Authenticity
+- [ ] "Currently learning" widget — small card in About section showing what you're studying right now (e.g. "Go · Backend basics")
+- [ ] Ukrainian flag accent — subtle `🇺🇦` or blue/yellow detail; your background is part of your story
+- [ ] Project devlog line — one sentence per project card explaining what you learned building it
+
+## Technical Flex
+- [ ] Branded 404 page — "ACCESS DENIED" or "SIGNAL LOST" cyberpunk error page
+- [ ] GitHub live stats — fetch real commit/repo count via GitHub API, display in About section
+- [ ] Copy-email button — click to copy address, shows `[ COPIED ]` confirmation animation
+
+## Discoverability / SEO
+- [ ] `robots.txt` — basic crawl rules
+- [ ] JSON-LD Person schema — helps Google understand who you are
+- [ ] `sitemap.xml` — one file, better indexing
+
 ## Completed
 - [x] Modular CSS architecture
 - [x] Project filter / sort / modal (explorer)

@@ -56,9 +56,9 @@
 - [x] Click sound effects — Web Audio API synth blips, SOUND toggle added to settings panel (OFF by default)
 
 ## Story & Authenticity
-- [ ] "Currently learning" widget — small card in About section showing what you're studying right now (e.g. "Go · Backend basics")
+- [x] "Currently learning" widget — purple card in About: JS Fundamentals · Arguments Objects & Rest Parameters · via freeCodeCamp
 - [x] Ukrainian flag accent — neon-treated 6px stripe at top of page (blue `#1a6fff` + yellow `#ffe135` with glow, sits above navbar)
-- [ ] Project devlog line — one sentence per project card explaining what you learned building it
+- [x] Project devlog line — monospace purple left-border line on every project card explaining what was learned
 
 ## Technical Flex
 - [ ] Branded 404 page — "ACCESS DENIED" or "SIGNAL LOST" cyberpunk error page

@@ -88,6 +88,65 @@
   box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
 }
 
+/* ── Currently learning widget ──────────────────────────────── */
+.currently-learning {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.currently-learning__label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--neon-pink);
+  letter-spacing: 0.14em;
+}
+
+.currently-learning__card {
+  border: 1px solid rgba(157, 0, 255, 0.4);
+  border-radius: 8px;
+  padding: 14px 18px;
+  background: rgba(157, 0, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.currently-learning__badge {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.64rem;
+  color: #000;
+  background: var(--neon-purple);
+  border-radius: 3px;
+  padding: 2px 8px;
+  letter-spacing: 0.1em;
+  align-self: flex-start;
+  margin-bottom: 4px;
+}
+
+.currently-learning__topic {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.88rem;
+  color: var(--neon-cyan);
+  letter-spacing: 0.06em;
+}
+
+.currently-learning__detail {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--text-gray);
+}
+
+.currently-learning__platform {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--neon-purple);
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
 /* "Available for hire" special tag */
 .about-tag--available {
   color: #00ff88;

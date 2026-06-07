@@ -152,6 +152,17 @@
   line-height: 1.6;
 }
 
+.project-devlog {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--neon-purple);
+  opacity: 0.75;
+  line-height: 1.5;
+  margin-top: 6px;
+  border-left: 2px solid rgba(157, 0, 255, 0.35);
+  padding-left: 10px;
+}
+
 .project-actions {
   margin-top: auto;
   padding-top: 20px;

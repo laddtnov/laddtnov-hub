@@ -33,10 +33,10 @@ function applyMotion(value) {
 function syncButtons(panel, state) {
   panel.querySelectorAll('.setting-btn').forEach((btn) => {
     const { setting, value } = btn.dataset;
-    const active =
-      setting === 'crt'    ? value === state.crt    :
-      setting === 'motion' ? value === state.motion  :
-      setting === 'sound'  ? value === state.sound   : false;
+    let active = false;
+    if (setting === 'crt')         active = value === state.crt;
+    else if (setting === 'motion') active = value === state.motion;
+    else if (setting === 'sound')  active = value === state.sound;
     btn.classList.toggle('is-active', active);
     btn.setAttribute('aria-pressed', String(active));
   });

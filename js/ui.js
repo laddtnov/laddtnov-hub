@@ -30,7 +30,7 @@ export function initScrollAnimations() {
   if (!targets.length) return;
 
   // Under reduced-motion (OS or manual), skip animation — reveal immediately
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReduced = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const manualReduced  = document.body.classList.contains('reduced-motion') ||
                          document.body.classList.contains('motion-off');
 
@@ -55,7 +55,7 @@ export function initTypewriter() {
   const el = document.getElementById('hero-tagline');
   if (!el) return;
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReduced = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const manualReduced  = document.body.dataset.motion && document.body.dataset.motion !== 'full';
   if (prefersReduced || manualReduced) return;
 
@@ -85,7 +85,7 @@ export function initTypewriter() {
 
 /* ── Custom neon cursor (fine-pointer / desktop only) ────────── */
 export function initCustomCursor() {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (!globalThis.matchMedia('(pointer: fine)').matches) return;
 
   const cursor = document.querySelector('.neon-cursor');
   if (!cursor) return;

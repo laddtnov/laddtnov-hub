@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Signal Lost | Laddtnov</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --neon-cyan:   #00f2ff;
+      --neon-pink:   #ff00ff;
+      --neon-purple: #9d00ff;
+      --dark-bg:     #0a0a0c;
+      --text-gray:   #d1d1d1;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--dark-bg);
+      color: var(--text-gray);
+      font-family: 'Share Tech Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* UA flag stripe */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(to bottom, #1a6fff 50%, #ffe135 50%);
+      box-shadow:
+        0 0 8px rgba(26,111,255,0.9),
+        0 0 20px rgba(26,111,255,0.45),
+        0 3px 8px rgba(255,225,53,0.9),
+        0 3px 20px rgba(255,225,53,0.45);
+      z-index: 100;
+    }
+
+    /* Scanlines */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.06) 2px,
+        rgba(0,0,0,0.06) 4px
+      );
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    /* Grid background */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,242,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,242,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+    }
+
+    /* Corner brackets */
+    .corners {
+      position: fixed;
+      inset: 20px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .corners::before,
+    .corners::after {
+      content: '';
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border-color: rgba(0,242,255,0.35);
+      border-style: solid;
+    }
+
+    .corners::before {
+      top: 0; left: 0;
+      border-width: 2px 0 0 2px;
+    }
+
+    .corners::after {
+      bottom: 0; right: 0;
+      border-width: 0 2px 2px 0;
+    }
+
+    /* Content */
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .error-code {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(5rem, 18vw, 10rem);
+      font-weight: 900;
+      color: var(--neon-cyan);
+      letter-spacing: 0.08em;
+      text-shadow:
+        0 0 30px var(--neon-cyan),
+        0 0 80px rgba(0,242,255,0.4);
+      animation: flicker 4s infinite;
+      line-height: 1;
+    }
+
+    @keyframes flicker {
+      0%, 95%, 100% { opacity: 1; }
+      96%  { opacity: 0.7; }
+      97%  { opacity: 1; }
+      98%  { opacity: 0.4; }
+      99%  { opacity: 1; }
+    }
+
+    .error-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.2rem, 4vw, 2rem);
+      color: var(--neon-pink);
+      letter-spacing: 0.22em;
+      text-shadow: 0 0 16px var(--neon-pink);
+    }
+
+    .error-sub {
+      font-size: 0.92rem;
+      color: var(--text-gray);
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .error-sub span {
+      color: var(--neon-cyan);
+    }
+
+    .home-btn {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      color: var(--neon-cyan);
+      border: 1px solid var(--neon-cyan);
+      background: transparent;
+      padding: 12px 36px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      margin-top: 8px;
+    }
+
+    .home-btn:hover,
+    .home-btn:focus-visible {
+      background: var(--neon-cyan);
+      color: #000;
+      box-shadow: 0 0 24px rgba(0,242,255,0.5);
+      outline: none;
+    }
+
+    .divider {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--neon-cyan), transparent);
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="corners" aria-hidden="true"></div>
+
+  <main class="content">
+    <p class="error-code" aria-label="Error 404">404</p>
+    <div class="divider" aria-hidden="true"></div>
+    <h1 class="error-title">SIGNAL LOST</h1>
+    <p class="error-sub">
+      &gt;_ The page you're looking for doesn't exist in this dimension.<br>
+      <span>Connection terminated.</span>
+    </p>
+    <a href="/" class="home-btn">[ RETURN HOME ]</a>
+  </main>
+</body>
+</html>

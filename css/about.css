@@ -88,6 +88,48 @@
   box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
 }
 
+/* ── GitHub stats widget ─────────────────────────────────────── */
+.github-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.github-stats__label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--neon-pink);
+  letter-spacing: 0.14em;
+}
+
+.github-stats__row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.github-stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.github-stats__value {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 12px rgba(0, 242, 255, 0.5);
+}
+
+.github-stats__key {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-gray);
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+}
+
 /* ── Currently learning widget ──────────────────────────────── */
 .currently-learning {
   display: flex;

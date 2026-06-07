@@ -50,10 +50,10 @@
 - [ ] Consider making the portfolio itself PWA-installable (you already built Cogsworth as a PWA)
 
 ## Personality & Fun
-- [ ] Konami code Easter egg — `↑↑↓↓←→←→BA` triggers a cyberpunk secret (glitch screen, hidden message, or matrix rain)
-- [ ] Custom cursor — glowing neon crosshair or dot following the mouse (desktop only)
-- [ ] Typewriter effect on hero tagline — characters type in one by one, blinking cursor at end
-- [ ] Click sound effects — subtle sci-fi UI blips on buttons, toggleable via existing settings panel
+- [x] Konami code Easter egg — `↑↑↓↓←→←→BA` triggers glitching "ACCESS GRANTED" overlay with personal message + Слава Україні
+- [x] Custom cursor — neon cyan dot (desktop/fine-pointer only), enlarges to ring on interactive elements
+- [x] Typewriter effect on hero tagline — types in at 36ms/char, blinking cursor stays; skipped under reduced motion
+- [x] Click sound effects — Web Audio API synth blips, SOUND toggle added to settings panel (OFF by default)
 
 ## Story & Authenticity
 - [ ] "Currently learning" widget — small card in About section showing what you're studying right now (e.g. "Go · Backend basics")

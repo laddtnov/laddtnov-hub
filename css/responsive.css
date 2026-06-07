@@ -419,6 +419,32 @@ html {
   }
 }
 
+/* ─── Currently learning widget ─────────────────────────────── */
+@media (max-width: 480px) {
+  .currently-learning__topic {
+    font-size: 1rem;   /* Orbitron can be wide; scale down on phones */
+  }
+
+  .currently-learning__card {
+    padding: 14px;
+  }
+}
+
+/* ─── Contact links — wrap at tablet before stacking at mobile ─ */
+@media (max-width: 860px) and (min-width: 769px) {
+  .contact-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .contact-btn {
+    flex: 1 1 140px;
+    max-width: 200px;
+    justify-content: center;
+  }
+}
+
 /* ─── Touch: disable hover on skill categories / about ──────── */
 @media (hover: none) and (pointer: coarse) {
   .skill-category:hover {

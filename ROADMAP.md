@@ -70,6 +70,28 @@
 - [ ] JSON-LD Person schema — helps Google understand who you are
 - [ ] `sitemap.xml` — one file, better indexing
 
+## Content Depth (future projects)
+- [ ] Individual project pages — dedicated `/projects/libra`, `/projects/cogsworth` etc. with full case study, screenshots, challenges, lessons learned
+- [ ] "What I learned" section per project card — one honest sentence about the key skill gained
+- [ ] Learning timeline — visual journey from first line of code to now; shows growth, not just results
+- [ ] "What I'm building next" teaser — one card at the bottom of projects showing the upcoming idea; keeps portfolio feeling alive
+
+## Personal Growth Tracking
+- [ ] Skills progress over time — replace static badges with a simple "added in [year]" tag so visitors see you're still learning
+- [ ] Achievements wall — small unlockable badges (e.g. "First PWA", "First Canvas project", "First React app"); fun and shows range
+- [ ] Language toggle 🇺🇦 / 🇬🇧 — Ukrainian and English versions of bio and project descriptions
+
+## Engagement & Community
+- [ ] Devlog / blog section — short posts about what you built and why; even 3-4 posts makes a huge difference
+- [ ] GitHub activity graph — embed real contribution graph or a styled equivalent; shows you code regularly
+- [ ] Share button per project — copy link to that project's anchor; easy for visitors to share specific work
+
+## Technical Maturity
+- [ ] Error monitoring — Sentry free tier; know when something breaks in production
+- [ ] CV / print mode — `@media print` stylesheet that renders a clean single-page CV from the portfolio content
+- [ ] Automated Lighthouse CI — GitHub Action that runs Lighthouse on every PR and posts the score; keeps quality high as you add projects
+- [ ] Go backend experiment — replace Formspree with a small self-written Go handler; shows full-stack ambition
+
 ## Completed
 - [x] Modular CSS architecture
 - [x] Project filter / sort / modal (explorer)

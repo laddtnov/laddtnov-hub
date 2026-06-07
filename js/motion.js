@@ -1,7 +1,7 @@
 import { emit, EVENTS } from "./events.js";
 
 export function initMotionPreferences() {
-  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const motionQuery = globalThis.matchMedia("(prefers-reduced-motion: reduce)");
 
   const applyMotionPreference = () => {
     const reduced = motionQuery.matches;
@@ -10,10 +10,5 @@ export function initMotionPreferences() {
   };
 
   applyMotionPreference();
-
-  if (typeof motionQuery.addEventListener === "function") {
-    motionQuery.addEventListener("change", applyMotionPreference);
-  } else {
-    motionQuery.addListener(applyMotionPreference);
-  }
+  motionQuery.addEventListener("change", applyMotionPreference);
 }

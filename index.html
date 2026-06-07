@@ -16,14 +16,14 @@
       content="Explore cyberpunk-inspired frontend projects, games, and interactive UI experiments by Laddtnov."
     />
     <meta property="og:url" content="https://laddtnov.xyz/" />
-    <meta property="og:image" content="https://laddtnov.xyz/Screenshot-1.png" />
+    <meta property="og:image" content="https://laddtnov.xyz/assets/og-image.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Laddtnov - Front-End Developer Portfolio" />
     <meta
       name="twitter:description"
       content="Cyberpunk-style frontend portfolio with interactive projects and creative web experiments."
     />
-    <meta name="twitter:image" content="https://laddtnov.xyz/Screenshot-1.png" />
+    <meta name="twitter:image" content="https://laddtnov.xyz/assets/og-image.webp" />
     <title>Laddtnov - Front-End Developer Portfolio</title>
     <script type="application/ld+json">
     {
@@ -45,9 +45,7 @@
     }
     </script>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Fonts are self-hosted via @font-face in css/base.css (fixes Sonar #38) -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/welcome.css">
@@ -175,16 +173,17 @@
     </h2>
 
     <!-- Screen-reader live region for filter result announcements (WCAG 4.1.3) -->
-    <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" id="filter-status"></p>
+    <output class="sr-only" aria-live="polite" aria-atomic="true" id="filter-status"></output>
 
     <div class="projects-explorer" aria-label="Project explorer controls">
-      <div class="filter-group" role="group" aria-label="Filter projects">
+      <fieldset class="filter-group">
+        <legend class="sr-only">Filter projects</legend>
         <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">ALL</button>
         <button class="filter-btn" type="button" data-filter="game" aria-pressed="false">GAMES</button>
         <button class="filter-btn" type="button" data-filter="tool" aria-pressed="false">TOOLS</button>
         <button class="filter-btn" type="button" data-filter="productivity" aria-pressed="false">PRODUCTIVITY</button>
         <button class="filter-btn" type="button" data-filter="experiment" aria-pressed="false">EXPERIMENTS</button>
-      </div>
+      </fieldset>
       <label class="sort-wrap" for="project-sort">
         <span>SORT:</span>
         <select id="project-sort" class="sort-select">
@@ -384,7 +383,7 @@
     <dialog class="project-modal" id="project-modal" aria-labelledby="project-modal-title">
       <button type="button" class="project-modal-close" aria-label="Close project details">×</button>
       <p class="project-modal-label">PROJECT INSPECT</p>
-      <h3 id="project-modal-title"></h3>
+      <h3 id="project-modal-title" aria-label="Project title"></h3>
       <p class="project-modal-tech" id="project-modal-tech"></p>
       <p class="project-modal-desc" id="project-modal-desc"></p>
       <p class="project-modal-summary" id="project-modal-summary"></p>

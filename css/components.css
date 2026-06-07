@@ -277,6 +277,9 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  /* Clamp height so panel doesn't clip off top in landscape mobile */
+  max-height: calc(100svh - 5rem);
+  overflow-y: auto;
 }
 
 .settings-content[hidden] {

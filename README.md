@@ -10,6 +10,11 @@ Cyberpunk-style front-end portfolio built with semantic HTML5, modular CSS, and 
 [![Mobile](https://img.shields.io/badge/Mobile-Responsive-00f2ff?style=for-the-badge)](https://developer.mozilla.org/docs/Web/CSS/CSS_media_queries)
 [![SEO](https://img.shields.io/badge/SEO-JSON--LD%20%2B%20Sitemap-9d00ff?style=for-the-badge)](https://schema.org/)
 [![No Framework](https://img.shields.io/badge/Framework-None-ff00ff?style=for-the-badge)](https://laddtnov.xyz/)
+[![Web Audio](https://img.shields.io/badge/Web%20Audio-API%20Synth-9d00ff?style=for-the-badge)](https://developer.mozilla.org/docs/Web/API/Web_Audio_API)
+[![Self-Hosted Fonts](https://img.shields.io/badge/Fonts-Self--Hosted%20woff2-00f2ff?style=for-the-badge)](https://developer.mozilla.org/docs/Web/CSS/@font-face)
+[![Scroll Progress](https://img.shields.io/badge/Scroll-Progress%20Bar-ff00ff?style=for-the-badge)](https://laddtnov.xyz/)
+[![Easter Egg](https://img.shields.io/badge/Easter%20Egg-Konami%20Code-9d00ff?style=for-the-badge)](https://laddtnov.xyz/)
+[![404](https://img.shields.io/badge/404-Branded%20Page-00f2ff?style=for-the-badge)](https://laddtnov.xyz/404)
 
 ![Portfolio Hero](docs/screenshots/hero.png)
 

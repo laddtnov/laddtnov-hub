@@ -1,5 +1,5 @@
 import { initMotionPreferences } from './motion.js';
-import { initUI, initNavToggle, initBackToTop, initPageVisibility, initScrollAnimations, initTypewriter, initCustomCursor, initGithubStats, initCopyEmail } from './ui.js';
+import { initUI, initNavToggle, initBackToTop, initPageVisibility, initScrollAnimations, initScrollProgress, initTypewriter, initCustomCursor, initGithubStats, initCopyEmail } from './ui.js';
 import { initProjects } from './projects.js';
 import { initSettings } from './settings.js';
 import { initAnalytics } from './analytics.js';
@@ -12,6 +12,7 @@ function init() {
   initUI();
   initNavToggle();
   initBackToTop();
+  initScrollProgress();
   initPageVisibility();
   initScrollAnimations();
   initProjects();

@@ -16,10 +16,10 @@
 - [x] #17 — `nav-toggle-bar` empty spans missing `aria-hidden` (WCAG 1.1.1)
 - [x] #18 — `title-bracket` decorative `[` `]` spans not hidden from screen readers (WCAG 1.1.1)
 - [x] #19 — Nav "Download CV ↓" arrow character read aloud (WCAG 1.1.1)
-- [ ] #20 — `dot-blink` / `glitch-shake` animations not stopped by manual motion toggle (WCAG 2.2.2)
+- [x] #20 — `dot-blink` / `glitch-shake` animations not stopped by manual motion toggle (WCAG 2.2.2)
 - [x] #21 — No `aria-live` region for filter results (WCAG 4.1.3)
-- [ ] #22 — Filter row may overflow at 320px viewport (WCAG 1.4.10)
-- [ ] #23 — Modal focus trap needs cross-browser verification (WCAG 2.4.3)
+- [x] #22 — Filter row may overflow at 320px viewport — horizontal scroll at ≤360px (WCAG 1.4.10)
+- [x] #23 — Modal focus trap — Tab/Shift+Tab trapped inside dialog, focus restored on close (WCAG 2.4.3)
 
 ## High recruiter impact
 - [ ] Real project thumbnails — custom screenshots of each project, replace stock photos and placeholders

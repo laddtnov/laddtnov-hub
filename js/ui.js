@@ -1,5 +1,21 @@
 import { emit, EVENTS } from "./events.js";
 
+/* ── Scroll progress bar ─────────────────────────────────────── */
+export function initScrollProgress() {
+  const fill = document.querySelector('.scroll-progress__fill');
+  if (!fill) return;
+
+  const update = () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    const total = scrollHeight - clientHeight;
+    const progress = total > 0 ? scrollTop / total : 0;
+    fill.style.transform = `scaleX(${progress})`;
+  };
+
+  globalThis.addEventListener('scroll', update, { passive: true });
+  update(); // set initial state
+}
+
 /* ── Back-to-top button ─────────────────────────────────────── */
 export function initBackToTop() {
   const btn = document.getElementById('back-to-top');
@@ -45,7 +61,7 @@ export function initScrollAnimations() {
       entry.target.classList.add('is-visible');
       observer.unobserve(entry.target); // fire once, then stop watching
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
 
   targets.forEach(t => observer.observe(t));
 }

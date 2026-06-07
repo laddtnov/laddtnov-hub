@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/thumbnails/
+
+Sitemap: https://laddtnov.xyz/sitemap.xml

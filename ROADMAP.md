@@ -66,9 +66,9 @@
 - [x] Copy-email button — clicks copies `novytskiyvladislav@proton.me`, shows `Copied!` in green for 2s then reverts
 
 ## Discoverability / SEO
-- [ ] `robots.txt` — basic crawl rules
-- [ ] JSON-LD Person schema — helps Google understand who you are
-- [ ] `sitemap.xml` — one file, better indexing
+- [x] `robots.txt` — basic crawl rules
+- [x] JSON-LD Person schema — helps Google understand who you are
+- [x] `sitemap.xml` — one file, better indexing
 
 ## Content Depth (future projects)
 - [ ] Individual project pages — dedicated `/projects/libra`, `/projects/cogsworth` etc. with full case study, screenshots, challenges, lessons learned

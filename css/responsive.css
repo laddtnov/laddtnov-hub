@@ -397,6 +397,28 @@ html {
   }
 }
 
+/* ─── WCAG #22: Filter row at 320px (WCAG 1.4.10 reflow) ───── */
+@media (max-width: 360px) {
+  .filter-group {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;        /* Firefox */
+    padding-bottom: 4px;
+    justify-content: flex-start;
+  }
+
+  .filter-group::-webkit-scrollbar {
+    display: none;                /* Chrome/Safari */
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
 /* ─── Touch: disable hover on skill categories / about ──────── */
 @media (hover: none) and (pointer: coarse) {
   .skill-category:hover {

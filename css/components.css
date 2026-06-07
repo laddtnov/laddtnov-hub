@@ -59,6 +59,23 @@
   animation: glitch-shake 0.35s steps(2) infinite;
 }
 
+/* ── WCAG #20: stop dot-blink + glitch-shake under reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .status-dot { animation: none; opacity: 1; }
+  .glitch-btn:hover { animation: none; }
+}
+
+.reduced-motion .status-dot,
+.motion-off .status-dot {
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+.reduced-motion .glitch-btn:hover,
+.motion-off .glitch-btn:hover {
+  animation: none !important;
+}
+
 /* Settings Panel */
 .settings-panel {
   position: fixed;

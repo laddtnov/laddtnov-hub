@@ -34,6 +34,24 @@ export function initProjects() {
   });
 
   let activeFilter = "all";
+  let lastFocusedTile = null; // for restoring focus after modal closes
+
+  // WCAG #23 — focus trap helpers
+  const FOCUSABLE = 'a[href],button:not([disabled]),input,textarea,select,[tabindex]:not([tabindex="-1"])';
+
+  const trapFocus = (e) => {
+    if (!projectModal?.open) return;
+    const focusable = [...projectModal.querySelectorAll(FOCUSABLE)];
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.key !== 'Tab') return;
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    }
+  };
 
   // Inject count badges into each filter button
   const updateFilterCounts = () => {
@@ -114,6 +132,10 @@ export function initProjects() {
       projectModal.setAttribute("open", "true");
     }
 
+    // Focus close button, activate focus trap (WCAG #23)
+    modalClose?.focus();
+    document.addEventListener('keydown', trapFocus);
+
     emit(EVENTS.PROJECT_MODAL_OPENED, { projectName: project.title, href: project.url });
   };
 
@@ -127,6 +149,10 @@ export function initProjects() {
     } else {
       projectModal.removeAttribute("open");
     }
+
+    // Remove focus trap, restore focus to the tile that opened the modal (WCAG #23)
+    document.removeEventListener('keydown', trapFocus);
+    lastFocusedTile?.focus();
 
     emit(EVENTS.PROJECT_MODAL_CLOSED, {});
   };
@@ -184,7 +210,8 @@ export function initProjects() {
       emit(EVENTS.PROJECT_OPENED, { projectName: project.title, href: project.url });
     });
 
-    tile.querySelector(".project-inspect-btn")?.addEventListener("click", () => {
+    tile.querySelector(".project-inspect-btn")?.addEventListener("click", (e) => {
+      lastFocusedTile = e.currentTarget;
       openModal(project);
     });
   });

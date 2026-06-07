@@ -30,7 +30,7 @@ export function initScrollAnimations() {
   if (!targets.length) return;
 
   // Under reduced-motion (OS or manual), skip animation — reveal immediately
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReduced = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const manualReduced  = document.body.classList.contains('reduced-motion') ||
                          document.body.classList.contains('motion-off');
 
@@ -48,6 +48,63 @@ export function initScrollAnimations() {
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   targets.forEach(t => observer.observe(t));
+}
+
+/* ── Typewriter effect on hero tagline ──────────────────────── */
+export function initTypewriter() {
+  const el = document.getElementById('hero-tagline');
+  if (!el) return;
+
+  const prefersReduced = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const manualReduced  = document.body.dataset.motion && document.body.dataset.motion !== 'full';
+  if (prefersReduced || manualReduced) return;
+
+  const fullText = el.textContent.trim();
+  el.setAttribute('aria-label', fullText); // screen readers get full text immediately
+  el.textContent = '';
+
+  const cursor = document.createElement('span');
+  cursor.className = 'typewriter-cursor';
+  cursor.setAttribute('aria-hidden', 'true');
+  cursor.textContent = '|';
+  el.appendChild(cursor);
+
+  let i = 0;
+  const type = () => {
+    if (i < fullText.length) {
+      el.insertBefore(document.createTextNode(fullText[i]), cursor);
+      i++;
+      setTimeout(type, 36);
+    } else {
+      cursor.classList.add('typewriter-cursor--done');
+    }
+  };
+
+  setTimeout(type, 700);
+}
+
+/* ── Custom neon cursor (fine-pointer / desktop only) ────────── */
+export function initCustomCursor() {
+  if (!globalThis.matchMedia('(pointer: fine)').matches) return;
+
+  const cursor = document.querySelector('.neon-cursor');
+  if (!cursor) return;
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  }, { passive: true });
+
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest('a, button, select, [role="button"]')) {
+      cursor.classList.add('neon-cursor--active');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest('a, button, select, [role="button"]')) {
+      cursor.classList.remove('neon-cursor--active');
+    }
+  });
 }
 
 export function initNavToggle() {

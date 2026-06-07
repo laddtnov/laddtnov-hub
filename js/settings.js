@@ -1,8 +1,9 @@
 import { emit, EVENTS } from './events.js';
+import { setSoundEnabled } from './sounds.js';
 
 const STORAGE_KEY = '_settings';
 
-const defaults = { crt: '0', motion: 'full' };
+const defaults = { crt: '0', motion: 'full', sound: 'off' };
 
 function load() {
   try {
@@ -31,10 +32,11 @@ function applyMotion(value) {
 
 function syncButtons(panel, state) {
   panel.querySelectorAll('.setting-btn').forEach((btn) => {
-    const active =
-      btn.dataset.setting === 'crt'
-        ? btn.dataset.value === state.crt
-        : btn.dataset.value === state.motion;
+    const { setting, value } = btn.dataset;
+    let active = false;
+    if (setting === 'crt')         active = value === state.crt;
+    else if (setting === 'motion') active = value === state.motion;
+    else if (setting === 'sound')  active = value === state.sound;
     btn.classList.toggle('is-active', active);
     btn.setAttribute('aria-pressed', String(active));
   });
@@ -50,6 +52,7 @@ export function initSettings() {
   const state = load();
   applyCrt(state.crt);
   applyMotion(state.motion);
+  setSoundEnabled(state.sound);
   syncButtons(panel, state);
 
   toggle.addEventListener('click', () => {
@@ -84,6 +87,9 @@ export function initSettings() {
     } else if (setting === 'motion') {
       state.motion = value;
       applyMotion(value);
+    } else if (setting === 'sound') {
+      state.sound = value;
+      setSoundEnabled(value);
     }
 
     save(state);

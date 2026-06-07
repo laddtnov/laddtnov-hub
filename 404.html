@@ -5,19 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>404 — Signal Lost | Laddtnov</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <!-- Project CSS — provides CSS variables and loads fonts already cached from main site -->
+  <link rel="stylesheet" href="css/base.css">
   <style>
+    /* Fonts: Orbitron + Share Tech Mono loaded by main site (cached).
+       Graceful fallback to system monospace if landing directly on 404. */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --neon-cyan:   #00f2ff;
-      --neon-pink:   #ff00ff;
-      --neon-purple: #9d00ff;
-      --dark-bg:     #0a0a0c;
-      --text-gray:   #d1d1d1;
-    }
 
     html, body {
       height: 100%;

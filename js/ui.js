@@ -170,8 +170,6 @@ export function initNavToggle() {
 
   if (!navbar || !toggle || !navLinks) return;
 
-  // TODO: implement the hamburger toggle behavior (~8–10 lines)
-  //
   // Toggle open/closed on button click
   toggle.addEventListener("click", () => {
     navbar.classList.toggle("nav-open");

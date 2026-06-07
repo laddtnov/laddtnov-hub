@@ -72,7 +72,7 @@
       <p class="welcome-subtitle">
         <span class="typing">FRONT-END DEVELOPER</span>
       </p>
-      <p class="welcome-tagline">Crafting interactive experiences at the intersection of design and code.</p>
+      <p class="welcome-tagline" id="hero-tagline">Crafting interactive experiences at the intersection of design and code.</p>
       <div class="hero-cta">
         <a href="#projects" class="hero-cta-btn hero-cta-primary">[ VIEW PROJECTS ]</a>
         <a href="#contact" class="hero-cta-btn hero-cta-secondary">[ CONTACT ]</a>
@@ -509,8 +509,16 @@
           <button type="button" class="setting-btn" data-setting="motion" data-value="off">OFF</button>
         </div>
       </div>
+      <div class="settings-group">
+        <span class="settings-group-label">SOUND</span>
+        <div class="settings-options" role="group" aria-label="Sound effects">
+          <button type="button" class="setting-btn is-active" data-setting="sound" data-value="off">OFF</button>
+          <button type="button" class="setting-btn" data-setting="sound" data-value="on">ON</button>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="neon-cursor" aria-hidden="true"></div>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

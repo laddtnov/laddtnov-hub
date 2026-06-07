@@ -5,7 +5,7 @@ let soundEnabled = false;
 
 function getCtx() {
   if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    audioCtx = new (globalThis.AudioContext || globalThis.webkitAudioContext)();
   }
   return audioCtx;
 }

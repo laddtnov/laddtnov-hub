@@ -1,5 +1,5 @@
 import { initMotionPreferences } from './motion.js';
-import { initUI, initNavToggle, initBackToTop, initPageVisibility, initScrollAnimations, initTypewriter, initCustomCursor } from './ui.js';
+import { initUI, initNavToggle, initBackToTop, initPageVisibility, initScrollAnimations, initTypewriter, initCustomCursor, initGithubStats, initCopyEmail } from './ui.js';
 import { initProjects } from './projects.js';
 import { initSettings } from './settings.js';
 import { initAnalytics } from './analytics.js';
@@ -20,6 +20,8 @@ function init() {
   initCustomCursor();
   initEasterEgg();
   initSounds();
+  initCopyEmail();
+  initGithubStats();
   initAnalytics();
 
   on(EVENTS.NAV_SECTION_CHANGED, ({ sectionId }) => {

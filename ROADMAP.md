@@ -61,9 +61,9 @@
 - [x] Project devlog line — monospace purple left-border line on every project card explaining what was learned
 
 ## Technical Flex
-- [ ] Branded 404 page — "ACCESS DENIED" or "SIGNAL LOST" cyberpunk error page
-- [ ] GitHub live stats — fetch real commit/repo count via GitHub API, display in About section
-- [ ] Copy-email button — click to copy address, shows `[ COPIED ]` confirmation animation
+- [x] Branded 404 page — "SIGNAL LOST" cyberpunk error page with flickering 404, scanlines, UA stripe, `[ RETURN HOME ]` button
+- [x] GitHub live stats — fetch repos, followers, total stars from GitHub API; shown in About section (hidden if API fails)
+- [x] Copy-email button — clicks copies `novytskiyvladislav@proton.me`, shows `Copied!` in green for 2s then reverts
 
 ## Discoverability / SEO
 - [ ] `robots.txt` — basic crawl rules

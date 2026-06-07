@@ -50,6 +50,62 @@ export function initScrollAnimations() {
   targets.forEach(t => observer.observe(t));
 }
 
+/* ── GitHub live stats ──────────────────────────────────────── */
+export async function initGithubStats() {
+  const container  = document.getElementById('github-stats');
+  const reposEl    = document.getElementById('gh-repos');
+  const followersEl= document.getElementById('gh-followers');
+  const starsEl    = document.getElementById('gh-stars');
+  if (!container || !reposEl || !followersEl || !starsEl) return;
+
+  try {
+    const [userRes, reposRes] = await Promise.all([
+      fetch('https://api.github.com/users/laddtnov'),
+      fetch('https://api.github.com/users/laddtnov/repos?per_page=100'),
+    ]);
+    if (!userRes.ok || !reposRes.ok) return;
+
+    const user  = await userRes.json();
+    const repos = await reposRes.json();
+
+    const totalStars = Array.isArray(repos)
+      ? repos.reduce((sum, r) => sum + (r.stargazers_count ?? 0), 0)
+      : 0;
+
+    reposEl.textContent     = user.public_repos ?? '—';
+    followersEl.textContent = user.followers    ?? '—';
+    starsEl.textContent     = totalStars;
+
+    container.hidden = false;
+  } catch {
+    // API unavailable — stay hidden, no error shown to user
+  }
+}
+
+/* ── Copy email to clipboard ────────────────────────────────── */
+export function initCopyEmail() {
+  const btn = document.querySelector('.copy-email-btn');
+  if (!btn) return;
+
+  const label = btn.querySelector('.copy-email-btn__text');
+  const email = btn.dataset.email;
+  if (!label || !email) return;
+
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      label.textContent = 'Copied!';
+      btn.classList.add('copy-email-btn--copied');
+      setTimeout(() => {
+        label.textContent = 'Copy Email';
+        btn.classList.remove('copy-email-btn--copied');
+      }, 2000);
+    } catch {
+      // Clipboard API blocked — silently ignore
+    }
+  });
+}
+
 /* ── Typewriter effect on hero tagline ──────────────────────── */
 export function initTypewriter() {
   const el = document.getElementById('hero-tagline');

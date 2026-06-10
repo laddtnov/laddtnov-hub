@@ -1,8 +1,9 @@
 import { emit, EVENTS } from "./events.js";
 
 export function initProjects() {
-  const projectTiles = [...document.querySelectorAll(".project-tile")];
+  const projectTiles = [...document.querySelectorAll(".project-tile:not(.project-tile--next)")];
   const grid = document.querySelector(".projects-grid");
+  const nextTile = document.querySelector(".project-tile--next");
   const filterButtons = [...document.querySelectorAll(".filter-btn")];
   const sortSelect = document.querySelector("#project-sort");
   const projectModal = document.querySelector("#project-modal");
@@ -112,6 +113,7 @@ export function initProjects() {
     });
 
     sorted.forEach((tile) => grid.appendChild(tile));
+    if (nextTile) grid.appendChild(nextTile);
     emit(EVENTS.PROJECT_SORT_CHANGED, { sortBy });
   };
 
@@ -213,6 +215,23 @@ export function initProjects() {
     tile.querySelector(".project-inspect-btn")?.addEventListener("click", (e) => {
       lastFocusedTile = e.currentTarget;
       openModal(project);
+    });
+
+    const shareBtn = tile.querySelector(".project-share-btn");
+    const shareLabel = shareBtn?.querySelector(".project-share-btn__text");
+    shareBtn?.addEventListener("click", async () => {
+      const url = `${location.origin}${location.pathname}#${tile.id}`;
+      try {
+        await navigator.clipboard.writeText(url);
+        if (shareLabel) shareLabel.textContent = "Copied!";
+        shareBtn.classList.add("project-share-btn--copied");
+        setTimeout(() => {
+          if (shareLabel) shareLabel.textContent = "Share";
+          shareBtn.classList.remove("project-share-btn--copied");
+        }, 2000);
+      } catch {
+        // Clipboard API blocked — silently ignore
+      }
     });
   });
 

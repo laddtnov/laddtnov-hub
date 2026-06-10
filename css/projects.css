@@ -193,14 +193,30 @@
   color: var(--neon-pink);
 }
 
+.project-share-btn {
+  border-color: var(--neon-purple);
+  color: var(--neon-purple);
+}
+
 .project-visit-btn:hover,
-.project-inspect-btn:hover {
+.project-inspect-btn:hover,
+.project-share-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 16px rgba(0, 242, 255, 0.35);
 }
 
 .project-inspect-btn:hover {
   box-shadow: 0 0 16px rgba(255, 0, 255, 0.35);
+}
+
+.project-share-btn:hover,
+.project-share-btn--copied {
+  box-shadow: 0 0 16px rgba(157, 0, 255, 0.4);
+}
+
+.project-share-btn--copied {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
 }
 
 .project-modal {
@@ -284,6 +300,79 @@
   font-size: 0.72em;
   opacity: 0.6;
   margin-left: 4px;
+}
+
+/* "What's next" teaser card */
+.project-tile--next {
+  border-style: dashed;
+  border-color: rgba(157, 0, 255, 0.4);
+  background: transparent;
+}
+
+.project-tile--next:hover {
+  transform: none;
+  border-color: rgba(157, 0, 255, 0.6);
+  box-shadow: 0 0 30px rgba(157, 0, 255, 0.15);
+}
+
+.project-next {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  min-height: 250px;
+}
+
+.project-next__label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--neon-purple);
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+}
+
+.project-next__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.3rem;
+  color: var(--text-gray);
+}
+
+.project-next__desc {
+  color: var(--text-gray);
+  opacity: 0.75;
+  line-height: 1.6;
+}
+
+.project-next__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--neon-cyan);
+  opacity: 0.8;
+  margin-top: 8px;
+}
+
+.project-next__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan);
+  animation: dot-blink 1.4s ease-in-out infinite;
+}
+
+.reduced-motion .project-next__dot,
+.motion-off .project-next__dot {
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-next__dot { animation: none; opacity: 1; }
 }
 
 /* "NEW" badge on latest project tiles */

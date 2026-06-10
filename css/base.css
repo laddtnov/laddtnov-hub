@@ -56,6 +56,11 @@
 
 /* ── Light theme ─────────────────────────────────────────────── */
 :root[data-theme="light"] {
+  /* Darker accent variants — the bright neon hues fail WCAG contrast
+     against light backgrounds (e.g. cyan ~1.2:1 on white). Purple is
+     left as-is since it already passes (~5.5:1). */
+  --neon-cyan: #008099;
+  --neon-pink: #b3009e;
   --dark-bg: #f0f0f5;
   --dark-card: #ffffff;
   --text-gray: #3a3a45;

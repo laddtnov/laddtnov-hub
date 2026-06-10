@@ -29,7 +29,6 @@
 - [x] Rewrite hero tagline to be specific to your stack and style
 
 ## High showcase impact
-- [ ] Focus trap in project modal — tab should cycle inside the dialog, not behind it
 - [x] `scroll-behavior: smooth` on `html` element
 - [ ] Open Graph image — one good `og:image` screenshot; compress `Screenshot-1.png` (currently 684KB → target WebP < 100KB)
 - [x] Favicon — `assets/favicon.svg` (neon-L on dark bg)
@@ -42,7 +41,7 @@
 - [x] Project count badge next to each filter button (e.g. "TOOLS 4") — injected dynamically by JS
 - [x] Replace skill progress bars with a badge/tag grid grouped by category (Languages, Frameworks & Tools, CSS & Design, Workflow)
 - [x] Pause `cyber-grid` background animation when tab is not visible (Page Visibility API)
-- [ ] Dark/light mode toggle (settings module is wired — could add a theme option)
+- [x] Dark/light mode toggle — added to settings panel, with WCAG AA contrast pass on light theme
 - [x] Contact form — Formspree-powered form (replace YOUR_FORM_ID placeholder to activate)
 
 ## Performance

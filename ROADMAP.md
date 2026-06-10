@@ -29,9 +29,8 @@
 - [x] Rewrite hero tagline to be specific to your stack and style
 
 ## High showcase impact
-- [ ] Focus trap in project modal — tab should cycle inside the dialog, not behind it
 - [x] `scroll-behavior: smooth` on `html` element
-- [ ] Open Graph image — one good `og:image` screenshot; compress `Screenshot-1.png` (currently 684KB → target WebP < 100KB)
+- [x] Open Graph image — `assets/og-image.webp` (14KB) wired up in `<meta property="og:image">`
 - [x] Favicon — `assets/favicon.svg` (neon-L on dark bg)
 - [x] Project-specific overlay text — each project now shows its type (3D SIMULATION, BOOK TRACKER, CARD GAME, SUDOKU PWA, REACT APP, FINANCE TOOL, CHESS GAME)
 - [x] Scroll entrance animations — IntersectionObserver fade-in on project tiles, skill categories, about section
@@ -42,12 +41,12 @@
 - [x] Project count badge next to each filter button (e.g. "TOOLS 4") — injected dynamically by JS
 - [x] Replace skill progress bars with a badge/tag grid grouped by category (Languages, Frameworks & Tools, CSS & Design, Workflow)
 - [x] Pause `cyber-grid` background animation when tab is not visible (Page Visibility API)
-- [ ] Dark/light mode toggle (settings module is wired — could add a theme option)
+- [x] Dark/light mode toggle — added to settings panel, with WCAG AA contrast pass on light theme
 - [x] Contact form — Formspree-powered form (replace YOUR_FORM_ID placeholder to activate)
 
 ## Performance
-- [ ] Compress `Screenshot-1.png` (684KB) → WebP, used as og:image
-- [ ] Consider making the portfolio itself PWA-installable (you already built Cogsworth as a PWA)
+- [x] Compress `Screenshot-1.png` (684KB) → WebP, used as og:image — `assets/og-image.webp` (14KB) already in use; removed unused root `Screenshot-1.png`
+- [x] Make the portfolio itself PWA-installable — `manifest.json` + `sw.js` (offline app-shell caching)
 
 ## Personality & Fun
 - [x] Konami code Easter egg — `↑↑↓↓←→←→BA` triggers glitching "ACCESS GRANTED" overlay with personal message + Слава Україні
@@ -84,7 +83,7 @@
 ## Engagement & Community
 - [ ] Devlog / blog section — short posts about what you built and why; even 3-4 posts makes a huge difference
 - [ ] GitHub activity graph — embed real contribution graph or a styled equivalent; shows you code regularly
-- [ ] Share button per project — copy link to that project's anchor; easy for visitors to share specific work
+- [x] Share button per project — copy link to that project's anchor; `.project-share-btn` on every tile
 
 ## Technical Maturity
 - [ ] Error monitoring — Sentry free tier; know when something breaks in production

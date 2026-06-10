@@ -176,7 +176,8 @@
 }
 
 .project-visit-btn,
-.project-inspect-btn {
+.project-inspect-btn,
+.project-share-btn {
   font-family: 'Share Tech Mono', monospace;
   border: 1px solid var(--neon-cyan);
   background: transparent;
@@ -228,7 +229,7 @@
   border: 2px solid var(--neon-cyan);
   border-radius: 10px;
   padding: 24px;
-  background: linear-gradient(160deg, rgba(10, 10, 12, 0.98), rgba(17, 17, 22, 0.96));
+  background: linear-gradient(160deg, var(--modal-bg-1), var(--modal-bg-2));
   color: var(--text-gray);
   box-shadow: 0 0 36px rgba(0, 242, 255, 0.3);
   /* Thin scrollbar styled to match the theme */
@@ -263,7 +264,7 @@
 
 .project-modal h3 {
   font-family: 'Orbitron', sans-serif;
-  color: #fff;
+  color: var(--heading-color);
   margin-bottom: 8px;
 }
 
@@ -278,7 +279,8 @@
 }
 
 .project-modal-summary {
-  color: #b8b8b8;
+  color: var(--text-gray);
+  opacity: 0.75;
   margin-bottom: 18px;
 }
 

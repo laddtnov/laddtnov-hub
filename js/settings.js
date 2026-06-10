@@ -3,7 +3,7 @@ import { setSoundEnabled } from './sounds.js';
 
 const STORAGE_KEY = '_settings';
 
-const defaults = { crt: '0', motion: 'full', sound: 'off' };
+const defaults = { crt: '0', motion: 'full', sound: 'off', theme: 'dark' };
 
 function load() {
   try {
@@ -30,6 +30,14 @@ function applyMotion(value) {
   emit(EVENTS.MOTION_CHANGED, { reduced: value !== 'full' });
 }
 
+function applyTheme(value) {
+  if (value === 'light') {
+    document.documentElement.dataset.theme = 'light';
+  } else {
+    delete document.documentElement.dataset.theme;
+  }
+}
+
 function syncButtons(panel, state) {
   panel.querySelectorAll('.setting-btn').forEach((btn) => {
     const { setting, value } = btn.dataset;
@@ -37,6 +45,7 @@ function syncButtons(panel, state) {
     if (setting === 'crt')         active = value === state.crt;
     else if (setting === 'motion') active = value === state.motion;
     else if (setting === 'sound')  active = value === state.sound;
+    else if (setting === 'theme')  active = value === state.theme;
     btn.classList.toggle('is-active', active);
     btn.setAttribute('aria-pressed', String(active));
   });
@@ -52,6 +61,7 @@ export function initSettings() {
   const state = load();
   applyCrt(state.crt);
   applyMotion(state.motion);
+  applyTheme(state.theme);
   setSoundEnabled(state.sound);
   syncButtons(panel, state);
 
@@ -90,6 +100,9 @@ export function initSettings() {
     } else if (setting === 'sound') {
       state.sound = value;
       setSoundEnabled(value);
+    } else if (setting === 'theme') {
+      state.theme = value;
+      applyTheme(value);
     }
 
     save(state);

@@ -46,6 +46,7 @@
   --dark-bg: #0a0a0c;
   --dark-card: #151518;
   --text-gray: #d1d1d1;
+  --text-dim: #d1d1d1;
   --heading-color: #fff;
   --nav-bg: rgba(10, 10, 12, 0.95);
   --modal-bg-1: rgba(10, 10, 12, 0.98);
@@ -64,6 +65,7 @@
   --dark-bg: #f0f0f5;
   --dark-card: #ffffff;
   --text-gray: #3a3a45;
+  --text-dim: #5f5f6e;
   --heading-color: #16161d;
   --nav-bg: rgba(255, 255, 255, 0.9);
   --modal-bg-1: rgba(255, 255, 255, 0.98);

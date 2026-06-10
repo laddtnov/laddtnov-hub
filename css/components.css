@@ -42,6 +42,11 @@
   pointer-events: none;
 }
 
+:root[data-theme="light"] .status-indicator {
+  color: var(--text-dim);
+  opacity: 1;
+}
+
 .status-dot {
   width: 8px;
   height: 8px;

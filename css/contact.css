@@ -203,9 +203,13 @@
 .contact-divider {
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.72rem;
-  color: var(--text-gray);
+  color: var(--text-dim);
   opacity: 0.5;
   text-align: center;
   letter-spacing: 0.12em;
   margin: 12px 0;
+}
+
+:root[data-theme="light"] .contact-divider {
+  opacity: 1;
 }

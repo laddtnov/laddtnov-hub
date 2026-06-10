@@ -129,9 +129,13 @@
 .github-stats__key {
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.65rem;
-  color: var(--text-gray);
+  color: var(--text-dim);
   opacity: 0.6;
   letter-spacing: 0.1em;
+}
+
+:root[data-theme="light"] .github-stats__key {
+  opacity: 1;
 }
 
 /* ── Currently learning widget ──────────────────────────────── */
@@ -191,6 +195,10 @@
   color: var(--neon-purple);
   opacity: 0.8;
   margin-top: 2px;
+}
+
+:root[data-theme="light"] .currently-learning__platform {
+  opacity: 1;
 }
 
 /* "Available for hire" special tag */

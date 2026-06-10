@@ -46,7 +46,24 @@
   --dark-bg: #0a0a0c;
   --dark-card: #151518;
   --text-gray: #d1d1d1;
+  --heading-color: #fff;
+  --nav-bg: rgba(10, 10, 12, 0.95);
+  --modal-bg-1: rgba(10, 10, 12, 0.98);
+  --modal-bg-2: rgba(17, 17, 22, 0.96);
+  --overlay-bg: rgba(7, 7, 11, 0.96);
   --crt-intensity: 0;
+}
+
+/* ── Light theme ─────────────────────────────────────────────── */
+:root[data-theme="light"] {
+  --dark-bg: #f0f0f5;
+  --dark-card: #ffffff;
+  --text-gray: #3a3a45;
+  --heading-color: #16161d;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --modal-bg-1: rgba(255, 255, 255, 0.98);
+  --modal-bg-2: rgba(240, 240, 248, 0.97);
+  --overlay-bg: rgba(245, 245, 250, 0.97);
 }
 
 html {
@@ -67,6 +84,11 @@ body {
   overflow-x: hidden;
   /* Prevents elastic over-scroll bounce on mobile Chrome */
   overscroll-behavior-y: contain;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
 }
 
 .skip-link {
@@ -122,7 +144,7 @@ button:focus-visible,
   font-weight: 700;
   text-align: center;
   margin-bottom: 60px;
-  color: #fff;
+  color: var(--heading-color);
   text-shadow: 0 0 10px var(--neon-cyan);
 }
 

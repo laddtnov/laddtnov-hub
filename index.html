@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Apply saved theme before first paint to avoid a flash of the wrong theme
+      try {
+        var settings = JSON.parse(localStorage.getItem('_settings'));
+        if (settings && settings.theme === 'light') {
+          document.documentElement.dataset.theme = 'light';
+        }
+      } catch {}
+    </script>
     <meta
       name="description"
       content="Cyberpunk front-end developer portfolio of Vladislav Novytskiy (Laddtnov), featuring interactive web projects, games, and UI experiments."
@@ -582,6 +591,13 @@
     >⚙</button>
     <div class="settings-content" id="settings-content" hidden>
       <p class="settings-label">[ SYSTEM SETTINGS ]</p>
+      <fieldset class="settings-group">
+        <legend class="settings-group-label">THEME</legend>
+        <div class="settings-options">
+          <button type="button" class="setting-btn is-active" data-setting="theme" data-value="dark">DARK</button>
+          <button type="button" class="setting-btn" data-setting="theme" data-value="light">LIGHT</button>
+        </div>
+      </fieldset>
       <fieldset class="settings-group">
         <legend class="settings-group-label">CRT</legend>
         <div class="settings-options">

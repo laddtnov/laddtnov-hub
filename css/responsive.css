@@ -323,13 +323,15 @@ html {
   .sort-select,
   .project-visit-btn,
   .project-inspect-btn,
+  .project-share-btn,
   .nav-toggle {
     min-height: 44px;
     min-width: 44px;
   }
 
   .project-visit-btn,
-  .project-inspect-btn {
+  .project-inspect-btn,
+  .project-share-btn {
     padding: 10px 16px;
     display: flex;
     align-items: center;

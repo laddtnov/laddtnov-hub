@@ -176,7 +176,8 @@
 }
 
 .project-visit-btn,
-.project-inspect-btn {
+.project-inspect-btn,
+.project-share-btn {
   font-family: 'Share Tech Mono', monospace;
   border: 1px solid var(--neon-cyan);
   background: transparent;

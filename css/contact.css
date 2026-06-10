@@ -123,7 +123,7 @@
 
 .form-group input,
 .form-group textarea {
-  background: rgba(15, 15, 20, 0.9);
+  background: var(--dark-card);
   border: 1px solid rgba(0, 242, 255, 0.28);
   border-radius: 6px;
   color: var(--text-gray);
@@ -138,7 +138,8 @@
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(209, 209, 209, 0.3);
+  color: var(--text-gray);
+  opacity: 0.4;
 }
 
 .form-group input:focus,

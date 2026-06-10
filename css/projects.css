@@ -28,7 +28,7 @@
 .filter-btn,
 .sort-select {
   font-family: 'Share Tech Mono', monospace;
-  background: rgba(21, 21, 24, 0.85);
+  background: var(--dark-card);
   border: 1px solid rgba(0, 242, 255, 0.45);
   color: var(--text-gray);
   padding: 8px 14px;
@@ -168,6 +168,10 @@
   padding-left: 10px;
 }
 
+:root[data-theme="light"] .project-devlog {
+  opacity: 1;
+}
+
 .project-actions {
   margin-top: auto;
   padding-top: 20px;
@@ -279,9 +283,13 @@
 }
 
 .project-modal-summary {
-  color: var(--text-gray);
+  color: var(--text-dim);
   opacity: 0.75;
   margin-bottom: 18px;
+}
+
+:root[data-theme="light"] .project-modal-summary {
+  opacity: 1;
 }
 
 .project-modal-actions {
@@ -302,6 +310,10 @@
   font-size: 0.72em;
   opacity: 0.6;
   margin-left: 4px;
+}
+
+:root[data-theme="light"] .filter-count {
+  opacity: 1;
 }
 
 /* "What's next" teaser card */
@@ -335,6 +347,10 @@
   opacity: 0.85;
 }
 
+:root[data-theme="light"] .project-next__label {
+  opacity: 1;
+}
+
 .project-next__title {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.3rem;
@@ -342,9 +358,13 @@
 }
 
 .project-next__desc {
-  color: var(--text-gray);
+  color: var(--text-dim);
   opacity: 0.75;
   line-height: 1.6;
+}
+
+:root[data-theme="light"] .project-next__desc {
+  opacity: 1;
 }
 
 .project-next__status {
@@ -356,6 +376,10 @@
   color: var(--neon-cyan);
   opacity: 0.8;
   margin-top: 8px;
+}
+
+:root[data-theme="light"] .project-next__status {
+  opacity: 1;
 }
 
 .project-next__dot {

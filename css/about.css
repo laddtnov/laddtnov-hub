@@ -20,6 +20,10 @@
   width: 220px;
   height: 220px;
   flex-shrink: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  background: var(--dark-card);
+  border-radius: 16px;
 }
 
 .about-avatar {

@@ -77,8 +77,8 @@
 
 ## Personal Growth Tracking
 - [x] Skills progress over time — added `data-added="2026"` tags to recently-learned skill badges (React, Vite, Chart.js, Web Audio API, Canvas API, PWA)
-- [ ] Achievements wall — small unlockable badges (e.g. "First PWA", "First Canvas project", "First React app"); fun and shows range
-- [ ] Language toggle 🇺🇦 / 🇬🇧 — Ukrainian and English versions of bio and project descriptions
+- [x] Achievements wall — badge grid in About (First Canvas Project, First Game Logic, First LocalStorage App, First Game, First PWA, First React App, First Data Viz)
+- [x] Language toggle 🇺🇦 / 🇬🇧 — EN/UA toggle in settings panel; translates bio, tags, section titles, learning timeline, achievements, and project descriptions via `js/i18n.js`
 
 ## Engagement & Community
 - [ ] Devlog / blog section — short posts about what you built and why; even 3-4 posts makes a huge difference

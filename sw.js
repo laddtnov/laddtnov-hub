@@ -21,6 +21,7 @@ const APP_SHELL = [
   '/js/ui.js',
   '/js/projects.js',
   '/js/settings.js',
+  '/js/i18n.js',
   '/js/sounds.js',
   '/js/analytics.js',
   '/js/easter-egg.js',

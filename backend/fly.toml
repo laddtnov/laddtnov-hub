@@ -1,0 +1,32 @@
+# fly.io deployment config for the portfolio contact API.
+# App name is unique across all of Fly — adjust if "laddtnov-hub-contact" is taken.
+app = "laddtnov-hub-contact"
+primary_region = "dub"
+
+[build]
+
+[env]
+  PORT = "8080"
+  ALLOWED_ORIGIN = "https://laddtnov.xyz"
+  SMTP_HOST = "smtp.gmail.com"
+  SMTP_PORT = "587"
+  TO_EMAIL = "novytskiyvladislav@proton.me"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[http_service.checks]]
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "5s"
+    method = "GET"
+    path = "/healthz"
+    protocol = "http"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

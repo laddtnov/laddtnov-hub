@@ -64,3 +64,11 @@
   background: rgba(0, 242, 255, 0.08);
   box-shadow: 0 0 8px rgba(0, 242, 255, 0.18);
 }
+
+.skill-badge[data-added]::after {
+  content: "+ " attr(data-added);
+  margin-left: 6px;
+  font-size: 0.68em;
+  color: var(--neon-pink);
+  opacity: 0.75;
+}

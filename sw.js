@@ -14,6 +14,7 @@ const APP_SHELL = [
   '/css/contact.css',
   '/css/components.css',
   '/css/responsive.css',
+  '/css/print.css',
   '/js/main.js',
   '/js/events.js',
   '/js/motion.js',

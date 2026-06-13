@@ -1,0 +1,91 @@
+/* ── Print / CV mode ─────────────────────────────────────────── */
+@media print {
+  /* Hide decorative, interactive, and navigation elements */
+  .cyber-grid,
+  #navbar,
+  .scroll-progress,
+  .back-to-top,
+  .settings-panel,
+  .custom-cursor,
+  #ua-stripe,
+  .filter-group,
+  #filter-status,
+  .project-image,
+  .project-actions,
+  .project-tile--next,
+  .currently-learning,
+  .github-stats,
+  #contact-form,
+  .glitch-skew,
+  .dot-blink {
+    display: none !important;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  #main-content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  section {
+    padding: 16px 0 !important;
+    page-break-inside: avoid;
+  }
+
+  .section-title,
+  h1,
+  h2,
+  h3 {
+    color: #111 !important;
+    -webkit-text-fill-color: #111 !important;
+  }
+
+  .title-bracket {
+    display: none !important;
+  }
+
+  p,
+  span,
+  li {
+    color: #222 !important;
+  }
+
+  a {
+    color: #111 !important;
+    text-decoration: underline;
+  }
+
+  .projects-grid {
+    display: block !important;
+  }
+
+  .project-tile {
+    border: 1px solid #ccc !important;
+    background: #fff !important;
+    margin-bottom: 12px;
+    padding: 12px !important;
+    page-break-inside: avoid;
+  }
+
+  .skill-badge {
+    border: 1px solid #999 !important;
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .skill-badge[data-added]::after {
+    color: #555 !important;
+  }
+}

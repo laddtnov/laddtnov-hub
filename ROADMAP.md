@@ -78,11 +78,11 @@
 ## Personal Growth Tracking
 - [x] Skills progress over time — added `data-added="2026"` tags to recently-learned skill badges (React, Vite, Chart.js, Web Audio API, Canvas API, PWA)
 - [x] Achievements wall — badge grid in About (First Canvas Project, First Game Logic, First LocalStorage App, First Game, First PWA, First React App, First Data Viz)
-- [x] Language toggle 🇺🇦 / 🇬🇧 — EN/UA toggle in settings panel; translates bio, tags, section titles, learning timeline, achievements, and project descriptions via `js/i18n.js`
+- [x] Language toggle 🇺🇦 / 🇬🇧 / 🇪🇸 — EN/UA/ES toggle in settings panel; translates bio, tags, section titles, learning timeline, achievements, devlog, and project descriptions via `js/i18n.js`
 
 ## Engagement & Community
-- [ ] Devlog / blog section — short posts about what you built and why; even 3-4 posts makes a huge difference
-- [ ] GitHub activity graph — embed real contribution graph or a styled equivalent; shows you code regularly
+- [x] Devlog / blog section — 4 short posts in `#devlog` about what was built and why (portfolio origin, Vitrum game logic, Breach OS/Cogsworth PWA, TimeFlow/GrowFlow React)
+- [x] GitHub activity graph — real contribution heatmap embedded in the GitHub stats widget via ghchart.rshah.org
 - [x] Share button per project — copy link to that project's anchor; `.project-share-btn` on every tile
 
 ## Technical Maturity

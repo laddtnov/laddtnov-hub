@@ -1,9 +1,10 @@
 import { emit, EVENTS } from './events.js';
 import { setSoundEnabled } from './sounds.js';
+import { applyLanguage } from './i18n.js';
 
 const STORAGE_KEY = '_settings';
 
-const defaults = { crt: '0', motion: 'full', sound: 'off', theme: 'dark' };
+const defaults = { crt: '0', motion: 'full', sound: 'off', theme: 'dark', lang: 'en' };
 
 function load() {
   try {
@@ -46,6 +47,7 @@ function syncButtons(panel, state) {
     else if (setting === 'motion') active = value === state.motion;
     else if (setting === 'sound')  active = value === state.sound;
     else if (setting === 'theme')  active = value === state.theme;
+    else if (setting === 'lang')   active = value === state.lang;
     btn.classList.toggle('is-active', active);
     btn.setAttribute('aria-pressed', String(active));
   });
@@ -62,6 +64,7 @@ export function initSettings() {
   applyCrt(state.crt);
   applyMotion(state.motion);
   applyTheme(state.theme);
+  applyLanguage(state.lang);
   setSoundEnabled(state.sound);
   syncButtons(panel, state);
 
@@ -103,6 +106,9 @@ export function initSettings() {
     } else if (setting === 'theme') {
       state.theme = value;
       applyTheme(value);
+    } else if (setting === 'lang') {
+      state.lang = value;
+      applyLanguage(value);
     }
 
     save(state);

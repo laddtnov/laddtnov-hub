@@ -309,3 +309,64 @@
   line-height: 1.6;
   max-width: 640px;
 }
+
+/* Achievements wall */
+.achievements {
+  max-width: 960px;
+  margin: 60px auto 0;
+}
+
+.achievements__label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--neon-pink);
+  letter-spacing: 0.14em;
+  margin-bottom: 20px;
+}
+
+.achievements__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.achievement-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  border: 1px solid rgba(0, 242, 255, 0.25);
+  border-radius: 8px;
+  padding: 16px 10px;
+  background: rgba(0, 242, 255, 0.03);
+  transition: all 0.22s ease;
+}
+
+.achievement-badge:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 14px rgba(0, 242, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.achievement-badge__icon {
+  font-size: 1.6rem;
+}
+
+.achievement-badge__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.74rem;
+  color: var(--text-gray);
+  letter-spacing: 0.04em;
+}
+
+.achievement-badge__project {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--neon-cyan);
+  opacity: 0.75;
+}
+
+:root[data-theme="light"] .achievement-badge__project {
+  opacity: 1;
+}

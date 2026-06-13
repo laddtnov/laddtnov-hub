@@ -162,8 +162,25 @@ export function initCustomCursor() {
   const cursor = document.querySelector('.neon-cursor');
   if (!cursor) return;
 
+  const prefersReduced = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const easing = prefersReduced ? 1 : 0.22;
+
+  let targetX = -100;
+  let targetY = -100;
+  let x = -100;
+  let y = -100;
+
+  const render = () => {
+    x += (targetX - x) * easing;
+    y += (targetY - y) * easing;
+    cursor.style.transform = `translate(${x}px, ${y}px)`;
+    requestAnimationFrame(render);
+  };
+  requestAnimationFrame(render);
+
   document.addEventListener('mousemove', (e) => {
-    cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    targetX = e.clientX;
+    targetY = e.clientY;
   }, { passive: true });
 
   document.addEventListener('mouseover', (e) => {

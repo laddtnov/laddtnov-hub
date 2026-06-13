@@ -23,6 +23,15 @@ go run .
 
 ## Status
 
-This is the **experiment** stage: the live site still uses Formspree.
-`js/contact.js` (or equivalent) on the frontend will be pointed at this
-API's `/api/contact` URL only after it's deployed and verified working.
+Deployed to Fly.io at `https://laddtnov-hub-contact.fly.dev`. The frontend
+(`js/contact.js`) posts to this API's `/api/contact` endpoint, replacing
+Formspree.
+
+## Deploying
+
+```bash
+fly deploy
+```
+
+Secrets (SMTP credentials) are set via `fly secrets set` and are not stored
+in `fly.toml` or git.

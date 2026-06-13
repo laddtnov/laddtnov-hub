@@ -616,11 +616,10 @@
 
     <p class="contact-text">Ready to build something amazing together?</p>
 
-    <!-- Contact form — powered by Formspree -->
+    <!-- Contact form — submitted via the Go contact API (js/contact.js) -->
     <form
+      id="contact-form"
       class="contact-form scroll-animate"
-      action="https://formspree.io/f/xojzejvr"
-      method="POST"
     >
       <div class="form-group">
         <label for="contact-name">Name</label>
@@ -655,6 +654,7 @@
         ></textarea>
       </div>
       <button type="submit" class="contact-form-submit" data-i18n-ua="[ НАДІСЛАТИ ПОВІДОМЛЕННЯ ]" data-i18n-es="[ ENVIAR MENSAJE ]">[ SEND MESSAGE ]</button>
+      <p id="contact-form-status" class="form-status" role="status" aria-live="polite"></p>
     </form>
 
     <p class="contact-divider" data-i18n-ua="— АБО ЗВ'ЯЖІТЬСЯ НАПРЯМУ —" data-i18n-es="— O CONTÁCTAME DIRECTAMENTE —">— OR REACH ME DIRECTLY —</p>

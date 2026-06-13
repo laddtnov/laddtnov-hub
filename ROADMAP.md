@@ -89,7 +89,7 @@
 - [x] Error monitoring — `js/monitoring.js` lazily loads the Sentry Loader Script on production hosts only; paste your Sentry Loader URL into `SENTRY_LOADER_URL` to activate
 - [x] CV / print mode — `css/print.css` with `@media print` hides nav/decor/interactive elements, renders a clean light CV layout
 - [x] Automated Lighthouse CI — `lighthouse` job in `.github/workflows/deploy.yml` runs Lighthouse on every PR via `treosh/lighthouse-ci-action` and posts scores as a PR comment
-- [ ] Go backend experiment — replace Formspree with a small self-written Go handler; shows full-stack ambition
+- [x] Go backend experiment — `backend/` Go API (validation + SMTP email) deployed to Fly.io at `laddtnov-hub-contact.fly.dev`; contact form (`js/contact.js`) now posts there instead of Formspree
 
 ## Completed
 - [x] Modular CSS architecture

@@ -6,6 +6,7 @@ import { initSettings } from './settings.js';
 import { initAnalytics } from './analytics.js';
 import { initEasterEgg } from './easter-egg.js';
 import { initSounds } from './sounds.js';
+import { initContactForm } from './contact.js';
 import { on, EVENTS } from './events.js';
 
 function init() {
@@ -26,6 +27,7 @@ function init() {
   initCopyEmail();
   initGithubStats();
   initAnalytics();
+  initContactForm();
 
   on(EVENTS.NAV_SECTION_CHANGED, ({ sectionId }) => {
     document.body.dataset.activeSection = sectionId;

@@ -184,6 +184,26 @@
   transform: translateX(0);
 }
 
+.form-status {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  min-height: 1.2em;
+  margin: 0;
+}
+
+.form-status[data-state='sending'] {
+  color: var(--text-gray);
+}
+
+.form-status[data-state='success'] {
+  color: var(--neon-cyan);
+}
+
+.form-status[data-state='error'] {
+  color: var(--neon-pink);
+}
+
 /* ── Copy email button ───────────────────────────────────────── */
 .copy-email-btn {
   cursor: pointer;

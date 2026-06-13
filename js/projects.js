@@ -12,6 +12,8 @@ export function initProjects() {
   const modalTech = projectModal?.querySelector("#project-modal-tech");
   const modalDesc = projectModal?.querySelector("#project-modal-desc");
   const modalSummary = projectModal?.querySelector("#project-modal-summary");
+  const modalChallenge = projectModal?.querySelector("#project-modal-challenge");
+  const modalLearned = projectModal?.querySelector("#project-modal-learned");
   const modalLink = projectModal?.querySelector("#project-modal-link");
 
   if (!projectTiles.length || !grid) {
@@ -24,6 +26,8 @@ export function initProjects() {
     tech: tile.querySelector(".project-tech")?.textContent?.trim() ?? "",
     desc: tile.querySelector(".project-desc")?.textContent?.trim() ?? "",
     summary: tile.dataset.summary ?? "",
+    challenge: tile.dataset.challenge ?? "",
+    learned: tile.querySelector(".project-devlog")?.textContent?.replace(/^>_\s*/, "").trim() ?? "",
     categories: (tile.dataset.category ?? "")
       .split(" ")
       .map((item) => item.trim())
@@ -126,6 +130,8 @@ export function initProjects() {
     modalTech.textContent = project.tech;
     modalDesc.textContent = project.desc;
     modalSummary.textContent = project.summary;
+    if (modalChallenge) modalChallenge.textContent = project.challenge;
+    if (modalLearned) modalLearned.textContent = project.learned;
     modalLink.href = project.url;
 
     if (typeof projectModal.showModal === "function") {

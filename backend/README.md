@@ -1,5 +1,7 @@
 # Contact API (Go)
 
+![Go](https://img.shields.io/badge/Go-1.25-00ADD8?logo=go&logoColor=white)
+
 A small Go HTTP service that replaces Formspree for the portfolio's contact
 form. One endpoint, JSON in, JSON out — kept strictly separate from the
 frontend per the project's architecture rules.

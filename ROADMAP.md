@@ -71,8 +71,8 @@
 
 ## Content Depth (future projects)
 - [ ] Individual project pages — dedicated `/projects/libra`, `/projects/cogsworth` etc. with full case study, screenshots, challenges, lessons learned
-- [ ] "What I learned" section per project card — one honest sentence about the key skill gained
-- [ ] Learning timeline — visual journey from first line of code to now; shows growth, not just results
+- [x] "What I learned" section per project card — `.project-devlog` line on every tile (e.g. "Learned 3D CSS transforms and orbital mechanics...")
+- [x] Learning timeline — vertical neon timeline in About section (2024 → 2025 → 2026 → Next), respects reduced-motion
 - [x] "What I'm building next" teaser — one card at the bottom of projects showing the upcoming idea; keeps portfolio feeling alive
 
 ## Personal Growth Tracking

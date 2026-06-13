@@ -218,3 +218,94 @@
   border-color: #00ff88;
   box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
 }
+
+/* Learning timeline */
+.learning-timeline {
+  max-width: 960px;
+  margin: 60px auto 0;
+}
+
+.learning-timeline__label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--neon-pink);
+  letter-spacing: 0.14em;
+  margin-bottom: 24px;
+}
+
+.learning-timeline__list {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 28px;
+  border-left: 2px solid rgba(0, 242, 255, 0.25);
+}
+
+.learning-timeline__item {
+  position: relative;
+  padding-bottom: 28px;
+}
+
+.learning-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.learning-timeline__item::before {
+  content: '';
+  position: absolute;
+  left: -34px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.learning-timeline__item--next::before {
+  background: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink);
+  animation: dot-blink 1.6s ease-in-out infinite;
+}
+
+.reduced-motion .learning-timeline__item--next::before,
+.motion-off .learning-timeline__item--next::before {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learning-timeline__item--next::before { animation: none; }
+}
+
+.learning-timeline__year {
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--neon-cyan);
+  border: 1px solid rgba(0, 242, 255, 0.35);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+}
+
+.learning-timeline__item--next .learning-timeline__year {
+  color: var(--neon-pink);
+  border-color: rgba(255, 0, 255, 0.35);
+}
+
+.learning-timeline__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  margin: 6px 0 4px;
+}
+
+.learning-timeline__desc {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  max-width: 640px;
+}

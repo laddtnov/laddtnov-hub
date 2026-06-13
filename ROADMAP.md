@@ -22,7 +22,7 @@
 - [x] #23 — Modal focus trap — Tab/Shift+Tab trapped inside dialog, focus restored on close (WCAG 2.4.3)
 
 ## High recruiter impact
-- [ ] Real project thumbnails — custom screenshots of each project, replace stock photos and placeholders
+- [x] Real project thumbnails — custom screenshots of each project, replace stock photos and placeholders (compressed via `sips` to JPEG)
 - [x] Libra thumbnail — redesigned as book tracker UI (open book, stats panel, bookshelf, bookmark ribbon)
 - [x] About/bio section — rewritten to reflect genuine hobbyist background; removed hire/freelance framing
 - [x] Hero photo or cyberpunk-styled avatar — SVG avatar created at `assets/avatar.svg`

@@ -292,6 +292,36 @@
   opacity: 1;
 }
 
+.project-modal-case-study {
+  border-top: 1px solid rgba(0, 242, 255, 0.18);
+  padding-top: 14px;
+  margin-bottom: 18px;
+}
+
+.project-modal-case-study__label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.74rem;
+  color: var(--neon-pink);
+  letter-spacing: 0.14em;
+  margin: 0 0 4px;
+}
+
+.project-modal-case-study__label:not(:first-child) {
+  margin-top: 4px;
+}
+
+.project-modal-case-study__text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+  margin-bottom: 14px;
+}
+
+.project-modal-case-study__text:last-child {
+  margin-bottom: 0;
+}
+
 .project-modal-actions {
   display: flex;
   justify-content: flex-start;

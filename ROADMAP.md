@@ -86,9 +86,9 @@
 - [x] Share button per project — copy link to that project's anchor; `.project-share-btn` on every tile
 
 ## Technical Maturity
-- [ ] Error monitoring — Sentry free tier; know when something breaks in production
+- [x] Error monitoring — `js/monitoring.js` lazily loads the Sentry Loader Script on production hosts only; paste your Sentry Loader URL into `SENTRY_LOADER_URL` to activate
 - [x] CV / print mode — `css/print.css` with `@media print` hides nav/decor/interactive elements, renders a clean light CV layout
-- [ ] Automated Lighthouse CI — GitHub Action that runs Lighthouse on every PR and posts the score; keeps quality high as you add projects
+- [x] Automated Lighthouse CI — `lighthouse` job in `.github/workflows/deploy.yml` runs Lighthouse on every PR via `treosh/lighthouse-ci-action` and posts scores as a PR comment
 - [ ] Go backend experiment — replace Formspree with a small self-written Go handler; shows full-stack ambition
 
 ## Completed

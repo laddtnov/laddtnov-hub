@@ -1,3 +1,4 @@
+import { initErrorMonitoring } from './monitoring.js';
 import { initMotionPreferences } from './motion.js';
 import { initUI, initNavToggle, initBackToTop, initPageVisibility, initScrollAnimations, initScrollProgress, initTypewriter, initCustomCursor, initGithubStats, initCopyEmail } from './ui.js';
 import { initProjects } from './projects.js';
@@ -8,6 +9,7 @@ import { initSounds } from './sounds.js';
 import { on, EVENTS } from './events.js';
 
 function init() {
+  initErrorMonitoring();
   initMotionPreferences();
   initUI();
   initNavToggle();

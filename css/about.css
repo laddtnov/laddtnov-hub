@@ -138,6 +138,21 @@
   opacity: 1;
 }
 
+.github-stats__graph {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 242, 255, 0.18);
+  background: var(--dark-card);
+  padding: 8px;
+  box-sizing: border-box;
+  filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.15));
+}
+
+:root[data-theme="light"] .github-stats__graph {
+  background: #fff;
+}
+
 /* ── Currently learning widget ──────────────────────────────── */
 .currently-learning {
   display: flex;
@@ -369,4 +384,56 @@
 
 :root[data-theme="light"] .achievement-badge__project {
   opacity: 1;
+}
+
+/* ── Devlog section ──────────────────────────────────────────── */
+#devlog {
+  position: relative;
+  padding: 80px 50px;
+  z-index: 1;
+}
+
+.devlog-list {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.devlog-entry {
+  border: 1px solid rgba(0, 242, 255, 0.25);
+  border-radius: 8px;
+  padding: 20px;
+  background: rgba(0, 242, 255, 0.03);
+  transition: all 0.22s ease;
+}
+
+.devlog-entry:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 14px rgba(0, 242, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.devlog-entry__date {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--neon-pink);
+  margin-bottom: 8px;
+}
+
+.devlog-entry__title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: var(--text-gray);
+  margin: 0 0 8px;
+}
+
+.devlog-entry__text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.6;
 }

@@ -3,11 +3,11 @@
 // → Loader Script) and paste it below. Leave as-is to keep monitoring disabled.
 const SENTRY_LOADER_URL = '';
 
-const PRODUCTION_HOSTS = ['laddtnov.xyz', 'www.laddtnov.xyz'];
+const PRODUCTION_HOSTS = new Set(['laddtnov.xyz', 'www.laddtnov.xyz']);
 
 export function initErrorMonitoring() {
   if (!SENTRY_LOADER_URL) return;
-  if (!PRODUCTION_HOSTS.includes(location.hostname)) return;
+  if (!PRODUCTION_HOSTS.has(location.hostname)) return;
 
   const script = document.createElement('script');
   script.src = SENTRY_LOADER_URL;

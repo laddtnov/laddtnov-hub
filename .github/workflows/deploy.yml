@@ -42,9 +42,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v11
         id: lhci
         with:
-          urls: |
-            /index.html
-          staticDistDir: .
+          configPath: ./lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
 

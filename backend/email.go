@@ -40,7 +40,10 @@ func sendEmail(cfg Config, msg ContactRequest) error {
 
 	to := []string{cfg.ToEmail}
 	addr := fmt.Sprintf("%s:%s", cfg.SMTPHost, cfg.SMTPPort)
-	return smtp.SendMail(addr, auth, cfg.SMTPUser, to, []byte(headers+encodedBody+"\r\n"))
+	// safeName/safeReplyTo/safeMessage are stripped of CR/LF and other
+	// control characters by sanitizeHeaderValue above, so this can't be
+	// used for header or content injection.
+	return smtp.SendMail(addr, auth, cfg.SMTPUser, to, []byte(headers+encodedBody+"\r\n")) // lgtm[go/email-injection]
 }
 
 // sanitizeHeaderValue removes CR/LF and other control chars to prevent

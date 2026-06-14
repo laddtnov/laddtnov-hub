@@ -1,0 +1,14 @@
+{
+  "ci": {
+    "collect": {
+      "staticDistDir": ".",
+      "url": ["/index.html"],
+      "settings": {
+        "chromeFlags": "--no-sandbox --headless --disable-gpu --disable-dev-shm-usage"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

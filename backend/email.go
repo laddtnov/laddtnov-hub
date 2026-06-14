@@ -19,11 +19,12 @@ func sendEmail(cfg Config, msg ContactRequest) error {
 
 	safeName := sanitizeHeaderValue(msg.Name)
 	safeReplyTo := sanitizeHeaderValue(msg.Email)
+	safeMessage := sanitizeHeaderValue(msg.Message)
 
 	// The body is base64-encoded so that nothing in msg.Message can be
 	// interpreted as SMTP control sequences (e.g. a line consisting of
 	// just "." would otherwise end the DATA command early).
-	plainBody := fmt.Sprintf("Name: %s\r\nEmail: %s\r\n\r\n%s\r\n", safeName, safeReplyTo, msg.Message)
+	plainBody := fmt.Sprintf("Name: %s\r\nEmail: %s\r\n\r\n%s\r\n", safeName, safeReplyTo, safeMessage)
 	encodedBody := wrapBase64(base64.StdEncoding.EncodeToString([]byte(plainBody)))
 
 	headers := fmt.Sprintf(

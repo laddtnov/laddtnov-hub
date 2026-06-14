@@ -9,4 +9,5 @@ FROM scratch
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=build /contact-api /contact-api
 EXPOSE 8080
+USER 65534:65534
 ENTRYPOINT ["/contact-api"]

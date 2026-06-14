@@ -17,9 +17,9 @@ const base64LineWidth = 76
 func sendEmail(cfg Config, msg ContactRequest) error {
 	auth := smtp.PlainAuth("", cfg.SMTPUser, cfg.SMTPPass, cfg.SMTPHost)
 
-	safeName := sanitizeHeaderValue(msg.Name)
-	safeReplyTo := sanitizeHeaderValue(msg.Email)
-	safeMessage := sanitizeHeaderValue(msg.Message)
+	safeName := sanitizeEmailHeaderText(msg.Name, 120)
+	safeReplyTo := sanitizeEmailHeaderText(msg.Email, 254)
+	safeMessage := sanitizeEmailBodyText(msg.Message, 8000)
 
 	// The body is base64-encoded so that nothing in msg.Message can be
 	// interpreted as SMTP control sequences (e.g. a line consisting of
@@ -55,6 +55,42 @@ func sanitizeHeaderValue(v string) string {
 		}
 		return r
 	}, v)
+}
+
+// sanitizeEmailHeaderText sanitizes untrusted text for use in mail headers
+// (e.g. Subject display text and Reply-To value) and bounds its length.
+func sanitizeEmailHeaderText(v string, maxLen int) string {
+	v = sanitizeHeaderValue(strings.TrimSpace(v))
+	v = strings.Map(func(r rune) rune {
+		if r < 32 || r > 126 {
+			return -1
+		}
+		return r
+	}, v)
+	if maxLen > 0 && len(v) > maxLen {
+		v = v[:maxLen]
+	}
+	return v
+}
+
+// sanitizeEmailBodyText sanitizes untrusted plain-text body content by
+// normalizing line endings, removing unsafe control chars, and bounding size.
+func sanitizeEmailBodyText(v string, maxLen int) string {
+	v = strings.ReplaceAll(v, "\r\n", "\n")
+	v = strings.ReplaceAll(v, "\r", "\n")
+	v = strings.Map(func(r rune) rune {
+		if r == '\n' || r == '\t' {
+			return r
+		}
+		if unicode.IsControl(r) {
+			return -1
+		}
+		return r
+	}, v)
+	if maxLen > 0 && len(v) > maxLen {
+		v = v[:maxLen]
+	}
+	return v
 }
 
 // wrapBase64 splits a base64 string into RFC 2045 compliant lines (max 76

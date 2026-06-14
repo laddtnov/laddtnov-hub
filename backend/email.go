@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/smtp"
 	"strings"
+	"unicode"
 )
 
 const base64LineWidth = 76
@@ -16,10 +17,13 @@ const base64LineWidth = 76
 func sendEmail(cfg Config, msg ContactRequest) error {
 	auth := smtp.PlainAuth("", cfg.SMTPUser, cfg.SMTPPass, cfg.SMTPHost)
 
+	safeName := sanitizeHeaderValue(msg.Name)
+	safeReplyTo := sanitizeHeaderValue(msg.Email)
+
 	// The body is base64-encoded so that nothing in msg.Message can be
 	// interpreted as SMTP control sequences (e.g. a line consisting of
 	// just "." would otherwise end the DATA command early).
-	plainBody := fmt.Sprintf("Name: %s\r\nEmail: %s\r\n\r\n%s\r\n", msg.Name, msg.Email, msg.Message)
+	plainBody := fmt.Sprintf("Name: %s\r\nEmail: %s\r\n\r\n%s\r\n", safeName, safeReplyTo, msg.Message)
 	encodedBody := wrapBase64(base64.StdEncoding.EncodeToString([]byte(plainBody)))
 
 	headers := fmt.Sprintf(
@@ -30,12 +34,23 @@ func sendEmail(cfg Config, msg ContactRequest) error {
 			"Content-Type: text/plain; charset=UTF-8\r\n"+
 			"Content-Transfer-Encoding: base64\r\n"+
 			"\r\n",
-		msg.Name, cfg.SMTPUser, cfg.ToEmail, msg.Email,
+		safeName, cfg.SMTPUser, cfg.ToEmail, safeReplyTo,
 	)
 
 	to := []string{cfg.ToEmail}
 	addr := fmt.Sprintf("%s:%s", cfg.SMTPHost, cfg.SMTPPort)
 	return smtp.SendMail(addr, auth, cfg.SMTPUser, to, []byte(headers+encodedBody+"\r\n"))
+}
+
+// sanitizeHeaderValue removes CR/LF and other control chars to prevent
+// SMTP/MIME header injection.
+func sanitizeHeaderValue(v string) string {
+	return strings.Map(func(r rune) rune {
+		if r == '\r' || r == '\n' || (unicode.IsControl(r) && r != '\t') {
+			return -1
+		}
+		return r
+	}, v)
 }
 
 // wrapBase64 splits a base64 string into RFC 2045 compliant lines (max 76

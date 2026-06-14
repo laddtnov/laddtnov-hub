@@ -38,7 +38,7 @@ func handleContact(cfg Config) http.HandlerFunc {
 			return
 		}
 
-		req.Name = stripCRLF(strings.TrimSpace(req.Name))
+		req.Name = strings.TrimSpace(req.Name)
 		req.Email = strings.TrimSpace(req.Email)
 		req.Message = strings.TrimSpace(req.Message)
 
@@ -61,11 +61,4 @@ func writeJSON(w http.ResponseWriter, status int, body any) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)
 	json.NewEncoder(w).Encode(body)
-}
-
-// stripCRLF removes carriage-return and newline characters so user input
-// can't inject extra headers into the outgoing email (CRLF injection).
-func stripCRLF(s string) string {
-	s = strings.ReplaceAll(s, "\r", "")
-	return strings.ReplaceAll(s, "\n", "")
 }

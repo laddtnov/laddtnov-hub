@@ -91,6 +91,10 @@
 - [x] Automated Lighthouse CI — `lighthouse` job in `.github/workflows/deploy.yml` runs Lighthouse on every PR via `treosh/lighthouse-ci-action` and posts scores as a PR comment
 - [x] Go backend experiment — `backend/` Go API (validation + SMTP email) deployed to Fly.io at `laddtnov-hub-contact.fly.dev`; contact form (`js/contact.js`) now posts there instead of Formspree
 
+## Next Up — AI Secretary & Email Styling
+- [ ] AI bot "V-10026" — cyberpunk-styled chat widget acting as your portfolio secretary, answering employer questions (skills, projects, contact). Start as a rule-based FAQ bot (client-side, zero cost); revisit LLM-backed version (new Go backend route on Fly.io) later if needed
+- [ ] Styled email thumbnail/template — when the contact form is used, notification email includes a cyberpunk-branded preview card/thumbnail matching site style
+
 ## Completed
 - [x] Modular CSS architecture
 - [x] Project filter / sort / modal (explorer)

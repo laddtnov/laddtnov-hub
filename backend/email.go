@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"html"
 	"mime"
+	"net/mail"
 	"net/smtp"
 	"strings"
 	"unicode"
@@ -17,15 +18,28 @@ const (
 )
 
 func sendEmail(cfg Config, msg ContactRequest) error {
-	safeName    := sanitizeEmailHeaderText(msg.Name, 120)
-	safeReplyTo := sanitizeEmailHeaderText(msg.Email, 254)
+	safeName := sanitizeEmailHeaderText(msg.Name, 120)
+
+	rawReplyTo := sanitizeEmailHeaderText(msg.Email, 254)
+	safeReplyTo := ""
+	if addr, err := mail.ParseAddress(rawReplyTo); err == nil {
+		safeReplyTo = addr.Address
+	}
+
 	safeMessage := sanitizeEmailBodyText(msg.Message, 8000)
 
-	encodedName    := mime.QEncoding.Encode("UTF-8", safeName)
-	encodedReplyTo := mime.QEncoding.Encode("UTF-8", safeReplyTo)
+	encodedName := mime.QEncoding.Encode("UTF-8", safeName)
+
+	replyToHeader := ""
+	if safeReplyTo != "" {
+		replyToHeader = (&mail.Address{
+			Name:    encodedName,
+			Address: safeReplyTo,
+		}).String()
+	}
 
 	plainBody := fmt.Sprintf("Name: %s\r\nEmail: %s\r\n\r\n%s\r\n", safeName, safeReplyTo, safeMessage)
-	htmlBody  := buildHTMLEmail(safeName, safeReplyTo, safeMessage)
+	htmlBody := buildHTMLEmail(safeName, safeReplyTo, safeMessage)
 
 	encodedPlain := wrapBase64(base64.StdEncoding.EncodeToString([]byte(plainBody)))
 	encodedHTML  := wrapBase64(base64.StdEncoding.EncodeToString([]byte(htmlBody)))
@@ -49,7 +63,7 @@ func sendEmail(cfg Config, msg ContactRequest) error {
 			"\r\n"+
 			"%s\r\n"+
 			"--%s--\r\n",
-		encodedName, cfg.SMTPUser, cfg.ToEmail, encodedReplyTo, mimeBoundary,
+		encodedName, cfg.SMTPUser, cfg.ToEmail, replyToHeader, mimeBoundary,
 		mimeBoundary,
 		encodedPlain,
 		mimeBoundary,

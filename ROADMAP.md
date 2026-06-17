@@ -92,8 +92,8 @@
 - [x] Go backend experiment — `backend/` Go API (validation + SMTP email) deployed to Fly.io at `laddtnov-hub-contact.fly.dev`; contact form (`js/contact.js`) now posts there instead of Formspree
 
 ## Next Up — AI Secretary & Email Styling
-- [ ] AI bot "V-10026" — cyberpunk-styled chat widget acting as your portfolio secretary, answering employer questions (skills, projects, contact). Start as a rule-based FAQ bot (client-side, zero cost); revisit LLM-backed version (new Go backend route on Fly.io) later if needed
-- [ ] Styled email thumbnail/template — when the contact form is used, notification email includes a cyberpunk-branded preview card/thumbnail matching site style
+- [ ] laddtnov AI agent — cyberpunk-styled chat widget acting as portfolio secretary, answering employer questions (skills, projects, contact). Rule-based FAQ bot (client-side, zero cost); revisit LLM-backed version (new Go backend route on Fly.io) later
+- [ ] Styled HTML email template — when contact form is submitted, notification email renders a cyberpunk-branded visual template matching site style
 
 ## Completed
 - [x] Modular CSS architecture

@@ -42,7 +42,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@72f881228236981b625ed765b928efb1786a1f55 # v11
         id: lhci
         with:
-          configPath: ./lighthouserc.json
+          configPath: ./json/lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
 

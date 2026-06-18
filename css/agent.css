@@ -287,19 +287,46 @@
 @media (max-width: 480px) {
   .agent-widget {
     bottom: 80px;
-    right: 12px;
-    left: 12px;
-    align-items: stretch;
+    right: 16px;
+    left: auto;
+    align-items: flex-end;
+    z-index: 10000;
   }
 
+  /* compact icon-only toggle on mobile */
   .agent-toggle {
-    align-self: flex-end;
+    padding: 10px 12px;
+    gap: 0;
   }
 
-  .agent-panel {
-    width: 100%;
-    max-height: 420px;
+  .agent-toggle-label {
+    display: none;
   }
+
+  /* full-screen panel on mobile — above navbar, slide up */
+  .agent-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: none;
+    z-index: 10000;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    animation: agent-open-mobile 0.25s ease;
+  }
+
+  .agent-messages {
+    min-height: 0;
+  }
+}
+
+@keyframes agent-open-mobile {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media print {

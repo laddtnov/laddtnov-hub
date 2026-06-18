@@ -64,6 +64,7 @@
 
 dialog.agent-panel {
   position: static; /* override UA `position: absolute` so dialog is a flex item */
+  max-height: 480px; /* UA stylesheet sets max-height: none on <dialog> — re-apply constraint */
   padding: 0;
   margin: 0;
   border: 1px solid var(--neon-cyan);
@@ -145,14 +146,15 @@ dialog.agent-panel:not([open]) {
 /* ── Messages ── */
 .agent-messages {
   flex: 1;
+  min-height: 0; /* allow flex item to shrink below content size so overflow-y kicks in */
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   scrollbar-width: thin;
   scrollbar-color: var(--neon-cyan) transparent;
-  min-height: 200px;
 }
 
 .agent-messages::-webkit-scrollbar { width: 3px; }

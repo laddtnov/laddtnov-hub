@@ -40,6 +40,20 @@ Cyberpunk-style front-end portfolio built with semantic HTML5, modular CSS, and 
 - Full keyboard focus trap inside modal (WCAG 2.4.3)
 - `aria-live` region announces filter results to screen readers
 
+### AI Agent
+
+A floating cyberpunk-styled AI chat widget fixed to the bottom-right corner.
+
+| Closed | Open |
+|--------|------|
+| ![Agent toggle button](docs/screenshots/agent-toggle.jpg) | ![Agent panel open](docs/screenshots/agent-panel.jpg) |
+
+- **Toggle button** — `AI` badge with neon-cyan glow; collapses to icon-only on mobile
+- **Chat panel** — scrollable message history, typing indicator, quick-reply chips
+- **Crypto-random IDs** — message IDs generated with `crypto.getRandomValues()` (no `Math.random()`)
+- **`<dialog>` element** — semantic HTML with `position: static` override so the panel stays in flex flow
+- **Responsive** — full-screen overlay on mobile (≤ 480 px) with slide-up animation
+
 ### Personality
 - **Konami Easter egg** — `↑↑↓↓←→←→BA` triggers a glitching "ACCESS GRANTED" overlay
 - **Web Audio synth sounds** — no audio files; pure `OscillatorNode` blips per interaction
@@ -95,6 +109,7 @@ laddtnov-hub/
 │   ├── skills.css
 │   ├── contact.css
 │   ├── components.css
+│   ├── agent.css
 │   └── responsive.css
 ├── js/
 │   ├── main.js
@@ -105,7 +120,8 @@ laddtnov-hub/
 │   ├── settings.js
 │   ├── easter-egg.js
 │   ├── sounds.js
-│   └── analytics.js
+│   ├── analytics.js
+│   └── agent.js
 ├── assets/
 │   ├── avatar.svg
 │   ├── favicon.svg
@@ -125,7 +141,9 @@ laddtnov-hub/
 └── docs/
     └── screenshots/
         ├── hero.png
-        └── hero-light.png
+        ├── hero-light.png
+        ├── agent-toggle.jpg
+        └── agent-panel.jpg
 ```
 
 ## Featured Projects

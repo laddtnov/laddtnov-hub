@@ -66,6 +66,7 @@
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/agent.css">
     <link rel="stylesheet" href="css/print.css" media="print">
   </head>
   <body>
@@ -701,6 +702,51 @@
 
   <!-- Back-to-top button -->
   <button class="back-to-top" id="back-to-top" aria-label="Scroll back to top" hidden>↑</button>
+
+  <!-- laddtnov AI Agent — V-10026 -->
+  <aside id="agent-widget" class="agent-widget" aria-label="laddtnov AI agent">
+    <dialog id="agent-panel" class="agent-panel" aria-label="V-10026 AI agent">
+      <div class="agent-header">
+        <div class="agent-header-info">
+          <span class="agent-status-dot" aria-hidden="true"></span>
+          <span class="agent-name">V-10026</span>
+          <span class="agent-subtitle">laddtnov AI agent</span>
+        </div>
+        <button id="agent-close" class="agent-close" type="button" aria-label="Close agent">✕</button>
+      </div>
+      <div id="agent-messages" class="agent-messages" role="log" aria-live="polite" aria-label="Chat messages"></div>
+      <div id="agent-suggestions" class="agent-suggestions"></div>
+      <div class="agent-input-row">
+        <input
+          type="text"
+          id="agent-input"
+          class="agent-input"
+          placeholder=">_ Ask me anything..."
+          autocomplete="off"
+          aria-label="Message to AI agent"
+          maxlength="200"
+        >
+        <button id="agent-send" class="agent-send" type="button" aria-label="Send message">SEND</button>
+      </div>
+    </dialog>
+    <button
+      id="agent-toggle"
+      class="agent-toggle"
+      type="button"
+      aria-label="Open AI agent chat"
+      aria-expanded="false"
+      aria-controls="agent-panel"
+    >
+      <span class="agent-toggle-icon" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+          <rect x="6.5" y="0" width="1" height="2.5" rx="0.5"/>
+          <circle cx="7" cy="0" r="1"/>
+          <path fill-rule="evenodd" d="M0 3h14v10H0V3zm2 3.5h3v2H2v-2zm7 0h3v2H9v-2zM4 9.5h6v1.5H4V9.5z"/>
+        </svg>
+      </span>
+      <span class="agent-toggle-label">AI AGENT</span>
+    </button>
+  </aside>
 
   <div class="settings-panel" id="settings-panel">
     <button

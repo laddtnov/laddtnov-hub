@@ -51,6 +51,7 @@
 /* ── Panel ── */
 .agent-panel {
   width: 340px;
+  max-width: calc(100vw - 48px);
   max-height: 480px;
   display: flex;
   flex-direction: column;

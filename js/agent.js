@@ -126,10 +126,11 @@ export function initAgent() {
     const typing = createTyping();
     messages.append(typing);
     scrollBottom();
+    const jitter = (crypto.getRandomValues(new Uint32Array(1))[0] / 0xFFFFFFFF) * 400;
     setTimeout(() => {
       typing.remove();
       addMsg(text, 'bot');
-    }, 600 + Math.random() * 400);
+    }, 600 + jitter);
   }
 
   function clearSuggestions() {

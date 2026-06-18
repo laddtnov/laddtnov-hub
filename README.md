@@ -44,10 +44,6 @@ Cyberpunk-style front-end portfolio built with semantic HTML5, modular CSS, and 
 
 A floating cyberpunk-styled AI chat widget fixed to the bottom-right corner.
 
-| Closed | Open |
-|--------|------|
-| ![Agent toggle button](docs/screenshots/agent-toggle.jpg) | ![Agent panel open](docs/screenshots/agent-panel.jpg) |
-
 - **Toggle button** — `AI` badge with neon-cyan glow; collapses to icon-only on mobile
 - **Chat panel** — scrollable message history, typing indicator, quick-reply chips
 - **Crypto-random IDs** — message IDs generated with `crypto.getRandomValues()` (no `Math.random()`)

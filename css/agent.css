@@ -322,6 +322,10 @@
   .agent-messages {
     min-height: 0;
   }
+
+  body.agent-open .status-indicator {
+    display: none;
+  }
 }
 
 @keyframes agent-open-mobile {

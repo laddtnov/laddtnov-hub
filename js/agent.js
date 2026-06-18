@@ -164,7 +164,7 @@ export function initAgent() {
 
   function openPanel() {
     open = true;
-    panel.removeAttribute('hidden');
+    panel.setAttribute('open', '');
     document.body.classList.add('agent-open');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close AI agent chat');
@@ -177,7 +177,7 @@ export function initAgent() {
 
   function closePanel() {
     open = false;
-    panel.setAttribute('hidden', '');
+    panel.removeAttribute('open');
     document.body.classList.remove('agent-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open AI agent chat');

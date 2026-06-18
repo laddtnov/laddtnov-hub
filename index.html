@@ -704,8 +704,8 @@
   <button class="back-to-top" id="back-to-top" aria-label="Scroll back to top" hidden>↑</button>
 
   <!-- laddtnov AI Agent — V-10026 -->
-  <div id="agent-widget" class="agent-widget" role="complementary" aria-label="laddtnov AI agent">
-    <div id="agent-panel" class="agent-panel" role="dialog" aria-label="V-10026 AI agent" aria-modal="false" hidden>
+  <aside id="agent-widget" class="agent-widget" aria-label="laddtnov AI agent">
+    <dialog id="agent-panel" class="agent-panel" aria-label="V-10026 AI agent">
       <div class="agent-header">
         <div class="agent-header-info">
           <span class="agent-status-dot" aria-hidden="true"></span>
@@ -728,7 +728,7 @@
         >
         <button id="agent-send" class="agent-send" type="button" aria-label="Send message">SEND</button>
       </div>
-    </div>
+    </dialog>
     <button
       id="agent-toggle"
       class="agent-toggle"
@@ -746,7 +746,7 @@
       </span>
       <span class="agent-toggle-label">AI AGENT</span>
     </button>
-  </div>
+  </aside>
 
   <div class="settings-panel" id="settings-panel">
     <button

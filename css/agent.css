@@ -61,7 +61,17 @@
   animation: agent-open 0.2s ease;
 }
 
-.agent-panel[hidden] {
+dialog.agent-panel {
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--neon-cyan);
+}
+
+dialog.agent-panel[open] {
+  display: flex;
+}
+
+dialog.agent-panel:not([open]) {
   display: none;
 }
 

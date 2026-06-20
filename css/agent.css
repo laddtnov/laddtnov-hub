@@ -168,8 +168,9 @@ dialog.agent-panel:not([open]) {
   max-width: 88%;
 }
 
-.agent-msg--bot { align-self: flex-start; }
-.agent-msg--user { align-self: flex-end; }
+.agent-msg--bot      { align-self: flex-start; }
+.agent-msg--user     { align-self: flex-end; }
+.agent-msg--employer { align-self: flex-start; }
 
 .agent-msg__bubble {
   padding: 8px 12px;
@@ -192,6 +193,13 @@ dialog.agent-panel:not([open]) {
   text-align: right;
 }
 
+/* Employer challenge messages — cyber-pink accent */
+.agent-msg--employer .agent-msg__bubble {
+  background: rgba(255, 0, 128, 0.06);
+  border-left: 2px solid var(--cyber-pink);
+  color: var(--text-gray);
+}
+
 .agent-msg__prefix {
   font-family: 'Share Tech Mono', 'Courier New', monospace;
   font-size: 9px;
@@ -200,8 +208,19 @@ dialog.agent-panel:not([open]) {
   opacity: 0.5;
 }
 
-.agent-msg--bot .agent-msg__prefix { color: var(--neon-cyan); }
-.agent-msg--user .agent-msg__prefix { color: var(--neon-cyan); text-align: right; }
+.agent-msg--bot .agent-msg__prefix      { color: var(--neon-cyan); }
+.agent-msg--user .agent-msg__prefix     { color: var(--neon-cyan); text-align: right; }
+.agent-msg--employer .agent-msg__prefix { color: var(--cyber-pink); }
+
+/* Challenge chip — pink accent to stand out from the regular chips */
+.agent-chip--challenge {
+  border-color: var(--cyber-pink);
+  color: var(--cyber-pink);
+}
+.agent-chip--challenge:hover {
+  background: rgba(255, 0, 128, 0.1);
+  border-color: var(--cyber-pink);
+}
 
 /* Typing indicator */
 .agent-typing .agent-msg__bubble {

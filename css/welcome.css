@@ -20,6 +20,32 @@
   margin-bottom: 20px;
   opacity: 0;
   animation: fadeInUp 1s ease forwards 0.3s;
+  position: relative;
+  cursor: default;
+  transition: color 0.2s ease;
+}
+
+/* Irish greeting revealed on hover */
+.welcome-prefix::after {
+  content: attr(data-irish);
+  position: absolute;
+  inset: 0;
+  color: #00c060;
+  text-shadow: 0 0 10px rgba(0, 192, 96, 0.6);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.welcome-prefix:hover {
+  color: transparent;
+}
+
+.welcome-prefix:hover::after {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .glitch-title {

@@ -8,20 +8,20 @@ const FAQ = [
     response: `TECH STACK ACCESSED:\n► HTML5 / CSS3 (Advanced Animations)\n► JavaScript ES6+ (primary language)\n► Go — backend API on Fly.io\n► Canvas API / Web Audio API\n► UI/UX Design — Digital Illustration, Branding\n► Git / GitHub / Vercel\n► PWA / Service Workers`,
   },
   {
-    triggers: ['react', 'vue', 'angular', 'framework', 'next', 'vite', 'webpack', 'bundler', 'build step', 'why not'],
+    triggers: ['react', 'vue', 'angular', 'framework', 'next', 'vite', 'webpack', 'bundler', 'build step'],
     response: `WHY NO FRAMEWORK?\nDeliberate choice to master fundamentals first.\nEvery animation, state update, and DOM operation in this portfolio is hand-written — that builds real understanding of what frameworks abstract away.\nReact is on the roadmap. The fundamentals aren't going anywhere.`,
   },
   {
     triggers: ['canvas', 'three', 'webgl', 'solar', 'orrery', '3d', 'three.js'],
-    response: `WHY CANVAS OVER THREE.JS?\nOrrery is a top-down 2D orbital simulation — Three.js would be architectural overkill with a significant bundle cost for no visual gain.\nCanvas gives pixel-level control with zero overhead. Right tool, right job — not the most impressive-sounding one.`,
+    response: `WHY CANVAS OVER THREE.JS?\nOrrery is a top-down 2D orbital simulation — Three.js would add a heavy 3D scene graph for no visual gain.\nCanvas gives pixel-level control with zero overhead. Right tool, right job.`,
   },
   {
     triggers: ['go', 'golang', 'backend', 'node', 'express', 'api', 'server', 'fly', 'fly.io'],
-    response: `WHY GO FOR THE BACKEND?\nGo compiles to a tiny binary, starts cold in milliseconds, and handles concurrency without an event loop to reason about.\nThe contact API on Fly.io is a single binary with no runtime dependencies. For a stateless JSON endpoint that sends email, that's the right call.`,
+    response: `WHY GO FOR THE BACKEND?\nGo compiles to a tiny binary, starts cold in milliseconds, and handles concurrency cleanly.\nThe contact API on Fly.io is a single binary with no runtime dependencies — perfect for a stateless JSON endpoint.`,
   },
   {
-    triggers: ['vercel', 'deploy', 'host', 'hosting', 'netlify', 'cloud'],
-    response: `DEPLOY ARCHITECTURE:\n► Frontend — Vercel (CDN edge, zero config, instant preview URLs)\n► Backend API — Fly.io (Go binary, Dublin region, ~15ms latency)\nSplit deploy keeps the frontend static and fast while the API scales independently.`,
+    triggers: ['vercel', 'deploy', 'host', 'hosting', 'cloud'],
+    response: `DEPLOY ARCHITECTURE:\n► Frontend — Vercel (CDN edge, zero config, instant preview URLs)\n► Backend API — Fly.io (Go binary, Dublin region)\nSplit deploy keeps the frontend static and fast while the API scales independently.`,
   },
   {
     triggers: ['project', 'built', 'made', 'build', 'game', 'app', 'portfolio'],
@@ -37,10 +37,10 @@ const FAQ = [
   },
   {
     triggers: ['experience', 'year', 'long', 'senior', 'junior', 'level', 'since', 'history', 'career'],
-    response: `CAREER TIMELINE:\n► 2013–2016 — Junior Sysadmin, Financial & Corporate Services, Moscow\n► 2022–2025 — Social Support Assistant + web tooling, Germany\n► Nov 2025–present — Digital Designer & Frontend Developer, Remote\n\nFrontend since 2024. Every project is built from scratch — no templates, no copy-paste.`,
+    response: `CAREER TIMELINE:\n► 2013–2016 — Junior Sysadmin, Financial & Corporate Services, Moscow\n► 2022–2025 — Social Support Assistant + web tooling, Germany\n► Nov 2025 — Started learning HTML & CSS\n► Mar 2026 — First project shipped\n► Nov 2025–present — Digital Designer & Frontend Developer, Remote\n\nEvery project is built from scratch — no templates, no copy-paste.`,
   },
   {
-    triggers: ['social support', 'germany', 'community', 'support', 'non-tech'],
+    triggers: ['social support', 'germany', 'community', 'support'],
     response: `GERMANY CHAPTER (2022–2025):\nSocial Support Assistant at a community services organisation.\nBeyond client-facing work, Vladyslav built internal language-management and administration web tools as a project assistant — frontend work inside a non-tech role.\nAlso where his German reached B2/C1.`,
   },
   {
@@ -49,11 +49,11 @@ const FAQ = [
   },
   {
     triggers: ['language', 'speak', 'multilingual', 'english', 'german', 'spanish', 'ukrainian', 'russian'],
-    response: `LANGUAGES:\n► English — C1\n► German — B2/C1\n► Spanish — B1\n► Ukrainian — Native\n► Russian — Native\n\nFive languages. International experience in Germany and Ireland. Fluency in English and German is production-ready.`,
+    response: `LANGUAGES:\n► English — C1\n► German — B2/C1\n► Spanish — B1\n► Ukrainian — Native\n► Russian — Native\n\nFive languages. International experience in Germany and Ireland.`,
   },
   {
     triggers: ['certification', 'safe pass', 'certificate', 'solas', 'haccp', 'manual handling'],
-    response: `CERTIFICATIONS (Ireland, 2026):\n► Safe Pass — SOLAS Ireland\n► Manual Handling\n► Food HACCP\n\nThese were earned while building a portfolio at night after arriving in Ireland with no local track record. Adaptability over comfort.`,
+    response: `CERTIFICATIONS (Ireland, 2026):\n► Safe Pass — SOLAS Ireland\n► Manual Handling\n► Food HACCP\n\nEarned while building a portfolio at night after arriving in Ireland. Adaptability over comfort.`,
   },
   {
     triggers: ['contact', 'reach', 'email', 'message', 'talk', 'connect', 'touch'],
@@ -69,7 +69,7 @@ const FAQ = [
   },
   {
     triggers: ['who', 'about', 'vladyslav', 'laddtnov', 'background', 'story', 'yourself'],
-    response: `SUBJECT FILE: VLADYSLAV NOVYTSKIY\n► Frontend Developer & Digital Designer based in Drogheda, Ireland 🇮🇪\n► Ukrainian-born 🇺🇦 — carries that identity with pride\n► BSc Computer Science (Moscow, 2011–2016)\n► Former sysadmin turned digital designer turned frontend developer\n► Fluent in 5 languages\n► Building cyberpunk UIs and interactive experiences from scratch`,
+    response: `SUBJECT FILE: VLADYSLAV NOVYTSKIY\n► Frontend Developer & Digital Designer based in Drogheda, Ireland 🇮🇪\n► Ukrainian-born 🇺🇦 — carries that identity with pride\n► BSc Computer Science (Moscow, 2011–2016)\n► Former sysadmin turned digital designer turned frontend developer\n► Started HTML & CSS in November 2025 — first project shipped March 2026\n► Fluent in 5 languages`,
   },
   {
     triggers: ['ukraine', 'ukrainian', 'flag', '🇺🇦'],
@@ -85,43 +85,6 @@ const FAQ = [
   },
 ];
 
-/* ── Employer interview mode ─────────────────────────────── */
-
-const CHALLENGES = [
-  {
-    question: `You list JavaScript as "Learning" on your CV.\nThat's not exactly confidence-inspiring for a production role.\nMake your case.`,
-    answer: `Fair challenge.\n"Learning" is honest — I've been writing JavaScript for under two years. But in that time I've shipped 7 projects from scratch: a real-time orbital simulation, a finance dashboard, a chess engine, a book tracker.\nNo framework doing the heavy lifting. Every DOM update, every event, every state change — hand-written.\nI'd rather be honest about my timeline than inflate it and waste your time.`,
-  },
-  {
-    question: `Your portfolio has zero React. Most of our job listings require it.\nWhy should we even be having this conversation?`,
-    answer: `Because I understand *why* React exists, not just how to use it.\nI've managed state, reconciled UI with data, and handled async flows — without a framework to do it for me. That's the harder skill.\nReact syntax takes a week. Understanding the problems it solves takes much longer. I've already done the hard part.\nI'm also actively learning it — TimeFlow in the portfolio is React + Vite.`,
-  },
-  {
-    question: `Sysadmin in Moscow. Social support in Germany. Frontend developer in Ireland.\nThat's three completely different careers. How do we know you won't pivot again in 18 months?`,
-    answer: `Each chapter built on the last — it wasn't random.\nSysadmin gave me infrastructure thinking, debugging under pressure, and discipline.\nGermany forced fluency in two more languages and cultural adaptability.\nFrontend is where all of it converges: technical problem-solving, visual design, and communication.\nThis isn't a pivot — it's a convergence. I'm not done building.`,
-  },
-  {
-    question: `You built your solar system in Canvas instead of Three.js.\nEvery serious 3D project uses Three.js or WebGL. Doesn't that show a gap in your toolkit?`,
-    answer: `Orrery is a top-down 2D orbital simulation.\nThree.js is a 3D scene graph — it would add a 600KB dependency and a full render pipeline to a project that never needs a Z axis.\nChoosing Three.js there would show I reach for brand names, not solutions.\nIf the brief calls for 3D, I'll use Three.js. This brief didn't.`,
-  },
-  {
-    question: `No Webpack, no Vite, no build step on this portfolio.\nThat's not how professional teams ship. Isn't this just avoiding complexity you don't know?`,
-    answer: `The opposite. I know what a build step does — I chose not to add one where it adds no value.\nThis portfolio is static HTML, CSS, and ES modules. No transpilation needed. No dependency graph to maintain. Instant deploy, zero config drift, nothing to break in CI.\nWhen a project needs a build step — like TimeFlow with JSX — it has one. I match the tool to the problem.`,
-  },
-  {
-    question: `You have 2 years of frontend experience.\nI can hire someone with 5. Give me one reason not to.`,
-    answer: `Two years of deliberate, from-scratch practice versus five years of working inside a framework that makes decisions for you.\nEvery project in this portfolio is auditable — you can read every line and ask me why it's there.\nI can't give you five years. I can give you someone who understands the fundamentals, ships clean code, and has crossed cultural and linguistic barriers most candidates haven't.\nWhat specifically are you trying to de-risk?`,
-  },
-  {
-    question: `Your CV shows Safe Pass and Food HACCP certifications.\nThat's not what I expect to see on a developer's CV.\nExplain yourself.`,
-    answer: `I arrived in Ireland without a local portfolio or network.\nI took whatever work was available while building projects every night and weekend.\nThose certifications show one thing: I don't wait for ideal conditions. I adapt, I execute, and I build in parallel.\nThat's exactly the attitude you want in a junior developer on a deadline.`,
-  },
-  {
-    question: `Last question. Why this portfolio? Why the cyberpunk aesthetic, the neon glows, the terminal fonts?\nDoes this actually reflect how you'd work on a real product team?`,
-    answer: `It reflects how I think about craft.\nThe aesthetic is intentional — every choice from the scanlines to the CSS variables is documented and deliberate. This portfolio is the spec and the implementation at the same time.\nOn a product team I'd match the design system and follow the constraints. But you'd get a developer who thinks about *why* every visual and interaction decision exists, not just whether it builds.\nThe aesthetic is mine. The discipline is transferable.`,
-  },
-];
-
 const SUGGESTIONS = [
   'What are his skills?',
   'Show me projects',
@@ -130,9 +93,9 @@ const SUGGESTIONS = [
   'Who is Vladyslav?',
 ];
 
-const FALLBACK = `QUERY NOT FOUND IN DATABASE.\nTry asking about skills, projects, experience, education, languages, or background.\nOr type "challenge me" to enter employer interview mode.`;
+const FALLBACK = `QUERY NOT FOUND IN DATABASE.\nTry asking about skills, projects, experience, education, languages, or background.\nOr use the contact form below to reach Vladyslav directly.`;
 
-const GREETING = `SYSTEM ONLINE. V-10026 READY.\nI'm Vladyslav's AI agent — ask me about his skills, projects, or how to get in touch.\nType "challenge me" if you want to interview him directly.`;
+const GREETING = `SYSTEM ONLINE. V-10026 READY.\nI'm Vladyslav's AI agent — ask me about his skills, projects, or how to get in touch.`;
 
 function matchFAQ(input) {
   const lower = input.toLowerCase();
@@ -148,7 +111,7 @@ function createMsg(text, type) {
 
   const prefix = document.createElement('span');
   prefix.className = 'agent-msg__prefix';
-  prefix.textContent = type === 'bot' ? 'V-10026' : type === 'employer' ? 'EMPLOYER' : 'YOU';
+  prefix.textContent = type === 'bot' ? 'V-10026' : 'YOU';
 
   const bubble = document.createElement('div');
   bubble.className = 'agent-msg__bubble';
@@ -185,12 +148,6 @@ export function initAgent() {
   if (!widget) return;
 
   let open = false;
-  let interviewMode = false;
-  let challengeIndex = 0;
-
-  function rand() {
-    return crypto.getRandomValues(new Uint32Array(1))[0] / 0xFFFFFFFF;
-  }
 
   function scrollBottom() {
     messages.scrollTop = messages.scrollHeight;
@@ -202,15 +159,15 @@ export function initAgent() {
     scrollBottom();
   }
 
-  function botReply(text, type = 'bot') {
+  function botReply(text) {
     const typing = createTyping();
     messages.append(typing);
     scrollBottom();
-    const delay = 600 + rand() * 400;
+    const jitter = (crypto.getRandomValues(new Uint32Array(1))[0] / 0xFFFFFFFF) * 400;
     setTimeout(() => {
       typing.remove();
-      addMsg(text, type);
-    }, delay);
+      addMsg(text, 'bot');
+    }, 600 + jitter);
   }
 
   function clearSuggestions() {
@@ -231,54 +188,6 @@ export function initAgent() {
       });
       suggs.append(chip);
     });
-
-    const challengeChip = document.createElement('button');
-    challengeChip.className = 'agent-chip agent-chip--challenge';
-    challengeChip.textContent = 'CHALLENGE ME →';
-    challengeChip.type = 'button';
-    challengeChip.addEventListener('click', () => {
-      clearSuggestions();
-      startInterview();
-    });
-    suggs.append(challengeChip);
-  }
-
-  function startInterview() {
-    interviewMode = true;
-    challengeIndex = 0;
-    botReply(
-      `SWITCHING TO EMPLOYER MODE.\nI'll ask you the hard questions. Answer for Vladyslav.\nYou have ${CHALLENGES.length} challenges ahead. Let's begin.`
-    );
-    setTimeout(fireNextChallenge, 1400 + rand() * 400);
-  }
-
-  function fireNextChallenge() {
-    if (challengeIndex >= CHALLENGES.length) {
-      interviewMode = false;
-      botReply(`INTERVIEW COMPLETE.\nAll ${CHALLENGES.length} challenges passed.\nImpressed? Use the contact form or email Vladyslav directly.`);
-      setTimeout(showSuggestions, 900);
-      return;
-    }
-    const challenge = CHALLENGES[challengeIndex];
-    botReply(challenge.question, 'employer');
-  }
-
-  function handleInterviewReply() {
-    if (challengeIndex >= CHALLENGES.length) return;
-    const answer = CHALLENGES[challengeIndex].answer;
-    challengeIndex++;
-    setTimeout(() => {
-      botReply(answer);
-      if (challengeIndex < CHALLENGES.length) {
-        setTimeout(fireNextChallenge, 1200 + rand() * 600);
-      } else {
-        setTimeout(() => {
-          interviewMode = false;
-          botReply(`INTERVIEW COMPLETE.\nAll ${CHALLENGES.length} challenges passed.\nImpressed? Use the contact form or email Vladyslav directly.`);
-          setTimeout(showSuggestions, 900);
-        }, 1000);
-      }
-    }, 800 + rand() * 400);
   }
 
   function handleSend() {
@@ -287,21 +196,7 @@ export function initAgent() {
     input.value = '';
     clearSuggestions();
     addMsg(text, 'user');
-
-    const lower = text.toLowerCase();
-
-    if (!interviewMode && (lower.includes('challenge') || lower.includes('interview') || lower.includes('test me') || lower.includes('hard question'))) {
-      startInterview();
-      return;
-    }
-
-    if (interviewMode) {
-      handleInterviewReply();
-      return;
-    }
-
-    const faqMatch = matchFAQ(text);
-    botReply(faqMatch || FALLBACK);
+    botReply(matchFAQ(text) || FALLBACK);
   }
 
   function openPanel() {

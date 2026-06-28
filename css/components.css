@@ -240,7 +240,7 @@
 /* Settings Panel */
 .settings-panel {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 3.5rem;
   left: 1.5rem;
   z-index: 200;
   display: flex;
@@ -350,7 +350,7 @@
 /* ── Back-to-Top Button ─────────────────────────────────────── */
 .back-to-top {
   position: fixed;
-  bottom: 5.5rem;
+  bottom: 8.5rem;
   right: 1.5rem;
   z-index: 190;
   width: 2.75rem;

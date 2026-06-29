@@ -135,6 +135,40 @@ function createTyping() {
   return wrap;
 }
 
+const PETS = {
+  robot:   { subtitle: 'BSOD.UNIT // ONLINE'  },
+  seagull: { subtitle: 'SEAGULL.SH // CAWING' },
+  sheep:   { subtitle: 'WOOL.OS // BAAING'    },
+  deus:    { subtitle: 'DEUS.EX // AUGMENTED' },
+};
+
+export function initPetSwitcher() {
+  const toggle   = document.getElementById('agent-toggle');
+  const subtitle = document.querySelector('.agent-subtitle');
+  if (!toggle) return;
+
+  function switchPet(name) {
+    toggle.querySelectorAll('[data-pet-svg]').forEach(svg => {
+      svg.style.display = svg.dataset.petSvg === name ? '' : 'none';
+    });
+    document.querySelectorAll('.pet-switch-btn').forEach(btn => {
+      const active = btn.dataset.pet === name;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    toggle.dataset.pet = name;
+    if (subtitle && PETS[name]) subtitle.textContent = PETS[name].subtitle;
+    localStorage.setItem('portfolio-pet', name);
+  }
+
+  const saved = localStorage.getItem('portfolio-pet') || 'robot';
+  switchPet(saved);
+
+  document.querySelectorAll('.pet-switch-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchPet(btn.dataset.pet));
+  });
+}
+
 export function initAgent() {
   const widget   = document.getElementById('agent-widget');
   const toggle   = document.getElementById('agent-toggle');

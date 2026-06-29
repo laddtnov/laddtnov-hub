@@ -107,6 +107,9 @@
   gap: 5px;
   justify-content: flex-end;
   margin-bottom: 4px;
+  border: none;
+  padding: 0;
+  min-width: 0;
 }
 
 .pet-switch-btn {

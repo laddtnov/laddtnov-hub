@@ -729,7 +729,8 @@
         <button id="agent-send" class="agent-send" type="button" aria-label="Send message">SEND</button>
       </div>
     </dialog>
-    <div class="pet-switcher" role="group" aria-label="Choose companion">
+    <fieldset class="pet-switcher">
+      <legend class="sr-only">Choose companion</legend>
       <button class="pet-switch-btn is-active" data-pet="robot" type="button" aria-pressed="true" title="BSOD Robot">
         <span class="pet-dot" style="--pet-color: var(--neon-cyan)"></span>
       </button>
@@ -742,7 +743,7 @@
       <button class="pet-switch-btn" data-pet="deus" type="button" aria-pressed="false" title="Augmented Agent">
         <span class="pet-dot" style="--pet-color: #f0a000"></span>
       </button>
-    </div>
+    </fieldset>
     <button
       id="agent-toggle"
       class="bsod-pet"

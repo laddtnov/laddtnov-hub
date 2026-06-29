@@ -87,6 +87,13 @@
   margin: 10px 0;
 }
 
+@media (max-width: 480px) {
+  /* push footer below the fixed pet widget (16px bottom + ~103px widget height + buffer) */
+  .footer {
+    padding-bottom: 140px;
+  }
+}
+
 /* CV Download Section (bottom) */
 .cv-download-section {
   margin-top: 40px;

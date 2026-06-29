@@ -100,6 +100,210 @@
   50%       { stroke: var(--cyber-pink); opacity: 1;   r: 5; }
 }
 
+/* ── Pet Switcher ── */
+.pet-switcher {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: flex-end;
+  margin-bottom: 4px;
+  border: none;
+  padding: 0;
+  min-width: 0;
+}
+
+.pet-switch-btn {
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.pet-switch-btn:hover {
+  transform: scale(1.2);
+  border-color: var(--pet-color);
+}
+
+.pet-switch-btn.is-active {
+  border-color: var(--pet-color);
+}
+
+.pet-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--pet-color);
+  opacity: 0.3;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.pet-switch-btn.is-active .pet-dot,
+.pet-switch-btn:hover .pet-dot {
+  opacity: 1;
+  box-shadow: 0 0 6px var(--pet-color);
+}
+
+/* ── Per-pet glow overrides ── */
+#agent-toggle[data-pet="seagull"] {
+  filter: drop-shadow(0 0 8px rgba(0, 192, 96, 0.35));
+  animation: bsod-float 4s ease-in-out infinite;
+}
+#agent-toggle[data-pet="seagull"]:hover {
+  filter: drop-shadow(0 0 18px rgba(0, 192, 96, 0.7));
+  animation: bsod-float 4s ease-in-out infinite, seagull-sway 0.8s ease-in-out infinite;
+}
+#agent-toggle[data-pet="sheep"] {
+  filter: drop-shadow(0 0 8px rgba(255, 45, 120, 0.35));
+  animation: bsod-float 3.5s ease-in-out infinite;
+}
+#agent-toggle[data-pet="sheep"]:hover {
+  filter: drop-shadow(0 0 18px rgba(255, 45, 120, 0.7));
+  animation: bsod-float 3.5s ease-in-out infinite, sheep-bounce 0.5s ease-in-out infinite;
+}
+#agent-toggle[data-pet="deus"] {
+  filter: drop-shadow(0 0 8px rgba(240, 160, 0, 0.35));
+  animation: bsod-float 5s ease-in-out infinite;
+}
+#agent-toggle[data-pet="deus"]:hover {
+  filter: drop-shadow(0 0 18px rgba(240, 160, 0, 0.7));
+  animation: bsod-float 5s ease-in-out infinite;
+}
+
+@keyframes seagull-sway {
+  0%, 100% { transform: translateY(-7px) rotate(-3deg); }
+  50%       { transform: translateY(-9px) rotate(3deg); }
+}
+@keyframes sheep-bounce {
+  0%, 100% { transform: translateY(-6px); }
+  30%       { transform: translateY(-12px) scaleX(1.05); }
+  60%       { transform: translateY(-5px) scaleX(0.97); }
+}
+
+/* ── Seagull SVG parts ── */
+.seagull-head,
+.seagull-body {
+  fill: var(--dark-card);
+  stroke: #00c060;
+  stroke-width: 1.5;
+}
+.seagull-beak {
+  fill: rgba(0, 192, 96, 0.2);
+  stroke: #00c060;
+  stroke-width: 1.5;
+}
+.seagull-eye {
+  fill: #00c060;
+  filter: drop-shadow(0 0 2px #00c060);
+}
+.seagull-neck,
+.seagull-wing,
+.seagull-tail {
+  fill: none;
+  stroke: #00c060;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+.seagull-leg {
+  stroke: #00c060;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+.seagull-foot {
+  fill: none;
+  stroke: #00c060;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Sheep SVG parts ── */
+.sheep-wool {
+  fill: var(--dark-card);
+  stroke: #ff2d78;
+  stroke-width: 1.5;
+}
+.sheep-head,
+.sheep-ear {
+  fill: var(--dark-card);
+  stroke: #ff2d78;
+  stroke-width: 1.5;
+}
+.sheep-eye {
+  fill: #ff2d78;
+  filter: drop-shadow(0 0 2px #ff2d78);
+}
+.sheep-nose {
+  fill: none;
+  stroke: #ff2d78;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+.sheep-leg {
+  fill: var(--dark-card);
+  stroke: #ff2d78;
+  stroke-width: 1.5;
+}
+
+/* ── Deus Ex Agent SVG parts ── */
+.deus-head,
+.deus-neck,
+.deus-coat {
+  fill: var(--dark-card);
+  stroke: #f0a000;
+  stroke-width: 1.5;
+}
+.deus-visor {
+  fill: rgba(240, 160, 0, 0.15);
+  stroke: #f0a000;
+  stroke-width: 1.5;
+}
+.deus-eye {
+  fill: #f0a000;
+  animation: deus-eye-pulse 2s ease-in-out infinite;
+}
+.deus-lapel {
+  fill: rgba(240, 160, 0, 0.1);
+  stroke: #f0a000;
+  stroke-width: 1;
+}
+.deus-aug {
+  fill: var(--dark-card);
+  stroke: #f0a000;
+  stroke-width: 1;
+  opacity: 0.7;
+}
+.deus-aug-line {
+  stroke: #f0a000;
+  stroke-width: 1;
+  opacity: 0.5;
+}
+.deus-chest {
+  fill: var(--dark-card);
+  stroke: #f0a000;
+  stroke-width: 1;
+}
+.deus-core {
+  fill: #f0a000;
+  filter: drop-shadow(0 0 4px #f0a000);
+  animation: deus-core-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes deus-eye-pulse {
+  0%, 100% { opacity: 1;   filter: drop-shadow(0 0 3px #f0a000); }
+  50%       { opacity: 0.4; filter: drop-shadow(0 0 8px #f0a000); }
+}
+@keyframes deus-core-pulse {
+  0%, 100% { opacity: 0.7; }
+  50%       { opacity: 1;   filter: drop-shadow(0 0 6px #f0a000); }
+}
+
 /* ── Panel ── */
 .agent-panel {
   width: 340px;

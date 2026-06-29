@@ -7,7 +7,7 @@ import { initAnalytics } from './analytics.js';
 import { initEasterEgg } from './easter-egg.js';
 import { initSounds } from './sounds.js';
 import { initContactForm } from './contact.js';
-import { initAgent } from './agent.js';
+import { initAgent, initPetSwitcher } from './agent.js';
 import { on, EVENTS } from './events.js';
 
 function init() {
@@ -30,6 +30,7 @@ function init() {
   initAnalytics();
   initContactForm();
   initAgent();
+  initPetSwitcher();
 
   on(EVENTS.NAV_SECTION_CHANGED, ({ sectionId }) => {
     document.body.dataset.activeSection = sectionId;

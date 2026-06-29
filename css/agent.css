@@ -569,6 +569,21 @@ dialog.agent-panel:not([open]) {
     height: 73px;
   }
 
+  .pet-switcher {
+    gap: 3px;
+    margin-bottom: 2px;
+  }
+
+  .pet-switch-btn {
+    width: 18px;
+    height: 18px;
+  }
+
+  .pet-dot {
+    width: 7px;
+    height: 7px;
+  }
+
   /* full-screen panel on mobile — above navbar, slide up */
   .agent-panel {
     position: fixed;

@@ -4,7 +4,7 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "/opt/homebrew/bin/python3.14",
-      "runtimeArgs": ["-m", "http.server", "8082"],
+      "runtimeArgs": ["-m", "http.server", "8082", "-d", "/Users/laddtnov/Library/CloudStorage/ProtonDrive-novytskiyvladislav@proton.me-folder/laddtnov-labs/github/projects/Laddtnov-hub/.claude/worktrees/xenodochial-hoover-f28a74"],
       "port": 8082
     },
     {

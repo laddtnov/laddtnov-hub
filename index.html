@@ -250,6 +250,16 @@
           <span class="achievement-badge__title" data-i18n-ua="Перша візуалізація даних" data-i18n-es="Primera Visualización de Datos">First Data Viz</span>
           <span class="achievement-badge__project">GrowFlow</span>
         </div>
+        <div class="achievement-badge">
+          <span class="achievement-badge__icon" aria-hidden="true">🧭</span>
+          <span class="achievement-badge__title" data-i18n-ua="Перший застосунок на SvelteKit" data-i18n-es="Primera App con SvelteKit">First SvelteKit App</span>
+          <span class="achievement-badge__project">Trailune</span>
+        </div>
+        <div class="achievement-badge">
+          <span class="achievement-badge__icon" aria-hidden="true">🔷</span>
+          <span class="achievement-badge__title" data-i18n-ua="Перший застосунок на TypeScript" data-i18n-es="Primera App con TypeScript">First TypeScript App</span>
+          <span class="achievement-badge__project">Trailune</span>
+        </div>
       </div>
     </div>
   </section>
@@ -284,6 +294,12 @@
         <p class="devlog-entry__date">APR 2026</p>
         <h3 class="devlog-entry__title" data-i18n-ua="TimeFlow і GrowFlow: React і візуалізація даних" data-i18n-es="TimeFlow y GrowFlow: React y visualización de datos">TimeFlow &amp; GrowFlow: React and data viz</h3>
         <p class="devlog-entry__text" data-i18n-ua="TimeFlow — мій перший застосунок на React + Vite (трекер зустрічей із тижневим календарем), а GrowFlow — фінансовий трекер з графіками Chart.js. Разом вони навчили мене хукам, стану компонентів і роботі зі збірками." data-i18n-es="TimeFlow es mi primera app con React + Vite (un gestor de citas con calendario semanal), y GrowFlow es un gestor de finanzas con gráficos de Chart.js. Juntos me enseñaron hooks, estado de componentes y herramientas de build.">TimeFlow is my first React + Vite app (a weekly-calendar appointment tracker), and GrowFlow is a finance tracker with Chart.js graphs. Together they taught me hooks, component state, and working with a build tool.</p>
+      </article>
+
+      <article class="devlog-entry scroll-animate">
+        <p class="devlog-entry__date">JUL 2026</p>
+        <h3 class="devlog-entry__title" data-i18n-ua="Trailune: мій перший застосунок на SvelteKit і TypeScript" data-i18n-es="Trailune: mi primera app con SvelteKit y TypeScript">Trailune: my first SvelteKit + TypeScript app</h3>
+        <p class="devlog-entry__text" data-i18n-ua="Trailune — локальний трекер подорожей: журнали поїздок, чек-листи для пакування та карта відвіданих країн. Це мій перший проєкт на SvelteKit і TypeScript — я розібрався з реактивними сторами, маршрутизацією на файлах, а статичні типи ловили помилки ще до того, як їх бачив браузер." data-i18n-es="Trailune es un tracker de viajes local: diarios de viaje, listas de equipaje y un mapa de países visitados. Es mi primer proyecto con SvelteKit y TypeScript — aprendí stores reactivos, enrutamiento por archivos, y los tipos estáticos atrapaban errores antes de que el navegador los viera.">Trailune is a local-only travel tracker: trip journals, packing checklists, and a world map of visited countries. It's my first build with SvelteKit and TypeScript — I learned reactive stores, file-based routing, and static types that caught bugs before the browser ever saw them.</p>
       </article>
     </div>
   </section>
@@ -523,6 +539,36 @@
         </div>
       </article>
 
+      <!-- Project 8: Trailune -->
+      <article
+        id="project-trailune"
+        class="project-tile scroll-animate"
+        data-category="tool productivity"
+        data-year="2026"
+        data-summary="SvelteKit + TypeScript travel tracker — trip journals, packing checklists, and a world map of visited countries, all stored locally."
+        data-challenge="First time with SvelteKit and TypeScript — learning reactive stores, file-based routing, and typed localStorage data models while keeping the app fully local, no backend."
+      >
+        <div class="project-image">
+          <img src="assets/thumbnails/trailune-thumb.jpg" alt="Trailune project preview" loading="lazy" decoding="async">
+          <span class="project-badge-new">NEW</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">TRAVEL TRACKER</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Trailune</h3>
+          <p class="project-tech">SvelteKit • TypeScript • LocalStorage</p>
+          <p class="project-metrics">Trip journals · Packing checklists · World map of visited countries</p>
+          <p class="project-desc" data-i18n-ua="Локальний трекер подорожей з журналами поїздок, чек-листами для пакування та картою відвіданих країн" data-i18n-es="Tracker de viajes local con diarios de viaje, listas de equipaje y mapa de países visitados">Local-only travel tracker with trip journals, packing checklists, and a world map of visited countries</p>
+          <p class="project-devlog">&gt;_ First SvelteKit + TypeScript build — learned reactive stores, file-based routing, and typed data models</p>
+          <div class="project-actions">
+            <a href="https://trailune.laddtnov.xyz/" class="project-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Open Trailune project in a new tab" data-i18n-ua="Відвідати" data-i18n-es="Visitar">Visit</a>
+            <button type="button" class="project-inspect-btn" aria-label="Inspect Trailune project" data-i18n-ua="Деталі" data-i18n-es="Inspeccionar">Inspect</button>
+            <button type="button" class="project-share-btn" aria-label="Copy link to Trailune project"><span class="project-share-btn__text" data-i18n-ua="Поділитися" data-i18n-es="Compartir">Share</span></button>
+          </div>
+        </div>
+      </article>
+
       <!-- "What's next" teaser card -->
       <article class="project-tile project-tile--next scroll-animate" aria-label="Upcoming project teaser">
         <div class="project-next">
@@ -572,6 +618,7 @@
           <span class="skill-badge">HTML5</span>
           <span class="skill-badge">CSS3</span>
           <span class="skill-badge">JavaScript ES6+</span>
+          <span class="skill-badge" data-added="2026">TypeScript</span>
           <span class="skill-badge" data-added="2026">Go</span>
         </div>
       </div>
@@ -580,6 +627,7 @@
         <h3 class="skill-category-title">FRAMEWORKS &amp; TOOLS</h3>
         <div class="skill-badges">
           <span class="skill-badge" data-added="2026">React</span>
+          <span class="skill-badge" data-added="2026">SvelteKit</span>
           <span class="skill-badge" data-added="2026">Vite</span>
           <span class="skill-badge" data-added="2026">Chart.js</span>
           <span class="skill-badge" data-added="2026">Web Audio API</span>

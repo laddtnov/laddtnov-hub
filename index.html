@@ -260,6 +260,11 @@
           <span class="achievement-badge__title" data-i18n-ua="Перший застосунок на TypeScript" data-i18n-es="Primera App con TypeScript">First TypeScript App</span>
           <span class="achievement-badge__project">Trailune</span>
         </div>
+        <div class="achievement-badge">
+          <span class="achievement-badge__icon" aria-hidden="true">🌌</span>
+          <span class="achievement-badge__title" data-i18n-ua="Перша інтерактивна карта всесвіту" data-i18n-es="Primer Mapa Interactivo del Universo">First Interactive Universe Map</span>
+          <span class="achievement-badge__project">Voidarium</span>
+        </div>
       </div>
     </div>
   </section>
@@ -300,6 +305,12 @@
         <p class="devlog-entry__date">JUL 2026</p>
         <h3 class="devlog-entry__title" data-i18n-ua="Trailune: мій перший застосунок на SvelteKit і TypeScript" data-i18n-es="Trailune: mi primera app con SvelteKit y TypeScript">Trailune: my first SvelteKit + TypeScript app</h3>
         <p class="devlog-entry__text" data-i18n-ua="Trailune — локальний трекер подорожей: журнали поїздок, чек-листи для пакування та карта відвіданих країн. Це мій перший проєкт на SvelteKit і TypeScript — я розібрався з реактивними сторами, маршрутизацією на файлах, а статичні типи ловили помилки ще до того, як їх бачив браузер." data-i18n-es="Trailune es un tracker de viajes local: diarios de viaje, listas de equipaje y un mapa de países visitados. Es mi primer proyecto con SvelteKit y TypeScript — aprendí stores reactivos, enrutamiento por archivos, y los tipos estáticos atrapaban errores antes de que el navegador los viera.">Trailune is a local-only travel tracker: trip journals, packing checklists, and a world map of visited countries. It's my first build with SvelteKit and TypeScript — I learned reactive stores, file-based routing, and static types that caught bugs before the browser ever saw them.</p>
+      </article>
+
+      <article class="devlog-entry scroll-animate">
+        <p class="devlog-entry__date">JUL 2026</p>
+        <h3 class="devlog-entry__title" data-i18n-ua="Voidarium: карта галактик і межі Canvas" data-i18n-es="Voidarium: un mapa de galaxias y los límites del canvas">Voidarium: a galaxy map and the limits of canvas</h3>
+        <p class="devlog-entry__text" data-i18n-ua="Voidarium — це анімована карта галактик з навігацією кліком: чорні діри, надмасивні зорі, космічні порожнечі. Найскладнішим було зробити панорамування, масштабування та відчуття справжнього космічного масштабу на чистому Canvas API без жодних залежностей." data-i18n-es="Voidarium es un mapa de galaxias animado con navegación al hacer clic: agujeros negros, estrellas supermasivas y vacíos cósmicos. Lo más difícil fue lograr el paneo, el zoom y una sensación real de escala cósmica usando solo la API de Canvas, sin dependencias." >Voidarium is an animated galaxy map with click-to-travel navigation: black holes, supermassive stars, cosmic voids. The hardest part was getting pan, zoom, and a convincing sense of cosmic scale right using nothing but the vanilla Canvas API — zero dependencies.</p>
       </article>
     </div>
   </section>
@@ -550,7 +561,6 @@
       >
         <div class="project-image">
           <img src="assets/thumbnails/trailune-thumb.jpg" alt="Trailune project preview" loading="lazy" decoding="async">
-          <span class="project-badge-new">NEW</span>
           <div class="project-overlay" aria-hidden="true">
             <span class="view-project">TRAVEL TRACKER</span>
           </div>
@@ -565,6 +575,36 @@
             <a href="https://trailune.laddtnov.xyz/" class="project-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Open Trailune project in a new tab" data-i18n-ua="Відвідати" data-i18n-es="Visitar">Visit</a>
             <button type="button" class="project-inspect-btn" aria-label="Inspect Trailune project" data-i18n-ua="Деталі" data-i18n-es="Inspeccionar">Inspect</button>
             <button type="button" class="project-share-btn" aria-label="Copy link to Trailune project"><span class="project-share-btn__text" data-i18n-ua="Поділитися" data-i18n-es="Compartir">Share</span></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 9: Voidarium -->
+      <article
+        id="project-voidarium"
+        class="project-tile scroll-animate"
+        data-category="game experiment"
+        data-year="2026"
+        data-summary="Interactive animated galaxy map — a spinning canvas universe with click-to-travel navigation, explorable galaxy interiors, black holes, supermassive stars, and cosmic voids."
+        data-challenge="Rendering a convincing sense of cosmic scale and depth with only the vanilla Canvas API — panning, zooming, and click-to-travel across dozens of objects while keeping everything smooth with zero dependencies."
+      >
+        <div class="project-image">
+          <img src="assets/thumbnails/voidarium-thumb.jpg" alt="Voidarium project preview" loading="lazy" decoding="async">
+          <span class="project-badge-new">NEW</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">GALAXY MAP</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Voidarium</h3>
+          <p class="project-tech">Vanilla JS • Canvas API • Zero Dependencies</p>
+          <p class="project-metrics">Click-to-travel navigation · Explorable galaxies · Black holes &amp; supermassive stars</p>
+          <p class="project-desc" data-i18n-ua="Інтерактивна анімована карта галактик — космічний всесвіт на Canvas з навігацією кліком, чорними дірами та надмасивними зорями" data-i18n-es="Mapa de galaxias animado e interactivo — un universo en canvas con navegación al hacer clic, agujeros negros y estrellas supermasivas">Interactive animated galaxy map — a spinning canvas universe with click-to-travel navigation, black holes, and supermassive stars</p>
+          <p class="project-devlog">&gt;_ Learned canvas pan/zoom math and how to fake convincing cosmic scale with zero dependencies</p>
+          <div class="project-actions">
+            <a href="https://voidarium.vercel.app/" class="project-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Open Voidarium project in a new tab" data-i18n-ua="Відвідати" data-i18n-es="Visitar">Visit</a>
+            <button type="button" class="project-inspect-btn" aria-label="Inspect Voidarium project" data-i18n-ua="Деталі" data-i18n-es="Inspeccionar">Inspect</button>
+            <button type="button" class="project-share-btn" aria-label="Copy link to Voidarium project"><span class="project-share-btn__text" data-i18n-ua="Поділитися" data-i18n-es="Compartir">Share</span></button>
           </div>
         </div>
       </article>

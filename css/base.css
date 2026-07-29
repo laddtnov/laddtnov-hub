@@ -39,12 +39,16 @@
   src: url('../assets/fonts/share-tech-mono.woff2') format('woff2');
 }
 
+/* The neon palette is consumed from our own npm package,
+   @laddtnov/cyberpunk-ui (loaded via CDN in index.html <head>).
+   Each fallback repeats the original hue, so if the CDN is
+   unreachable the site renders exactly as it always did. */
 :root {
-  --neon-cyan: #00f2ff;
-  --neon-pink: #ff00ff;
-  --neon-purple: #9d00ff;
-  --dark-bg: #0a0a0c;
-  --dark-card: #151518;
+  --neon-cyan: var(--cy-neon-cyan, #00f2ff);
+  --neon-pink: var(--cy-neon-pink, #ff00ff);
+  --neon-purple: var(--cy-neon-purple, #9d00ff);
+  --dark-bg: var(--cy-bg, #0a0a0c);
+  --dark-card: var(--cy-surface, #151518);
   --text-gray: #d1d1d1;
   --text-dim: #d1d1d1;
   --heading-color: #fff;
@@ -60,10 +64,10 @@
   /* Darker accent variants — the bright neon hues fail WCAG contrast
      against light backgrounds (e.g. cyan ~1.2:1 on white). Purple is
      left as-is since it already passes (~5.5:1). */
-  --neon-cyan: #008099;
-  --neon-pink: #b3009e;
-  --dark-bg: #f0f0f5;
-  --dark-card: #ffffff;
+  --neon-cyan: var(--cy-neon-cyan, #008099);
+  --neon-pink: var(--cy-neon-pink, #b3009e);
+  --dark-bg: var(--cy-bg, #f0f0f5);
+  --dark-card: var(--cy-surface, #ffffff);
   --text-gray: #3a3a45;
   --text-dim: #5f5f6e;
   --heading-color: #16161d;

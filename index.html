@@ -59,10 +59,18 @@
     <meta name="theme-color" content="#0a0a0c">
     <!-- Fonts are self-hosted via @font-face in css/base.css (fixes Sonar #38) -->
     <!-- Dogfooding our own package — @laddtnov/cyberpunk-ui supplies the neon palette
-         that base.css aliases below. Version-pinned; every consuming custom property
-         carries a fallback, so a CDN failure degrades to the original hardcoded hues. -->
+         that base.css aliases below. Version-pinned and SRI-locked: the integrity hash
+         is the sha384 of 0.1.0's tokens.css, so a tampered CDN response is rejected
+         outright. Every consuming custom property also carries a fallback, so if the
+         file is blocked or unreachable we degrade to the original hardcoded hues.
+         NOTE: bump the integrity hash whenever the pinned version changes. -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@laddtnov/cyberpunk-ui@0.1.0/tokens.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@laddtnov/cyberpunk-ui@0.1.0/tokens.css"
+      integrity="sha384-yiiAQbHYd/GKj+bkOEyka2aOpwqxWoXHwmWAfGiLTnzTrMQFC8XVPchXFL7wfZmd"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
 
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/navbar.css">

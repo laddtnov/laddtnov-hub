@@ -265,6 +265,11 @@
           <span class="achievement-badge__title" data-i18n-ua="Перша інтерактивна карта всесвіту" data-i18n-es="Primer Mapa Interactivo del Universo">First Interactive Universe Map</span>
           <span class="achievement-badge__project">Voidarium</span>
         </div>
+        <div class="achievement-badge">
+          <span class="achievement-badge__icon" aria-hidden="true">📦</span>
+          <span class="achievement-badge__title" data-i18n-ua="Перший опенсорс-пакет" data-i18n-es="Primer Paquete Open-Source">First Open-Source Package</span>
+          <span class="achievement-badge__project">cyberpunk-ui</span>
+        </div>
       </div>
     </div>
   </section>
@@ -311,6 +316,12 @@
         <p class="devlog-entry__date">JUL 2026</p>
         <h3 class="devlog-entry__title" data-i18n-ua="Voidarium: карта галактик і межі Canvas" data-i18n-es="Voidarium: un mapa de galaxias y los límites del canvas">Voidarium: a galaxy map and the limits of canvas</h3>
         <p class="devlog-entry__text" data-i18n-ua="Voidarium — це анімована карта галактик з навігацією кліком: чорні діри, надмасивні зорі, космічні порожнечі. Найскладнішим було зробити панорамування, масштабування та відчуття справжнього космічного масштабу на чистому Canvas API без жодних залежностей." data-i18n-es="Voidarium es un mapa de galaxias animado con navegación al hacer clic: agujeros negros, estrellas supermasivas y vacíos cósmicos. Lo más difícil fue lograr el paneo, el zoom y una sensación real de escala cósmica usando solo la API de Canvas, sin dependencias." >Voidarium is an animated galaxy map with click-to-travel navigation: black holes, supermassive stars, cosmic voids. The hardest part was getting pan, zoom, and a convincing sense of cosmic scale right using nothing but the vanilla Canvas API — zero dependencies.</p>
+      </article>
+
+      <article class="devlog-entry scroll-animate">
+        <p class="devlog-entry__date">JUL 2026</p>
+        <h3 class="devlog-entry__title" data-i18n-ua="cyberpunk-ui: мій перший опенсорс-пакет" data-i18n-es="cyberpunk-ui: mi primer paquete open-source">cyberpunk-ui: my first open-source package</h3>
+        <p class="devlog-entry__text" data-i18n-ua="Я витягнув неонову естетику цього портфоліо — токени, ефекти glow/glitch/scanline і компоненти — в окремий CSS-пакет із нульовими залежностями. Це навчило мене думати як автор бібліотеки: неймспейсити кожен клас, робити світіння залежними від теми через RGB-токени й пакувати все для npm без жодного білд-кроку." data-i18n-es="Extraje la estética neón de este portafolio — tokens, efectos glow/glitch/scanline y componentes — en un paquete CSS independiente y sin dependencias. Me enseñó a pensar como autor de una librería: espaciar cada clase, hacer que los brillos dependan del tema con tokens RGB, y empaquetar todo para npm sin ningún paso de build.">I pulled this portfolio's neon aesthetic — tokens, glow/glitch/scanline effects, and components — out into a standalone, zero-dependency CSS package. It taught me to think like a library author: namespace every class, make glows theme-aware with RGB tokens, and package it all for npm with no build step.</p>
       </article>
     </div>
   </section>
@@ -590,7 +601,6 @@
       >
         <div class="project-image">
           <img src="assets/thumbnails/voidarium-thumb.jpg" alt="Voidarium project preview" loading="lazy" decoding="async">
-          <span class="project-badge-new">NEW</span>
           <div class="project-overlay" aria-hidden="true">
             <span class="view-project">GALAXY MAP</span>
           </div>
@@ -605,6 +615,36 @@
             <a href="https://voidarium.vercel.app/" class="project-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Open Voidarium project in a new tab" data-i18n-ua="Відвідати" data-i18n-es="Visitar">Visit</a>
             <button type="button" class="project-inspect-btn" aria-label="Inspect Voidarium project" data-i18n-ua="Деталі" data-i18n-es="Inspeccionar">Inspect</button>
             <button type="button" class="project-share-btn" aria-label="Copy link to Voidarium project"><span class="project-share-btn__text" data-i18n-ua="Поділитися" data-i18n-es="Compartir">Share</span></button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 10: cyberpunk-ui -->
+      <article
+        id="project-cyberpunk-ui"
+        class="project-tile scroll-animate"
+        data-category="tool"
+        data-year="2026"
+        data-summary="First open-source package — a zero-dependency cyberpunk neon CSS kit: design tokens, glow/glitch/scanline effects, and holo components, extracted from this very portfolio."
+        data-challenge="Turning battle-tested portfolio CSS into a real, reusable open-source package — namespacing every class, making glows theme-aware with RGB-channel tokens, and shipping a WCAG-safe light theme, all with no build step."
+      >
+        <div class="project-image">
+          <img src="assets/thumbnails/cyberpunk-ui-thumb.jpg" alt="cyberpunk-ui CSS kit preview" loading="lazy" decoding="async">
+          <span class="project-badge-new">NEW</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">CSS LIBRARY</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>cyberpunk-ui</h3>
+          <p class="project-tech">Vanilla CSS • Design Tokens • Zero Dependencies</p>
+          <p class="project-metrics">Neon tokens · Glow/glitch/scanline effects · Holo components · WCAG light theme</p>
+          <p class="project-desc" data-i18n-ua="Мій перший опенсорс-пакет — кіберпанк CSS-набір з неоновими токенами, ефектами glow/glitch/scanline та компонентами, без жодних залежностей" data-i18n-es="Mi primer paquete open-source — un kit CSS cyberpunk con tokens neón, efectos glow/glitch/scanline y componentes, sin dependencias">My first open-source package — a cyberpunk CSS kit with neon tokens, glow/glitch/scanline effects, and components, zero dependencies</p>
+          <p class="project-devlog">&gt;_ First open-source package — learned CSS namespacing, theme-aware token architecture, and the npm packaging pipeline</p>
+          <div class="project-actions">
+            <a href="https://laddtnov.github.io/cyberpunk-ui/demo/" class="project-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Open cyberpunk-ui live demo in a new tab" data-i18n-ua="Демо" data-i18n-es="Demo">Visit</a>
+            <button type="button" class="project-inspect-btn" aria-label="Inspect cyberpunk-ui project" data-i18n-ua="Деталі" data-i18n-es="Inspeccionar">Inspect</button>
+            <button type="button" class="project-share-btn" aria-label="Copy link to cyberpunk-ui project"><span class="project-share-btn__text" data-i18n-ua="Поділитися" data-i18n-es="Compartir">Share</span></button>
           </div>
         </div>
       </article>

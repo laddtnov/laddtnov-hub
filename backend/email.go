@@ -18,8 +18,33 @@ const (
 )
 
 func sendEmail(cfg Config, msg ContactRequest) error {
-	safeName := sanitizeEmailHeaderText(msg.Name, 120)
+	message, err := buildMessage(cfg, msg)
+	if err != nil {
+		return err
+	}
+	return deliver(cfg, message)
+}
 
+// buildMessage assembles the full RFC 5322 message from an untrusted contact
+// submission. It is the single place where user input reaches the wire format,
+// which makes it the one function to audit for header/content injection:
+//
+//   - header values are stripped of CR/LF, then Q-encoded to ASCII
+//   - the Reply-To address is whatever mail.ParseAddress validated, nothing else
+//   - both bodies are base64-encoded, so no body content can introduce a header
+//     or forge the MIME boundary
+//   - a final check rejects the message outright if any header still holds a
+//     line break
+//
+// It performs no I/O, so these guarantees are directly unit-testable.
+func buildMessage(cfg Config, msg ContactRequest) (string, error) {
+	// Display text keeps Unicode (names like "Владислав" or "José" must survive);
+	// only CR/LF and control chars are removed, and the result is Q-encoded to
+	// pure ASCII before it ever reaches a header.
+	safeName := sanitizeHeaderDisplayText(msg.Name, 120)
+
+	// Addresses stay strictly ASCII — mail.ParseAddress is the authority on
+	// what is a valid addr-spec, and we only ever use its parsed .Address.
 	rawReplyTo := sanitizeEmailHeaderText(msg.Email, 254)
 	safeReplyTo := ""
 	if addr, err := mail.ParseAddress(rawReplyTo); err == nil {
@@ -33,16 +58,31 @@ func sendEmail(cfg Config, msg ContactRequest) error {
 	replyToHeader := ""
 	if safeReplyTo != "" {
 		replyToHeader = (&mail.Address{
-			Name:    encodedName,
+			Name:    safeName, // mail.Address.String() applies its own encoding/quoting
 			Address: safeReplyTo,
 		}).String()
+	}
+
+	// Last-line assertion: every value interpolated into a header must be free
+	// of line breaks. The sanitizers above already guarantee this, so a failure
+	// here means a future refactor broke an invariant — fail closed rather than
+	// emit a header-injected message.
+	for name, value := range map[string]string{
+		"Subject":  encodedName,
+		"From":     cfg.SMTPUser,
+		"To":       cfg.ToEmail,
+		"Reply-To": replyToHeader,
+	} {
+		if strings.ContainsAny(value, "\r\n") {
+			return "", fmt.Errorf("refusing to send: %s header contains a line break", name)
+		}
 	}
 
 	plainBody := fmt.Sprintf("Name: %s\r\nEmail: %s\r\n\r\n%s\r\n", safeName, safeReplyTo, safeMessage)
 	htmlBody := buildHTMLEmail(safeName, safeReplyTo, safeMessage)
 
 	encodedPlain := wrapBase64(base64.StdEncoding.EncodeToString([]byte(plainBody)))
-	encodedHTML  := wrapBase64(base64.StdEncoding.EncodeToString([]byte(htmlBody)))
+	encodedHTML := wrapBase64(base64.StdEncoding.EncodeToString([]byte(htmlBody)))
 
 	message := fmt.Sprintf(
 		"MIME-Version: 1.0\r\n"+
@@ -71,6 +111,11 @@ func sendEmail(cfg Config, msg ContactRequest) error {
 		mimeBoundary,
 	)
 
+	return message, nil
+}
+
+// deliver opens the SMTP session and writes an already-assembled message.
+func deliver(cfg Config, message string) error {
 	addr := fmt.Sprintf("%s:%s", cfg.SMTPHost, cfg.SMTPPort)
 	client, err := smtp.Dial(addr)
 	if err != nil {
@@ -115,10 +160,10 @@ func sendEmail(cfg Config, msg ContactRequest) error {
 // buildHTMLEmail renders the cyberpunk-styled HTML email template.
 // All user-supplied values must already be sanitized before passing in.
 func buildHTMLEmail(name, email, message string) string {
-	eName    := html.EscapeString(name)
-	eEmail   := html.EscapeString(email)
+	eName := html.EscapeString(name)
+	eEmail := html.EscapeString(email)
 	eMessage := strings.ReplaceAll(html.EscapeString(message), "\n", "<br>")
-	mailto   := "mailto:" + html.EscapeString(email)
+	mailto := "mailto:" + html.EscapeString(email)
 
 	return `<!DOCTYPE html>
 <html lang="en">
@@ -259,8 +304,10 @@ func sanitizeHeaderValue(v string) string {
 	}, v)
 }
 
-// sanitizeEmailHeaderText sanitizes untrusted text for use in mail headers
-// (e.g. Subject display text and Reply-To value) and bounds its length.
+// sanitizeEmailHeaderText sanitizes untrusted text down to printable ASCII for
+// use where a header value must not contain encoded words — notably email
+// addresses, which are ASCII by specification. For human-readable display text
+// use sanitizeHeaderDisplayText instead, so non-Latin names are not destroyed.
 func sanitizeEmailHeaderText(v string, maxLen int) string {
 	v = sanitizeHeaderValue(strings.TrimSpace(v))
 	v = strings.Map(func(r rune) rune {
@@ -275,9 +322,41 @@ func sanitizeEmailHeaderText(v string, maxLen int) string {
 	return v
 }
 
+// sanitizeHeaderDisplayText sanitizes untrusted display text (a person's name)
+// for use in headers while preserving Unicode. Header injection needs CR or LF,
+// so stripping line breaks and control characters is what actually matters;
+// callers MUST pass the result through mime.QEncoding (or mail.Address, which
+// encodes internally), which renders it as pure ASCII encoded words.
+//
+// Length is bounded in runes rather than bytes so a multi-byte character can
+// never be sliced in half into invalid UTF-8.
+func sanitizeHeaderDisplayText(v string, maxRunes int) string {
+	v = strings.Map(func(r rune) rune {
+		if r == '\r' || r == '\n' {
+			return -1
+		}
+		if unicode.IsControl(r) {
+			return -1
+		}
+		return r
+	}, strings.TrimSpace(v))
+
+	if maxRunes > 0 {
+		if rs := []rune(v); len(rs) > maxRunes {
+			v = string(rs[:maxRunes])
+		}
+	}
+	return v
+}
+
 // sanitizeEmailBodyText sanitizes untrusted plain-text body content by
 // normalizing line endings, removing unsafe control chars, and bounding size.
-func sanitizeEmailBodyText(v string, maxLen int) string {
+// The body is base64-encoded before transmission, so it cannot introduce
+// headers or MIME boundaries regardless of content.
+//
+// maxRunes bounds length in runes, not bytes, so a multi-byte character is
+// never split into invalid UTF-8.
+func sanitizeEmailBodyText(v string, maxRunes int) string {
 	v = strings.ReplaceAll(v, "\r\n", "\n")
 	v = strings.ReplaceAll(v, "\r", "\n")
 	v = strings.Map(func(r rune) rune {
@@ -289,8 +368,10 @@ func sanitizeEmailBodyText(v string, maxLen int) string {
 		}
 		return r
 	}, v)
-	if maxLen > 0 && len(v) > maxLen {
-		v = v[:maxLen]
+	if maxRunes > 0 {
+		if rs := []rune(v); len(rs) > maxRunes {
+			v = string(rs[:maxRunes])
+		}
 	}
 	return v
 }

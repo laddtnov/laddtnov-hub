@@ -58,6 +58,20 @@
     <link rel="manifest" href="json/manifest.json">
     <meta name="theme-color" content="#0a0a0c">
     <!-- Fonts are self-hosted via @font-face in css/base.css (fixes Sonar #38) -->
+    <!-- Dogfooding our own package — @laddtnov/cyberpunk-ui supplies the neon palette
+         that base.css aliases below. Version-pinned and SRI-locked: the integrity hash
+         is the sha384 of 0.1.0's tokens.css, so a tampered CDN response is rejected
+         outright. Every consuming custom property also carries a fallback, so if the
+         file is blocked or unreachable we degrade to the original hardcoded hues.
+         NOTE: bump the integrity hash whenever the pinned version changes. -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@laddtnov/cyberpunk-ui@0.1.0/tokens.css"
+      integrity="sha384-yiiAQbHYd/GKj+bkOEyka2aOpwqxWoXHwmWAfGiLTnzTrMQFC8XVPchXFL7wfZmd"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer">
+
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/welcome.css">
@@ -267,7 +281,7 @@
         </div>
         <div class="achievement-badge">
           <span class="achievement-badge__icon" aria-hidden="true">📦</span>
-          <span class="achievement-badge__title" data-i18n-ua="Перший опенсорс-пакет" data-i18n-es="Primer Paquete Open-Source">First Open-Source Package</span>
+          <span class="achievement-badge__title" data-i18n-ua="Перший npm-пакет" data-i18n-es="Primer Paquete en npm">First npm Package</span>
           <span class="achievement-badge__project">cyberpunk-ui</span>
         </div>
       </div>
@@ -320,7 +334,7 @@
 
       <article class="devlog-entry scroll-animate">
         <p class="devlog-entry__date">JUL 2026</p>
-        <h3 class="devlog-entry__title" data-i18n-ua="cyberpunk-ui: мій перший опенсорс-пакет" data-i18n-es="cyberpunk-ui: mi primer paquete open-source">cyberpunk-ui: my first open-source package</h3>
+        <h3 class="devlog-entry__title" data-i18n-ua="cyberpunk-ui: мій перший пакет на npm" data-i18n-es="cyberpunk-ui: mi primer paquete en npm">cyberpunk-ui: my first npm package</h3>
         <p class="devlog-entry__text" data-i18n-ua="Я витягнув неонову естетику цього портфоліо — токени, ефекти glow/glitch/scanline і компоненти — в окремий CSS-пакет із нульовими залежностями. Це навчило мене думати як автор бібліотеки: неймспейсити кожен клас, робити світіння залежними від теми через RGB-токени й пакувати все для npm без жодного білд-кроку." data-i18n-es="Extraje la estética neón de este portafolio — tokens, efectos glow/glitch/scanline y componentes — en un paquete CSS independiente y sin dependencias. Me enseñó a pensar como autor de una librería: espaciar cada clase, hacer que los brillos dependan del tema con tokens RGB, y empaquetar todo para npm sin ningún paso de build.">I pulled this portfolio's neon aesthetic — tokens, glow/glitch/scanline effects, and components — out into a standalone, zero-dependency CSS package. It taught me to think like a library author: namespace every class, make glows theme-aware with RGB tokens, and package it all for npm with no build step.</p>
       </article>
     </div>
@@ -625,8 +639,8 @@
         class="project-tile scroll-animate"
         data-category="tool"
         data-year="2026"
-        data-summary="First open-source package — a zero-dependency cyberpunk neon CSS kit: design tokens, glow/glitch/scanline effects, and holo components, extracted from this very portfolio."
-        data-challenge="Turning battle-tested portfolio CSS into a real, reusable open-source package — namespacing every class, making glows theme-aware with RGB-channel tokens, and shipping a WCAG-safe light theme, all with no build step."
+        data-summary="First npm package — a zero-dependency cyberpunk neon CSS kit: design tokens, glow/glitch/scanline effects, and holo components, extracted from this very portfolio and published as @laddtnov/cyberpunk-ui."
+        data-challenge="Turning battle-tested portfolio CSS into a real, published npm package — namespacing every class, making glows theme-aware with RGB-channel tokens, shipping a WCAG-safe light theme, and getting through the npm publish pipeline, all with no build step."
       >
         <div class="project-image">
           <img src="assets/thumbnails/cyberpunk-ui-thumb.jpg" alt="cyberpunk-ui CSS kit preview" loading="lazy" decoding="async">
@@ -638,9 +652,9 @@
         <div class="project-info">
           <h3>cyberpunk-ui</h3>
           <p class="project-tech">Vanilla CSS • Design Tokens • Zero Dependencies</p>
-          <p class="project-metrics">Neon tokens · Glow/glitch/scanline effects · Holo components · WCAG light theme</p>
-          <p class="project-desc" data-i18n-ua="Мій перший опенсорс-пакет — кіберпанк CSS-набір з неоновими токенами, ефектами glow/glitch/scanline та компонентами, без жодних залежностей" data-i18n-es="Mi primer paquete open-source — un kit CSS cyberpunk con tokens neón, efectos glow/glitch/scanline y componentes, sin dependencias">My first open-source package — a cyberpunk CSS kit with neon tokens, glow/glitch/scanline effects, and components, zero dependencies</p>
-          <p class="project-devlog">&gt;_ First open-source package — learned CSS namespacing, theme-aware token architecture, and the npm packaging pipeline</p>
+          <p class="project-metrics">npm i @laddtnov/cyberpunk-ui · Neon tokens · Glow/glitch/scanline effects · WCAG light theme</p>
+          <p class="project-desc" data-i18n-ua="Мій перший npm-пакет — кіберпанк CSS-набір з неоновими токенами, ефектами glow/glitch/scanline та компонентами, без жодних залежностей" data-i18n-es="Mi primer paquete en npm — un kit CSS cyberpunk con tokens neón, efectos glow/glitch/scanline y componentes, sin dependencias">My first npm package — a cyberpunk CSS kit with neon tokens, glow/glitch/scanline effects, and components, zero dependencies</p>
+          <p class="project-devlog">&gt;_ First published npm package — learned CSS namespacing, theme-aware token architecture, and the npm publish pipeline</p>
           <div class="project-actions">
             <a href="https://laddtnov.github.io/cyberpunk-ui/demo/" class="project-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Open cyberpunk-ui live demo in a new tab" data-i18n-ua="Демо" data-i18n-es="Demo">Visit</a>
             <button type="button" class="project-inspect-btn" aria-label="Inspect cyberpunk-ui project" data-i18n-ua="Деталі" data-i18n-es="Inspeccionar">Inspect</button>

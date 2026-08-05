@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orrery — Laddtnov Products</title>
+  <meta name="description" content="3D orrery with Fallout 3-style terminal and typewriter sounds. 9 planets, orbital mechanics, Web Audio API, 60fps — all vanilla Canvas." />
+  <link rel="canonical" href="https://laddtnov.xyz/products/orrery.html" />
+  <link rel="alternate" hreflang="en" href="https://laddtnov.xyz/products/orrery.html" />
+  <link rel="alternate" hreflang="uk" href="https://laddtnov.xyz/products/orrery.html" />
+  <link rel="alternate" hreflang="es" href="https://laddtnov.xyz/products/orrery.html" />
+  <link rel="alternate" hreflang="x-default" href="https://laddtnov.xyz/products/orrery.html" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@laddtnov/cyberpunk-ui@0.2.0/tokens.css" integrity="sha384-qxO9S3bvIYtqfzsAdPlUbv+YJ4vrUNYmsjyO7WhlondypDotAeJHsWVf1V8KyrGi" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .product-detail { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+    .product-detail h1 { font-family: var(--cy-font-display, 'Orbitron', monospace); color: var(--cy-neon-cyan, #00f2ff); font-size: 1.8rem; }
+    .product-detail .badge { display: inline-block; padding: 0.2rem 0.6rem; border: 1px solid var(--cy-neon-cyan, #00f2ff); border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; color: var(--cy-neon-cyan, #00f2ff); margin-bottom: 1rem; }
+    .product-detail .badge.experiment { border-color: #ffaa00; color: #ffaa00; }
+    .product-detail .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0 1.5rem; }
+    .product-detail .tags span { font-size: 0.7rem; padding: 0.2rem 0.5rem; border: 1px solid var(--cy-neon-cyan, #00f2ff); border-radius: 4px; color: var(--cy-neon-cyan, #00f2ff); text-transform: uppercase; }
+    .product-detail .cta-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0; }
+    .product-detail .cta-group a, .product-detail .cta-group button { padding: 0.5rem 1.25rem; border: 1px solid var(--cy-neon-cyan, #00f2ff); color: var(--cy-neon-cyan, #00f2ff); text-decoration: none; border-radius: 4px; background: transparent; cursor: pointer; font-family: var(--cy-font-mono, 'Share Tech Mono', monospace); font-size: 0.85rem; }
+    .product-detail .cta-group a:hover, .product-detail .cta-group button:hover { background: var(--cy-neon-cyan, #00f2ff); color: var(--cy-bg, #0a0a0c); }
+    .product-detail .what-i-learned { background: rgba(0,242,255,0.05); border-left: 3px solid var(--cy-neon-cyan, #00f2ff); padding: 1rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+    .product-detail .what-i-learned h3 { margin-top: 0; color: var(--cy-neon-cyan, #00f2ff); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .product-detail .back-link { display: inline-block; margin-bottom: 1rem; color: var(--cy-neon-cyan, #00f2ff); text-decoration: none; font-family: var(--cy-font-mono, 'Share Tech Mono', monospace); font-size: 0.8rem; }
+    .product-detail .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav id="navbar" aria-label="Primary">
+    <div class="nav-logo"><span class="glitch" data-text="<DEV>">&lt;DEV&gt;</span></div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#devlog">Devlog</a>
+      <a href="index.html">Products</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../assets/cv-vladislav-novytskiy.pdf" download>Download CV</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="product-detail">
+      <a href="index.html" class="back-link">← All Products</a>
+
+      <span class="badge experiment">Experiment</span>
+      <h1>Orrery</h1>
+      <p>3D orrery with Fallout 3-style terminal and typewriter sounds. 9 planets, orbital mechanics, Web Audio API — all vanilla Canvas, zero dependencies, 60fps.</p>
+
+      <div class="tags">
+        <span>CSS Animations</span>
+        <span>Fallout Terminal</span>
+        <span>Web Audio API</span>
+        <span>Canvas API</span>
+      </div>
+
+      <div class="cta-group">
+        <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+        <a href="https://github.com/laddtnov" target="_blank" rel="noopener">GitHub Source</a>
+      </div>
+
+      <div class="what-i-learned">
+        <h3>What I Learned</h3>
+        <p>3D CSS transforms and orbital mechanics with the vanilla Canvas API. Getting the math right for elliptical orbits, axial tilts, and relative planetary speeds — all without a physics library.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

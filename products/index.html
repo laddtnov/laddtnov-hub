@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — Laddtnov</title>
+  <meta name="description" content="All products by Laddtnov — cyberpunk CSS kit, interactive games, data visualization tools, and experimental web apps." />
+  <link rel="canonical" href="https://laddtnov.xyz/products/" />
+  <link rel="alternate" hreflang="en" href="https://laddtnov.xyz/products/" />
+  <link rel="alternate" hreflang="uk" href="https://laddtnov.xyz/products/" />
+  <link rel="alternate" hreflang="es" href="https://laddtnov.xyz/products/" />
+  <link rel="alternate" hreflang="x-default" href="https://laddtnov.xyz/products/" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@laddtnov/cyberpunk-ui@0.2.0/tokens.css" integrity="sha384-qxO9S3bvIYtqfzsAdPlUbv+YJ4vrUNYmsjyO7WhlondypDotAeJHsWVf1V8KyrGi" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+    .product-card {
+      background: var(--cy-bg, #0a0a0c);
+      border: 1px solid var(--cy-neon-cyan, #00f2ff);
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .product-card:hover {
+      border-color: var(--cy-neon-pink, #ff00ff);
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.15);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 4px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .product-card h3 {
+      margin: 0;
+      font-family: var(--cy-font-display, 'Orbitron', monospace);
+      font-size: 1.1rem;
+      color: var(--cy-neon-cyan, #00f2ff);
+    }
+    .product-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .product-card .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--cy-neon-purple, #9d00ff);
+      border-radius: 4px;
+      color: var(--cy-neon-purple, #9d00ff);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .product-card .tag.game { border-color: var(--cy-neon-pink, #ff00ff); color: var(--cy-neon-pink, #ff00ff); }
+    .product-card .tag.tool { border-color: var(--cy-neon-cyan, #00f2ff); color: var(--cy-neon-cyan, #00f2ff); }
+    .product-card .tag.productivity { border-color: #00ff88; color: #00ff88; }
+    .product-card .tag.experiment { border-color: #ffaa00; color: #ffaa00; }
+    .product-card p { margin: 0; font-size: 0.85rem; color: var(--cy-text, #e0e0e0); line-height: 1.5; }
+    .product-card .cta {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+    .product-card .cta a, .product-card .cta button {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--cy-neon-cyan, #00f2ff);
+      color: var(--cy-neon-cyan, #00f2ff);
+      text-decoration: none;
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--cy-font-mono, 'Share Tech Mono', monospace);
+    }
+    .product-card .cta a:hover, .product-card .cta button:hover {
+      background: var(--cy-neon-cyan, #00f2ff);
+      color: var(--cy-bg, #0a0a0c);
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .filter-btn {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--cy-neon-cyan, #00f2ff);
+      background: transparent;
+      color: var(--cy-neon-cyan, #00f2ff);
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: var(--cy-font-mono, 'Share Tech Mono', monospace);
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.is-active {
+      background: var(--cy-neon-cyan, #00f2ff);
+      color: var(--cy-bg, #0a0a0c);
+    }
+    .sort-select {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid var(--cy-neon-cyan, #00f2ff);
+      background: var(--cy-bg, #0a0a0c);
+      color: var(--cy-text, #e0e0e0);
+      border-radius: 4px;
+      font-family: var(--cy-font-mono, 'Share Tech Mono', monospace);
+      font-size: 0.8rem;
+      margin-left: auto;
+    }
+    .section-title {
+      font-family: var(--cy-font-display, 'Orbitron', monospace);
+      color: var(--cy-neon-cyan, #00f2ff);
+      font-size: 1.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 2rem 0 0.5rem;
+    }
+    .section-title::before { content: "["; color: var(--cy-neon-pink, #ff00ff); }
+    .section-title::after { content: "]"; color: var(--cy-neon-pink, #ff00ff); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav id="navbar" aria-label="Primary">
+    <div class="nav-logo"><span class="glitch" data-text="<DEV>">&lt;DEV&gt;</span></div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#devlog">Devlog</a>
+      <a href="index.html" aria-current="page">Products</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../assets/cv-vladislav-novytskiy.pdf" download>Download CV</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section aria-labelledby="products-title">
+      <h1 id="products-title" class="section-title">Products</h1>
+      <p>Everything I've built — from CSS kits to canvas experiments. Filter by category or sort by date.</p>
+
+      <div class="filter-bar" role="group" aria-label="Filter products by category">
+        <button class="filter-btn is-active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="game">Games</button>
+        <button class="filter-btn" data-filter="tool">Tools</button>
+        <button class="filter-btn" data-filter="productivity">Productivity</button>
+        <button class="filter-btn" data-filter="experiment">Experiments</button>
+      </div>
+
+      <select class="sort-select" aria-label="Sort products">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="name">Name A–Z</option>
+      </select>
+
+      <div class="products-grid" id="products-grid">
+
+        <!-- cyberpunk-ui -->
+        <article class="product-card" data-category="tool" data-name="cyberpunk-ui">
+          <span class="tag tool">Tool</span>
+          <h3>cyberpunk-ui</h3>
+          <p>Vanilla CSS design tokens with neon glow/glitch/scanline effects and glassmorphism components. Zero dependencies, theme-aware, WCAG light theme included.</p>
+          <div class="cta">
+            <a href="https://www.npmjs.com/package/@laddtnov/cyberpunk-ui" target="_blank" rel="noopener">npm i @laddtnov/cyberpunk-ui</a>
+            <a href="../demo/index.html" target="_blank" rel="noopener">Live Demo</a>
+            <a href="https://github.com/laddtnov/cyberpunk-ui" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+        <!-- Orrery -->
+        <article class="product-card" data-category="experiment" data-name="orrery">
+          <span class="tag experiment">Experiment</span>
+          <h3>Orrery</h3>
+          <p>3D orrery with Fallout 3-style terminal and typewriter sounds. 9 planets, orbital mechanics, Web Audio API, 60fps — all vanilla Canvas.</p>
+          <div class="cta">
+            <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+            <a href="https://github.com/laddtnov" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+        <!-- Vitrum -->
+        <article class="product-card" data-category="game" data-name="vitrum">
+          <span class="tag game">Game</span>
+          <h3>Vitrum</h3>
+          <p>Glassmorphism chess game with real logic: move rules, castling, en passant. First project that needed application state management.</p>
+          <div class="cta">
+            <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+            <a href="https://github.com/laddtnov" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+        <!-- Breach OS -->
+        <article class="product-card" data-category="game" data-name="breach-os">
+          <span class="tag game">Game</span>
+          <h3>Breach OS</h3>
+          <p>Cyberpunk memory card game with a mission system and neon effects. 6 missions, 120+ card pairs.</p>
+          <div class="cta">
+            <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+            <a href="https://github.com/laddtnov" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+        <!-- Cogsworth -->
+        <article class="product-card" data-category="game" data-name="cogsworth">
+          <span class="tag game">Game</span>
+          <h3>Cogsworth</h3>
+          <p>Steampunk Sudoku with a Nixie-tube terminal interface, rank system, and survival mode. Installable as a PWA with Service Worker.</p>
+          <div class="cta">
+            <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+            <a href="https://github.com/laddtnov" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+        <!-- Libra -->
+        <article class="product-card" data-category="productivity" data-name="libra">
+          <span class="tag productivity">Productivity</span>
+          <h3>Libra</h3>
+          <p>Futuristic book tracker with terminal interface and sound effects. LocalStorage sync and progress tracking.</p>
+          <div class="cta">
+            <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+            <a href="https://github.com/laddtnov" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+        <!-- TimeFlow -->
+        <article class="product-card" data-category="productivity" data-name="timeflow">
+          <span class="tag productivity">Productivity</span>
+          <h3>TimeFlow</h3>
+          <p>React + Vite appointment tracker with weekly calendar and neon cyberpunk UI. First React project — hooks, component state, and build tools.</p>
+          <div class="cta">
+            <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+            <a href="https://github.com/laddtnov" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+        <!-- GrowFlow -->
+        <article class="product-card" data-category="productivity" data-name="growflow">
+          <span class="tag productivity">Productivity</span>
+          <h3>GrowFlow</h3>
+          <p>Personal finance tracker with neon dashboard and interactive Chart.js graphs. Income/expense logging with balance tracking.</p>
+          <div class="cta">
+            <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+            <a href="https://github.com/laddtnov" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+        <!-- Trailune -->
+        <article class="product-card" data-category="tool" data-name="trailune">
+          <span class="tag tool">Tool</span>
+          <h3>Trailune</h3>
+          <p>Local-only travel tracker with trip journals, packing checklists, and a world map of visited countries. SvelteKit + TypeScript.</p>
+          <div class="cta">
+            <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+            <a href="https://github.com/laddtnov" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+        <!-- Voidarium -->
+        <article class="product-card" data-category="experiment" data-name="voidarium">
+          <span class="tag experiment">Experiment</span>
+          <h3>Voidarium</h3>
+          <p>Interactive animated galaxy map with click-to-travel navigation, black holes, supermassive stars, and cosmic voids. Zero dependencies, vanilla Canvas API.</p>
+          <div class="cta">
+            <a href="../index.html#projects" target="_blank" rel="noopener">View Project</a>
+            <a href="https://github.com/laddtnov" target="_blank" rel="noopener">Source</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Filter functionality
+    const grid = document.getElementById('products-grid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const sortSelect = document.querySelector('.sort-select');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        filterCards(btn.dataset.filter);
+      });
+    });
+
+    sortSelect.addEventListener('change', () => {
+      sortCards(sortSelect.value);
+    });
+
+    function filterCards(category) {
+      const cards = grid.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function sortCards(method) {
+      const cards = Array.from(grid.querySelectorAll('.product-card'));
+      cards.sort((a, b) => {
+        if (method === 'name') {
+          return a.dataset.name.localeCompare(b.dataset.name);
+        }
+        // newest/oldest — use DOM order as proxy (newest first in markup)
+        return method === 'oldest' ? 1 : -1;
+      });
+      cards.forEach(card => grid.appendChild(card));
+    }
+  </script>
+</body>
+</html>

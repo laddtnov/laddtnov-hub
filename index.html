@@ -295,6 +295,11 @@
           <span class="achievement-badge__title" data-i18n-ua="Перший npm-пакет" data-i18n-es="Primer Paquete en npm">First npm Package</span>
           <span class="achievement-badge__project">cyberpunk-ui</span>
         </div>
+        <div class="achievement-badge">
+          <span class="achievement-badge__icon" aria-hidden="true">💎</span>
+          <span class="achievement-badge__title" data-i18n-ua="Перша тема в каталозі Obsidian" data-i18n-es="Primer Tema en el Catálogo de Obsidian">First Theme in Obsidian's Catalog</span>
+          <span class="achievement-badge__project">Neonflux</span>
+        </div>
       </div>
     </div>
   </section>
@@ -347,6 +352,11 @@
         <p class="devlog-entry__date">JUL 2026</p>
         <h3 class="devlog-entry__title" data-i18n-ua="cyberpunk-ui: мій перший пакет на npm" data-i18n-es="cyberpunk-ui: mi primer paquete en npm">cyberpunk-ui: my first npm package</h3>
         <p class="devlog-entry__text" data-i18n-ua="Я витягнув неонову естетику цього портфоліо — токени, ефекти glow/glitch/scanline і компоненти — в окремий CSS-пакет із нульовими залежностями. Це навчило мене думати як автор бібліотеки: неймспейсити кожен клас, робити світіння залежними від теми через RGB-токени й пакувати все для npm без жодного білд-кроку." data-i18n-es="Extraje la estética neón de este portafolio — tokens, efectos glow/glitch/scanline y componentes — en un paquete CSS independiente y sin dependencias. Me enseñó a pensar como autor de una librería: espaciar cada clase, hacer que los brillos dependan del tema con tokens RGB, y empaquetar todo para npm sin ningún paso de build.">I pulled this portfolio's neon aesthetic — tokens, glow/glitch/scanline effects, and components — out into a standalone, zero-dependency CSS package. It taught me to think like a library author: namespace every class, make glows theme-aware with RGB tokens, and package it all for npm with no build step.</p>
+      </article>
+      <article class="devlog-entry scroll-animate">
+        <p class="devlog-entry__date">AUG 2026</p>
+        <h3 class="devlog-entry__title" data-i18n-ua="Neonflux: та сама палітра, але для читання годинами" data-i18n-es="Neonflux: la misma paleta, pero para leer durante horas">Neonflux: the same palette, but for reading for hours</h3>
+        <p class="devlog-entry__text" data-i18n-ua="Я переніс палітру cyberpunk-ui у тему для Obsidian і зрозумів, що неон на чорному працює на постері, а не в нотатці, яку читаєш годину. Акценти лишились на заголовках і посиланнях, а текст став спокійним. Перевірка контрасту тримає приглушений текст і підсвітку синтаксису на 4.5:1, бо коментар у коді — теж текст, який хтось читає. Два баги знайшлись лише тоді, коли я відкрив тему в самому Obsidian: рамка фокуса обводила весь редактор, а заголовки міняли форму, щойно в них потрапляв курсор." data-i18n-es="Llevé la paleta de cyberpunk-ui a un tema de Obsidian y descubrí que el neón sobre negro funciona en un póster, no en una nota que lees durante una hora. Los acentos se quedaron en títulos y enlaces; el texto se volvió tranquilo. El verificador de contraste mantiene el texto atenuado y el resaltado de sintaxis en 4.5:1, porque un comentario de código también es texto que alguien lee. Dos errores solo aparecieron al abrir el tema dentro de Obsidian: el anillo de foco rodeaba todo el editor y los títulos cambiaban de forma al entrar el cursor.">I took the cyberpunk-ui palette into an Obsidian theme and learned that neon on black is a poster palette, not a reading one. Accents stayed on headings and links; prose went calm. The contrast checker holds muted text and syntax colours to 4.5:1 rather than the looser 3.0 — a code comment is still text somebody parses. Two bugs only showed up once I opened it in Obsidian itself: the focus ring drew a box around the entire editor, and headings changed shape the moment the cursor entered them.</p>
       </article>
     </div>
   </section>
@@ -674,6 +684,36 @@
         </div>
       </article>
 
+      <!-- Project 11: Neonflux -->
+      <article
+        id="project-neonflux"
+        class="project-tile scroll-animate"
+        data-category="tool"
+        data-year="2026"
+        data-summary="An Obsidian theme sharing cyberpunk-ui's palette, accepted into Obsidian's community themes catalog. Neon on near-black with a light mode that holds up, six fonts embedded for Latin and Cyrillic, and zero JavaScript."
+        data-challenge="Making a poster palette survive being read for hours. Neon on black looks great in a screenshot and punishes you in a note, so accents were confined to headings, links and code tokens while prose stayed calm — and every colour was held to a stricter contrast floor than a normal web project, because muted text in a note app is still text."
+      >
+        <div class="project-image">
+          <img src="assets/thumbnails/neonflux-thumb.jpg" alt="Neonflux Obsidian theme preview" loading="lazy" decoding="async">
+          <span class="project-badge-new">NEW</span>
+          <div class="project-overlay" aria-hidden="true">
+            <span class="view-project">OBSIDIAN THEME</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Neonflux</h3>
+          <p class="project-tech">Vanilla CSS • Design Tokens • Zero JavaScript</p>
+          <p class="project-metrics">In Obsidian's community catalog · WCAG-checked contrast · Latin + Cyrillic fonts embedded</p>
+          <p class="project-desc" data-i18n-ua="Тема для Obsidian на палітрі cyberpunk-ui — неон на майже чорному, справжня світла тема, вбудовані шрифти для латиниці й кирилиці, нуль JavaScript" data-i18n-es="Un tema de Obsidian con la paleta de cyberpunk-ui — neón sobre casi negro, un modo claro real, fuentes latinas y cirílicas incrustadas, cero JavaScript">An Obsidian theme built on the cyberpunk-ui palette — neon on near-black, a real light mode, embedded Latin and Cyrillic fonts, zero JavaScript</p>
+          <p class="project-devlog">&gt;_ Learned that a poster palette and a reading palette are different problems — and that some bugs only appear inside the app</p>
+          <div class="project-actions">
+            <a href="https://community.obsidian.md/themes/neonflux" class="project-visit-btn" target="_blank" rel="noopener noreferrer" aria-label="Open Neonflux in the Obsidian theme catalog in a new tab" data-i18n-ua="Відвідати" data-i18n-es="Visitar">Visit</a>
+            <button type="button" class="project-inspect-btn" aria-label="Inspect Neonflux project" data-i18n-ua="Деталі" data-i18n-es="Inspeccionar">Inspect</button>
+            <button type="button" class="project-share-btn" aria-label="Copy link to Neonflux project"><span class="project-share-btn__text" data-i18n-ua="Поділитися" data-i18n-es="Compartir">Share</span></button>
+          </div>
+        </div>
+      </article>
+
       <!-- "What's next" teaser card -->
       <article class="project-tile project-tile--next scroll-animate" aria-label="Upcoming project teaser">
         <div class="project-next">
@@ -737,6 +777,7 @@
           <span class="skill-badge" data-added="2026">Chart.js</span>
           <span class="skill-badge" data-added="2026">Web Audio API</span>
           <span class="skill-badge" data-added="2026">Canvas API</span>
+          <span class="skill-badge" data-added="2026">Obsidian</span>
           <span class="skill-badge" data-added="2026">Fly.io</span>
         </div>
       </div>

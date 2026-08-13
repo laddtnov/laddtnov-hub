@@ -84,6 +84,12 @@ A floating cyberpunk-styled AI chat widget fixed to the bottom-right corner.
 | Data | GitHub REST API, localStorage analytics |
 | Deploy | Vercel (frontend) + Fly.io (backend) |
 
+Two pieces of this site have been extracted and published on their own:
+[`@laddtnov/cyberpunk-ui`](https://github.com/laddtnov/cyberpunk-ui), the neon
+CSS kit, which this site then consumes back over CDN with an SRI hash; and
+[Neonflux](https://github.com/laddtnov/Neonflux), an Obsidian theme built on
+the same palette.
+
 ## Project Structure
 
 ```
@@ -118,6 +124,9 @@ laddtnov-hub/
 │   ├── sounds.js
 │   ├── analytics.js
 │   └── agent.js
+├── products/
+│   ├── index.html          # catalog
+│   └── *.html              # one page per project
 ├── assets/
 │   ├── avatar.svg
 │   ├── favicon.svg
@@ -135,6 +144,7 @@ laddtnov-hub/
 │   ├── Dockerfile
 │   └── fly.toml
 └── docs/
+    ├── cyberpunk-ui/        # docs for the extracted CSS kit
     └── screenshots/
         ├── hero.png
         ├── hero-light.png
@@ -153,6 +163,10 @@ laddtnov-hub/
 | **GrowFlow** | Tool | Personal finance tracker with Chart.js dashboard | [growflow.laddtnov.xyz](https://growflow.laddtnov.xyz/) |
 | **TimeFlow** | Productivity | React + Vite appointment tracker with weekly calendar view | [timeflow.laddtnov.xyz](https://timeflow.laddtnov.xyz/) |
 | **Vitrum** | Game | Glassmorphism chess with smooth drag animations | [vitrum.bynov.one](https://vitrum.bynov.one/) |
+| **Trailune** | Tool | SvelteKit + TypeScript travel tracker, fully local, no backend | [trailune.laddtnov.xyz](https://trailune.laddtnov.xyz/) |
+| **Voidarium** | Experiment | Animated galaxy map with click-to-travel navigation, vanilla Canvas | [voidarium.vercel.app](https://voidarium.vercel.app/) |
+| **cyberpunk-ui** | Package | Zero-dependency neon CSS kit extracted from this site, published to npm | [npm](https://www.npmjs.com/package/@laddtnov/cyberpunk-ui) · [repo](https://github.com/laddtnov/cyberpunk-ui) |
+| **Neonflux** | Theme | Obsidian theme on the cyberpunk-ui palette, in the community catalog | [obsidian](https://community.obsidian.md/themes/neonflux) · [repo](https://github.com/laddtnov/Neonflux) |
 
 ## Quick Start
 

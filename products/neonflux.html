@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neonflux — Laddtnov Products</title>
+  <meta name="description" content="Neonflux — a cyberpunk theme for Obsidian. Neon on near-black with a light mode that holds up, WCAG-enforced contrast, Latin and Cyrillic fonts embedded, zero JavaScript." />
+  <link rel="canonical" href="https://laddtnov.xyz/products/neonflux.html" />
+  <link rel="alternate" hreflang="en" href="https://laddtnov.xyz/products/neonflux.html" />
+  <link rel="alternate" hreflang="uk" href="https://laddtnov.xyz/products/neonflux.html" />
+  <link rel="alternate" hreflang="es" href="https://laddtnov.xyz/products/neonflux.html" />
+  <link rel="alternate" hreflang="x-default" href="https://laddtnov.xyz/products/neonflux.html" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@laddtnov/cyberpunk-ui@0.2.0/tokens.css" integrity="sha384-qxO9S3bvIYtqfzsAdPlUbv+YJ4vrUNYmsjyO7WhlondypDotAeJHsWVf1V8KyrGi" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .product-detail { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+    .product-detail h1 { font-family: var(--cy-font-display, 'Orbitron', monospace); color: var(--cy-neon-cyan, #00f2ff); font-size: 1.8rem; }
+    .product-detail .badge { display: inline-block; padding: 0.2rem 0.6rem; border: 1px solid var(--cy-neon-purple, #9d00ff); border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; color: var(--cy-neon-purple, #9d00ff); margin-bottom: 1rem; }
+    .product-detail .badge.tool { border-color: var(--cy-neon-cyan, #00f2ff); color: var(--cy-neon-cyan, #00f2ff); }
+    .product-detail .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0 1.5rem; }
+    .product-detail .tags span { font-size: 0.7rem; padding: 0.2rem 0.5rem; border: 1px solid var(--cy-neon-cyan, #00f2ff); border-radius: 4px; color: var(--cy-neon-cyan, #00f2ff); text-transform: uppercase; }
+    .product-detail .cta-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0; }
+    .product-detail .cta-group a, .product-detail .cta-group button { padding: 0.5rem 1.25rem; border: 1px solid var(--cy-neon-cyan, #00f2ff); color: var(--cy-neon-cyan, #00f2ff); text-decoration: none; border-radius: 4px; background: transparent; cursor: pointer; font-family: var(--cy-font-mono, 'Share Tech Mono', monospace); font-size: 0.85rem; }
+    .product-detail .cta-group a:hover, .product-detail .cta-group button:hover { background: var(--cy-neon-cyan, #00f2ff); color: var(--cy-bg, #0a0a0c); }
+    .product-detail .what-i-learned { background: rgba(0,242,255,0.05); border-left: 3px solid var(--cy-neon-cyan, #00f2ff); padding: 1rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+    .product-detail .what-i-learned h3 { margin-top: 0; color: var(--cy-neon-cyan, #00f2ff); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .product-detail pre { background: var(--cy-bg, #0a0a0c); border: 1px solid rgba(0,242,255,0.2); border-radius: 4px; padding: 1rem; overflow-x: auto; font-family: var(--cy-font-mono, 'Share Tech Mono', monospace); font-size: 0.8rem; color: var(--cy-neon-cyan, #00f2ff); }
+    .product-detail .back-link { display: inline-block; margin-bottom: 1rem; color: var(--cy-neon-cyan, #00f2ff); text-decoration: none; font-family: var(--cy-font-mono, 'Share Tech Mono', monospace); font-size: 0.8rem; }
+    .product-detail .back-link:hover { text-decoration: underline; }
+    .product-detail .shot { width: 100%; height: auto; border: 1px solid rgba(0,242,255,0.25); border-radius: 4px; margin: 1rem 0 1.5rem; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav id="navbar" aria-label="Primary">
+    <div class="nav-logo"><span class="glitch" data-text="<DEV>">&lt;DEV&gt;</span></div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#devlog">Devlog</a>
+      <a href="index.html">Products</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="../assets/cv-vladislav-novytskiy.pdf" download>Download CV</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="product-detail">
+      <a href="index.html" class="back-link">← All Products</a>
+
+      <span class="badge tool">Tool</span>
+      <h1>Neonflux</h1>
+      <p>A cyberpunk theme for Obsidian, built on the same palette as cyberpunk-ui. Neon on near-black, a light mode that is not an afterthought, six fonts embedded for Latin and Cyrillic, and no JavaScript at all. Listed in Obsidian's community themes catalog.</p>
+
+      <!-- Not lazy-loaded: this sits above the fold and is the page's largest
+           element, so deferring it would just delay LCP. Explicit dimensions
+           reserve the space and stop the layout shifting once it lands. -->
+      <img class="shot" src="../assets/thumbnails/neonflux-thumb.jpg" alt="Neonflux rendering a note in Obsidian's reading view" width="1200" height="615" decoding="async">
+
+      <div class="tags">
+        <span>Vanilla CSS</span>
+        <span>Design Tokens</span>
+        <span>Obsidian</span>
+        <span>Zero JavaScript</span>
+      </div>
+
+      <div class="cta-group">
+        <a href="https://community.obsidian.md/themes/neonflux" target="_blank" rel="noopener">Obsidian Catalog</a>
+        <a href="https://github.com/laddtnov/Neonflux" target="_blank" rel="noopener">GitHub Repo</a>
+      </div>
+
+      <h2>Install</h2>
+      <pre>Settings → Appearance → Themes → Manage → search "Neonflux"</pre>
+
+      <h2>Built for reading, not for screenshots</h2>
+      <p>A note-taking app is read for hours, so the palette is restrained where it counts. Accents live on short strings — headings, links, chrome, code tokens — while prose stays a calm near-white. Glow is applied to <code>h1</code> and <code>h2</code> only, never to text read at length.</p>
+      <p>Contrast is enforced by a checker that runs over both themes and fails the build on regression. Muted text and syntax-highlight colours are held to the 4.5:1 <em>text</em> floor rather than the looser 3.0 non-text one, because a code comment is text somebody parses. Form controls get their own higher-contrast border token, since on a text field or checkbox the border <em>is</em> the affordance.</p>
+
+      <h2>Latin and Cyrillic</h2>
+      <p>Orbitron, Rajdhani and Share Tech Mono have no Cyrillic at all, so each is paired with a companion — Unbounded, Exo 2 and JetBrains Mono. Font fallback is per-glyph, so a note mixing English and Ukrainian renders correctly with no <code>unicode-range</code> rules and no JavaScript. The companions ship their Cyrillic subsets only, so no Latin glyph is embedded twice.</p>
+
+      <div class="what-i-learned">
+        <h3>What I Learned</h3>
+        <p>That a poster palette and a reading palette are different problems. Neon on black looks great in a screenshot and punishes you in a note you sit with for an hour.</p>
+        <p>Also that some bugs only exist inside the app. Two never showed up in the CSS: a blanket focus ring drew a cyan box around the entire editor, and heading casing was applied only to Reading view's DOM, so headings changed shape the moment the cursor entered them. Obsidian's Reading view and Live Preview are different DOMs — a rule that lands in one can miss the other entirely.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

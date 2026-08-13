@@ -1,5 +1,10 @@
+# /assets/thumbnails/ used to be disallowed. Every file in it is a thumbnail
+# already displayed publicly on the site, and since the product pages shipped
+# they are hero images rather than incidental art — blocking them meant
+# crawlers could read a page but not see the one picture on it, and none of
+# the work could appear in image search.
+
 User-agent: *
 Allow: /
-Disallow: /assets/thumbnails/
 
 Sitemap: https://laddtnov.xyz/sitemap.xml

@@ -1,0 +1,27 @@
+version: 2
+
+updates:
+  # The workflows pin five actions, three of them by floating tag (@v4, @v7).
+  # A tag can be repointed at any commit by whoever owns the action, so this is
+  # the ecosystem with something to catch today.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
+    labels:
+      - dependencies
+
+  # backend/ is stdlib-only right now — go.mod has no require block and go.sum
+  # is empty, so this finds nothing until the first third-party import lands.
+  # It is here so that day one of having a dependency is also day one of it
+  # being watched, rather than whenever someone remembers to add this entry.
+  - package-ecosystem: gomod
+    directory: /backend
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: chore
+    labels:
+      - dependencies

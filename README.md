@@ -129,7 +129,10 @@ laddtnov-hub/
 │   └── *.html              # one page per project
 ├── assets/
 │   ├── avatar.svg
-│   ├── favicon.svg
+│   ├── favicon.png
+│   ├── icon-192.png
+│   ├── icon-512.png
+│   ├── apple-touch-icon.png
 │   ├── og-image.webp
 │   ├── cv-vladislav-novytskiy.pdf
 │   ├── fonts/

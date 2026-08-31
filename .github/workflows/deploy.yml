@@ -84,9 +84,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+      # Node here only runs the Vercel CLI — the site itself is vanilla and has
+      # no build step. Vercel's docs put the floor at Node 22, so the old '20'
+      # pin was below it. Tracking lts/* rather than a number keeps it there
+      # without a bump every release: the CLI is already installed as @latest,
+      # so pinning the runtime hard while the tool floats buys nothing.
       - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: 'lts/*'
 
       - name: Deploy Portfolio
         env:

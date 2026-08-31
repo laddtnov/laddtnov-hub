@@ -9,6 +9,14 @@ on:
 
 jobs:
   security:
+    # Dependabot pull requests read from the Dependabot secret store rather than
+    # the Actions one, so secrets.CLAUDE_API_KEY is empty on them and the action
+    # fails its own API-key guard. Mirroring the key into Dependabot secrets
+    # would hand it to every dependency-update run, which is the wrong trade for
+    # a PR that only moves a version number. There is no source change to review
+    # on these, and CodeQL's Analyze (actions) still covers the workflow files
+    # they touch.
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     environment: production
     steps:

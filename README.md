@@ -161,7 +161,7 @@ laddtnov-hub/
 |---------|------|-------------|------|
 | **Orrery** | 3D Simulation | Solar system with Fallout-style terminal and positional audio | [orrery.laddtnov.xyz](https://orrery.laddtnov.xyz/) |
 | **Libra** | Tool | Book tracker with terminal UI, progress stats, and reading streaks | [libra.laddtnov.xyz](https://libra.laddtnov.xyz/) |
-| **Breach OS** | Game | Cyberpunk memory card game with missions and neon effects | [breachos.laddtnov.xyz](https://breachos.laddtnov.xyz/) |
+| **Breach OS** | Game | Cyberpunk memory card game with missions and neon effects | [breachos.app](https://breachos.app/) |
 | **Cogsworth** | Game | Steampunk Sudoku with rank system, survival mode, and PWA install | [cogsworth.laddtnov.xyz](https://cogsworth.laddtnov.xyz/) |
 | **GrowFlow** | Tool | Personal finance tracker with Chart.js dashboard | [growflow.laddtnov.xyz](https://growflow.laddtnov.xyz/) |
 | **TimeFlow** | Productivity | React + Vite appointment tracker with weekly calendar view | [timeflow.laddtnov.xyz](https://timeflow.laddtnov.xyz/) |

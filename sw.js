@@ -15,6 +15,7 @@ const APP_SHELL = [
   '/css/components.css',
   '/css/responsive.css',
   '/css/print.css',
+  '/css/agent.css',
   '/js/main.js',
   '/js/motion.js',
   '/js/ui.js',
@@ -23,6 +24,8 @@ const APP_SHELL = [
   '/js/i18n.js',
   '/js/sounds.js',
   '/js/easter-egg.js',
+  '/js/contact.js',
+  '/js/agent.js',
   '/assets/favicon.png',
   '/assets/avatar.svg',
 ];

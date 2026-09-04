@@ -17,7 +17,7 @@ Cyberpunk-style front-end portfolio built with semantic HTML5, modular CSS, and 
 [![404](https://img.shields.io/badge/404-Branded%20Page-00f2ff?style=for-the-badge)](https://laddtnov.xyz/404)
 
 ![Portfolio Hero](docs/screenshots/hero.webp)
-![Portfolio Hero — Light Theme](docs/screenshots/hero-light.png)
+![Portfolio Hero — Light Theme](docs/screenshots/hero-light.webp)
 
 ## Live
 
@@ -147,7 +147,7 @@ laddtnov-hub/
 └── docs/
     └── screenshots/
         ├── hero.webp
-        ├── hero-light.png
+        ├── hero-light.webp
         ├── agent-toggle.jpg
         └── agent-panel.jpg
 ```

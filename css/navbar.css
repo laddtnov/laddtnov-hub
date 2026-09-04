@@ -43,12 +43,6 @@ body::before {
   gap: 30px;
 }
 
-.nav-right-group {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
 .nav-links a {
   font-family: 'Share Tech Mono', monospace;
   color: var(--neon-cyan);

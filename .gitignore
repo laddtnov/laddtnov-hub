@@ -20,3 +20,9 @@ Thumbs.db
 npm-debug.log*
 yarn-error.log*
 
+
+# Agent/tool scratch state
+.omc/
+.claude-flow/
+.claude/proven-config.json
+.claude/.proven-config-version

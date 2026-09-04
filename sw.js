@@ -1,4 +1,4 @@
-const CACHE_NAME = 'laddtnov-portfolio-v2';
+const CACHE_NAME = 'laddtnov-portfolio-v3';
 
 const APP_SHELL = [
   '/',
@@ -23,7 +23,6 @@ const APP_SHELL = [
   '/js/settings.js',
   '/js/i18n.js',
   '/js/sounds.js',
-  '/js/analytics.js',
   '/js/easter-egg.js',
   '/assets/favicon.png',
   '/assets/avatar.svg',

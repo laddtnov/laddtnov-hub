@@ -81,7 +81,7 @@ A floating cyberpunk-styled AI chat widget fixed to the bottom-right corner.
 | Backend | Go — contact API on Fly.io |
 | Fonts | Self-hosted woff2 — Orbitron, Rajdhani, Share Tech Mono |
 | Audio | Web Audio API (`OscillatorNode`, `GainNode`) |
-| Data | GitHub REST API, localStorage analytics |
+| Data | GitHub REST API, localStorage settings |
 | Deploy | Vercel (frontend) + Fly.io (backend) |
 
 Two pieces of this site have been extracted and published on their own:
@@ -122,7 +122,6 @@ laddtnov-hub/
 │   ├── settings.js
 │   ├── easter-egg.js
 │   ├── sounds.js
-│   ├── analytics.js
 │   └── agent.js
 ├── products/
 │   ├── index.html          # catalog

@@ -77,7 +77,7 @@ A floating cyberpunk-styled AI chat widget fixed to the bottom-right corner.
 |-------|------|
 | Markup | HTML5 (semantic, ARIA) |
 | Styles | CSS3 (modular files, custom properties) |
-| Logic | Vanilla JS (ES modules, event bus) |
+| Logic | Vanilla JS (ES modules) |
 | Backend | Go — contact API on Fly.io |
 | Fonts | Self-hosted woff2 — Orbitron, Rajdhani, Share Tech Mono |
 | Audio | Web Audio API (`OscillatorNode`, `GainNode`) |
@@ -121,7 +121,7 @@ laddtnov-hub/
 │   ├── settings.js
 │   ├── easter-egg.js
 │   ├── sounds.js
-│   └── agent.js
+│   └── agent.js            # V-10026 FAQ agent; agentMisses() lists unanswered questions
 ├── products/
 │   ├── index.html          # catalog
 │   └── *.html              # one page per project

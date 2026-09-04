@@ -145,7 +145,6 @@ laddtnov-hub/
 │   ├── Dockerfile
 │   └── fly.toml
 └── docs/
-    ├── cyberpunk-ui/        # docs for the extracted CSS kit
     └── screenshots/
         ├── hero.png
         ├── hero-light.png

@@ -97,12 +97,39 @@ const FALLBACK = `QUERY NOT FOUND IN DATABASE.\nTry asking about skills, project
 
 const GREETING = `SYSTEM ONLINE. V-10026 READY.\nI'm Vladyslav's AI agent — ask me about his skills, projects, or how to get in touch.`;
 
-function matchFAQ(input) {
+// Split on anything that isn't a word character, keeping the few symbols that
+// are meaningful in a tech stack ("c++", "c#", "fly.io", "node.js").
+function wordsOf(text) {
+  return new Set(text.toLowerCase().match(/[a-z0-9+#.]+/g) ?? []);
+}
+
+// Triggers match whole words, not substrings. Matching substrings meant "yo"
+// fired inside "you"/"your" and "hi" inside "ethic", so the greeting entry —
+// first in FAQ, and first match wins — answered ~90% of real questions.
+//
+// Scoring by total matched trigger length instead of taking the first hit means
+// the entry with the most specific evidence wins, so FAQ order no longer decides
+// the answer. Multi-word triggers ("system admin") still match as a phrase.
+export function matchFAQ(input) {
   const lower = input.toLowerCase();
+  const words = wordsOf(lower);
+
+  let best = null;
+  let bestScore = 0;
+
   for (const entry of FAQ) {
-    if (entry.triggers.some(t => lower.includes(t))) return entry.response;
+    let score = 0;
+    for (const trigger of entry.triggers) {
+      const hit = trigger.includes(' ') ? lower.includes(trigger) : words.has(trigger);
+      if (hit) score += trigger.length;
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      best = entry;
+    }
   }
-  return null;
+
+  return best?.response ?? null;
 }
 
 function createMsg(text, type) {

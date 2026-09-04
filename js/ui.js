@@ -1,5 +1,3 @@
-import { emit, EVENTS } from "./events.js";
-
 /* ── Scroll progress bar ─────────────────────────────────────── */
 export function initScrollProgress() {
   const fill = document.querySelector('.scroll-progress__fill');
@@ -235,7 +233,6 @@ export function initUI() {
     const activeLink = linkBySectionId.get(sectionId);
     if (activeLink) {
       activeLink.setAttribute("aria-current", "location");
-      emit(EVENTS.NAV_SECTION_CHANGED, { sectionId });
     }
   };
 

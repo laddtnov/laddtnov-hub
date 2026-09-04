@@ -9,8 +9,18 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
+// agent.js reads localStorage lazily inside functions, never at import, so a
+// stub defined here is enough — no jsdom, no package.json.
+const store = new Map();
+globalThis.localStorage = {
+  getItem: k => (store.has(k) ? store.get(k) : null),
+  setItem: (k, v) => store.set(k, String(v)),
+  removeItem: k => store.delete(k),
+  clear: () => store.clear(),
+};
+
 const source = readFileSync(new URL('./agent.js', import.meta.url), 'utf8');
-const { matchFAQ } = await import(
+const { matchFAQ, answer, agentMisses } = await import(
   'data:text/javascript;base64,' + Buffer.from(source).toString('base64')
 );
 
@@ -61,4 +71,57 @@ test('multi-word triggers still match as a phrase', () => {
 
 test('unknown input falls through to null so the caller can use FALLBACK', () => {
   assert.equal(matchFAQ('what is the airspeed velocity of an unladen swallow'), null);
+});
+
+test('an unanswered question is recorded, an answered one is not', () => {
+  localStorage.clear();
+
+  answer('What is your tech stack?');            // matches
+  answer('what is your favourite pizza');        // does not
+
+  const misses = agentMisses();
+  assert.equal(misses.length, 1, 'only the unmatched question should be logged');
+  assert.equal(misses[0].question, 'what is your favourite pizza');
+  assert.equal(misses[0].count, 1);
+});
+
+test('repeat misses are counted, not appended, and sort by demand', () => {
+  localStorage.clear();
+
+  answer('do you do devops');
+  answer('do you do devops');
+  answer('do you do devops');
+  answer('do you like kubernetes');
+
+  const misses = agentMisses();
+  assert.equal(misses.length, 2);
+  assert.deepEqual(misses[0], { question: 'do you do devops', count: 3 }, 'most-asked first');
+  assert.equal(misses[1].count, 1);
+});
+
+test('the log is bounded so it cannot grow without limit', () => {
+  localStorage.clear();
+
+  for (let i = 0; i < 200; i++) answer(`unanswerable question number ${i}`);
+
+  assert.equal(agentMisses().length, 50, 'distinct questions are capped at MISS_LIMIT');
+});
+
+test('answer() still returns FALLBACK text on a miss', () => {
+  localStorage.clear();
+  assert.match(answer('completely unrelated gibberish'), /QUERY NOT FOUND IN DATABASE/);
+});
+
+test('a broken localStorage never breaks the reply', () => {
+  const real = globalThis.localStorage;
+  globalThis.localStorage = {
+    getItem() { throw new Error('SecurityError: private mode'); },
+    setItem() { throw new Error('QuotaExceededError'); },
+  };
+  try {
+    assert.match(answer('something nobody asked'), /QUERY NOT FOUND/, 'reply must survive storage failure');
+    assert.deepEqual(agentMisses(), [], 'reading a broken store yields an empty list, not a throw');
+  } finally {
+    globalThis.localStorage = real;
+  }
 });

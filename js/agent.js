@@ -132,6 +132,47 @@ export function matchFAQ(input) {
   return best?.response ?? null;
 }
 
+const MISS_KEY = '_agent_misses';
+const MISS_LIMIT = 50; // distinct questions; a bot or a bored visitor cannot grow this without bound
+
+// Questions the FAQ could not answer, so the knowledge base can grow from real
+// demand instead of guesswork. Counted per distinct question rather than logged
+// as a stream — the count is the useful part. Stays in the visitor's own
+// browser; nothing is sent anywhere.
+function recordMiss(question) {
+  const q = question.trim().slice(0, 120);
+  if (!q) return;
+  try {
+    const misses = JSON.parse(localStorage.getItem(MISS_KEY)) ?? {};
+    if (!(q in misses) && Object.keys(misses).length >= MISS_LIMIT) return;
+    misses[q] = (misses[q] ?? 0) + 1;
+    localStorage.setItem(MISS_KEY, JSON.stringify(misses));
+  } catch {
+    // private mode or quota exceeded — logging is a convenience, never let it
+    // break the reply the visitor is waiting for
+  }
+}
+
+// The read path, exposed on window as agentMisses(). Without one this would be
+// data nobody ever sees, which is exactly why js/analytics.js was deleted.
+export function agentMisses() {
+  try {
+    return Object.entries(JSON.parse(localStorage.getItem(MISS_KEY)) ?? {})
+      .sort((a, b) => b[1] - a[1])
+      .map(([question, count]) => ({ question, count }));
+  } catch {
+    return [];
+  }
+}
+
+// Single answering path for both typed input and suggestion chips, so a miss is
+// recorded in one place rather than at every call site.
+export function answer(text) {
+  const response = matchFAQ(text);
+  if (!response) recordMiss(text);
+  return response ?? FALLBACK;
+}
+
 function createMsg(text, type) {
   const wrap = document.createElement('div');
   wrap.className = `agent-msg agent-msg--${type}`;
@@ -245,7 +286,7 @@ export function initAgent() {
       chip.addEventListener('click', () => {
         clearSuggestions();
         addMsg(s, 'user');
-        botReply(matchFAQ(s) || FALLBACK);
+        botReply(answer(s));
       });
       suggs.append(chip);
     });
@@ -257,7 +298,7 @@ export function initAgent() {
     input.value = '';
     clearSuggestions();
     addMsg(text, 'user');
-    botReply(matchFAQ(text) || FALLBACK);
+    botReply(answer(text));
   }
 
   function openPanel() {
@@ -281,6 +322,9 @@ export function initAgent() {
     toggle.setAttribute('aria-label', 'Open AI agent chat');
     toggle.focus();
   }
+
+  // Read the unanswered questions with agentMisses() in the browser console.
+  globalThis.agentMisses = agentMisses;
 
   toggle.addEventListener('click', () => (open ? closePanel() : openPanel()));
   closeBtn.addEventListener('click', closePanel);

@@ -240,3 +240,14 @@
 :root[data-theme="light"] .contact-divider {
   opacity: 1;
 }
+
+/* Honeypot. Positioned off-screen rather than display:none — some bots skip
+   fields that compute to hidden, and this one only works if they fill it in.
+   aria-hidden + tabindex="-1" in the markup keep it away from real users. */
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

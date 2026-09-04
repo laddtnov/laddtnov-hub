@@ -852,6 +852,13 @@
           placeholder=">_ Your message..."
         ></textarea>
       </div>
+      <!-- Honeypot: hidden from people and assistive tech, filled in by bots
+           that populate every input. Submissions with it set are accepted and
+           silently discarded server-side. -->
+      <div class="form-honeypot" aria-hidden="true">
+        <label for="contact-website">Website</label>
+        <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+      </div>
       <button type="submit" class="contact-form-submit" data-i18n-ua="[ НАДІСЛАТИ ПОВІДОМЛЕННЯ ]" data-i18n-es="[ ENVIAR MENSAJE ]">[ SEND MESSAGE ]</button>
       <output id="contact-form-status" class="form-status" aria-live="polite"></output>
     </form>

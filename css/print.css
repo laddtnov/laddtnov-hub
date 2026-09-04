@@ -6,7 +6,7 @@
   .scroll-progress,
   .back-to-top,
   .settings-panel,
-  .custom-cursor,
+  .neon-cursor,
   #ua-stripe,
   .filter-group,
   #filter-status,
@@ -15,9 +15,7 @@
   .project-tile--next,
   .currently-learning,
   .github-stats,
-  #contact-form,
-  .glitch-skew,
-  .dot-blink {
+  #contact-form {
     display: none !important;
   }
 

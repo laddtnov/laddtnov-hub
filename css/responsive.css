@@ -311,10 +311,6 @@ html {
   .contact-btn:hover {
     transform: none;
   }
-
-  .skill-card:hover {
-    transform: none;
-  }
 }
 
 /* ─── Touch target minimum sizes (WCAG 2.5.5) ──────────────── */

@@ -1,9 +1,7 @@
-import { initErrorMonitoring } from './monitoring.js';
 import { initMotionPreferences } from './motion.js';
 import { initUI, initNavToggle, initBackToTop, initPageVisibility, initScrollAnimations, initScrollProgress, initTypewriter, initCustomCursor, initGithubStats, initCopyEmail } from './ui.js';
 import { initProjects } from './projects.js';
 import { initSettings } from './settings.js';
-import { initAnalytics } from './analytics.js';
 import { initEasterEgg } from './easter-egg.js';
 import { initSounds } from './sounds.js';
 import { initContactForm } from './contact.js';
@@ -11,7 +9,6 @@ import { initAgent, initPetSwitcher } from './agent.js';
 import { on, EVENTS } from './events.js';
 
 function init() {
-  initErrorMonitoring();
   initMotionPreferences();
   initUI();
   initNavToggle();
@@ -27,7 +24,6 @@ function init() {
   initSounds();
   initCopyEmail();
   initGithubStats();
-  initAnalytics();
   initContactForm();
   initAgent();
   initPetSwitcher();

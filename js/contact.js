@@ -23,6 +23,17 @@ function getLang() {
   }
 }
 
+// The API answers with { ok, errors: { name?, email?, message?, _? } }.
+// "_" carries whole-request problems (rate limit, bad JSON, send failure).
+function firstFieldError(body) {
+  const errors = body?.errors;
+  if (!errors || typeof errors !== 'object') return null;
+  for (const key of ['_', 'name', 'email', 'message']) {
+    if (typeof errors[key] === 'string' && errors[key]) return errors[key];
+  }
+  return null;
+}
+
 function setStatus(statusEl, key) {
   const lang = getLang();
   statusEl.textContent = MESSAGES[key][lang] ?? MESSAGES[key].en;
@@ -44,6 +55,7 @@ export function initContactForm() {
       name: formData.get('name'),
       email: formData.get('email'),
       message: formData.get('message'),
+      website: formData.get('website') ?? '', // honeypot — empty for real people
     };
 
     submitBtn.disabled = true;
@@ -56,7 +68,19 @@ export function initContactForm() {
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) throw new Error('request failed');
+      if (!response.ok) {
+        // The API returns a field -> message map. Show it instead of the
+        // generic error, so "message is too short" reaches the person who
+        // wrote the short message.
+        const body = await response.json().catch(() => null);
+        const detail = firstFieldError(body);
+        if (detail) {
+          statusEl.textContent = detail;
+          statusEl.dataset.state = 'error';
+          return;
+        }
+        throw new Error('request failed');
+      }
 
       setStatus(statusEl, 'success');
       form.reset();

@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
 // Config holds everything the server needs, loaded once from environment
@@ -45,8 +46,20 @@ func main() {
 	mux.HandleFunc("/healthz", handleHealth)
 	mux.HandleFunc("/api/contact", handleContact(cfg))
 
+	// Explicit timeouts. http.ListenAndServe leaves all of these at zero,
+	// meaning a client can open a connection and hold it open indefinitely
+	// without ever completing a request.
+	srv := &http.Server{
+		Addr:              ":" + cfg.Port,
+		Handler:           withCORS(cfg.AllowedOrigin, mux),
+		ReadHeaderTimeout: 5 * time.Second,
+		ReadTimeout:       10 * time.Second,
+		WriteTimeout:      15 * time.Second, // covers the outbound SMTP send
+		IdleTimeout:       60 * time.Second,
+	}
+
 	log.Printf("listening on :%s (allowed origin: %s)", cfg.Port, cfg.AllowedOrigin)
-	if err := http.ListenAndServe(":"+cfg.Port, withCORS(cfg.AllowedOrigin, mux)); err != nil {
+	if err := srv.ListenAndServe(); err != nil {
 		log.Fatal(err)
 	}
 }

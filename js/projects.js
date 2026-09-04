@@ -1,5 +1,3 @@
-import { emit, EVENTS } from "./events.js";
-
 export function initProjects() {
   const projectTiles = [...document.querySelectorAll(".project-tile:not(.project-tile--next)")];
   const grid = document.querySelector(".projects-grid");
@@ -95,8 +93,6 @@ export function initProjects() {
       filterStatus.textContent =
         `Showing ${visibleCount} of ${projectTiles.length} projects`;
     }
-
-    emit(EVENTS.PROJECT_FILTER_CHANGED, { filter: activeFilter });
   };
 
   const applySort = () => {
@@ -118,7 +114,6 @@ export function initProjects() {
 
     sorted.forEach((tile) => grid.appendChild(tile));
     if (nextTile) grid.appendChild(nextTile);
-    emit(EVENTS.PROJECT_SORT_CHANGED, { sortBy });
   };
 
   const openModal = (project) => {
@@ -143,8 +138,6 @@ export function initProjects() {
     // Focus close button, activate focus trap (WCAG #23)
     modalClose?.focus();
     document.addEventListener('keydown', trapFocus);
-
-    emit(EVENTS.PROJECT_MODAL_OPENED, { projectName: project.title, href: project.url });
   };
 
   const closeModal = () => {
@@ -161,8 +154,6 @@ export function initProjects() {
     // Remove focus trap, restore focus to the tile that opened the modal (WCAG #23)
     document.removeEventListener('keydown', trapFocus);
     lastFocusedTile?.focus();
-
-    emit(EVENTS.PROJECT_MODAL_CLOSED, {});
   };
 
   // Set initial aria-pressed state
@@ -186,9 +177,6 @@ export function initProjects() {
   sortSelect?.addEventListener("change", applySort);
 
   modalClose?.addEventListener("click", closeModal);
-  projectModal?.addEventListener("cancel", () => {
-    emit(EVENTS.PROJECT_MODAL_CLOSED, {});
-  });
   projectModal?.addEventListener("click", (event) => {
     const rect = projectModal.getBoundingClientRect();
     const clickedOutside =
@@ -210,13 +198,6 @@ export function initProjects() {
 
   projectTiles.forEach((tile) => {
     const project = getProjectData(tile);
-    tile.addEventListener("focusin", () => {
-      emit(EVENTS.PROJECT_FOCUSED, { projectName: project.title, href: project.url });
-    });
-
-    tile.querySelector(".project-visit-btn")?.addEventListener("click", () => {
-      emit(EVENTS.PROJECT_OPENED, { projectName: project.title, href: project.url });
-    });
 
     tile.querySelector(".project-inspect-btn")?.addEventListener("click", (e) => {
       lastFocusedTile = e.currentTarget;

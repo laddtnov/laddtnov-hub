@@ -115,7 +115,6 @@ laddtnov-hub/
 │   └── responsive.css
 ├── js/
 │   ├── main.js
-│   ├── events.js
 │   ├── motion.js
 │   ├── ui.js
 │   ├── projects.js

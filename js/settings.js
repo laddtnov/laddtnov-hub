@@ -1,4 +1,3 @@
-import { emit, EVENTS } from './events.js';
 import { setSoundEnabled } from './sounds.js';
 import { applyLanguage } from './i18n.js';
 
@@ -28,7 +27,6 @@ function applyCrt(value) {
 
 function applyMotion(value) {
   document.body.dataset.motion = value;
-  emit(EVENTS.MOTION_CHANGED, { reduced: value !== 'full' });
 }
 
 function applyTheme(value) {

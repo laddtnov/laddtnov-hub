@@ -85,7 +85,7 @@ const FAQ = [
   },
 ];
 
-const SUGGESTIONS = [
+export const SUGGESTIONS = [
   'What are his skills?',
   'Show me projects',
   'Is he available to hire?',
@@ -120,7 +120,12 @@ export function matchFAQ(input) {
   for (const entry of FAQ) {
     let score = 0;
     for (const trigger of entry.triggers) {
-      const hit = trigger.includes(' ') ? lower.includes(trigger) : words.has(trigger);
+      // Triggers are written singular ("skill", "project"), but people ask in
+      // the plural. Matching the trigger's own plural is safer than stemming
+      // the input, which would mangle short words like "css" and "js".
+      const hit = trigger.includes(' ')
+        ? lower.includes(trigger)
+        : words.has(trigger) || words.has(`${trigger}s`);
       if (hit) score += trigger.length;
     }
     if (score > bestScore) {

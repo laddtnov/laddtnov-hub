@@ -14,8 +14,10 @@ function init() {
   initBackToTop();
   initScrollProgress();
   initPageVisibility();
+  initProjects();          // must run before scroll animations — renders the
+                           // project cards, and initScrollAnimations only
+                           // observes .scroll-animate elements that already exist
   initScrollAnimations();
-  initProjects();
   initSettings();    // must run before typewriter — applies body.dataset.motion
   initTypewriter();
   initCustomCursor();

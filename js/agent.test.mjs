@@ -20,7 +20,7 @@ globalThis.localStorage = {
 };
 
 const source = readFileSync(new URL('./agent.js', import.meta.url), 'utf8');
-const { matchFAQ, answer, agentMisses, SUGGESTIONS } = await import(
+const { matchFAQ, answer, agentMisses, followUps, resetConversation, SUGGESTIONS } = await import(
   'data:text/javascript;base64,' + Buffer.from(source).toString('base64')
 );
 
@@ -156,4 +156,46 @@ test('pluralising does not create false matches on short triggers', () => {
   assert.equal(matchFAQ('where did everyone go'), matchFAQ('where did everyone go'));
   const reply = matchFAQ('css');
   assert.ok(reply, 'a real short trigger still matches');
+});
+
+test('follow-ups exclude what has just been answered', () => {
+  resetConversation();
+  const before = followUps(10).length;
+
+  answer('What are his skills?');
+
+  const after = followUps(10);
+  assert.equal(after.length, before - 1, 'the answered question should retire');
+  assert.ok(!after.includes('What are his skills?'), 'its own chip must not be offered again');
+});
+
+test('reaching an entry by typing retires the chip that offers it', () => {
+  resetConversation();
+  // Not the chip text — a free-form question that lands on the same entry.
+  answer('what tech stack do you use');
+  assert.ok(!followUps(10).includes('What are his skills?'),
+    'the chip is keyed on the answer, so typing an equivalent question retires it');
+});
+
+test('follow-ups are capped and shrink as the conversation proceeds', () => {
+  resetConversation();
+  assert.equal(followUps().length, 3, 'default cap is 3 chips');
+
+  for (const q of SUGGESTIONS) answer(q);
+  assert.deepEqual(followUps(), [], 'nothing left to offer once everything is answered');
+});
+
+test('an unanswered question does not retire any chip', () => {
+  resetConversation();
+  const before = followUps(10).length;
+  answer('do you do devops');
+  assert.equal(followUps(10).length, before, 'a FALLBACK must not consume a suggestion');
+});
+
+test('every suggestion still resolves, including the new ones', () => {
+  for (const chip of SUGGESTIONS) {
+    assert.ok(matchFAQ(chip), `suggestion chip "${chip}" has no answer`);
+  }
+  assert.equal(new Set(SUGGESTIONS.map(matchFAQ)).size, SUGGESTIONS.length,
+    'each suggestion should lead to a different entry, or a chip is redundant');
 });

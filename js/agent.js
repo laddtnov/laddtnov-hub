@@ -91,6 +91,11 @@ export const SUGGESTIONS = [
   'Is he available to hire?',
   'How to contact?',
   'Who is Vladyslav?',
+  'Why no framework?',
+  'Where is he based?',
+  'What languages does he speak?',
+  'Can I see the CV?',
+  'What is his education?',
 ];
 
 const FALLBACK = `QUERY NOT FOUND IN DATABASE.\nTry asking about skills, projects, experience, education, languages, or background.\nOr use the contact form below to reach Vladyslav directly.`;
@@ -172,10 +177,31 @@ export function agentMisses() {
 
 // Single answering path for both typed input and suggestion chips, so a miss is
 // recorded in one place rather than at every call site.
+// Responses already given this session. Keyed by the answer rather than the
+// question, so reaching an entry by typing also retires the chip that offers it.
+const delivered = new Set();
+
 export function answer(text) {
   const response = matchFAQ(text);
-  if (!response) recordMiss(text);
+  if (response) delivered.add(response);
+  else recordMiss(text);
   return response ?? FALLBACK;
+}
+
+// Suggestions whose answer the visitor has not seen yet, so the chips shown
+// after a reply lead somewhere new instead of repeating the conversation.
+// Returns an empty list once everything on offer has been covered — better to
+// show nothing than to loop.
+export function followUps(limit = 3) {
+  return SUGGESTIONS.filter((question) => {
+    const response = matchFAQ(question);
+    return response && !delivered.has(response);
+  }).slice(0, limit);
+}
+
+// Test seam: the session set is module state, and tests need a clean one.
+export function resetConversation() {
+  delivered.clear();
 }
 
 function createMsg(text, type) {
@@ -274,6 +300,8 @@ export function initAgent() {
     setTimeout(() => {
       typing.remove();
       addMsg(text, 'bot');
+      // Offer somewhere to go next, once the answer is actually on screen.
+      showSuggestions(followUps());
     }, 600 + jitter);
   }
 
@@ -281,9 +309,14 @@ export function initAgent() {
     suggs.innerHTML = '';
   }
 
-  function showSuggestions() {
+  function showSuggestions(list = SUGGESTIONS.slice(0, 5)) {
     clearSuggestions();
-    SUGGESTIONS.forEach(s => {
+    if (!list.length) return;
+
+    // The chip row appears and changes after each reply, so announce it rather
+    // than letting it change silently under a screen reader.
+    suggs.setAttribute('aria-label', 'Suggested questions');
+    list.forEach(s => {
       const chip = document.createElement('button');
       chip.className = 'agent-chip';
       chip.textContent = s;

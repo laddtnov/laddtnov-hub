@@ -1,4 +1,104 @@
+import { projectsData } from './projects-data.js';
+
+// Builds one card. Mirrors exactly the markup that used to be authored by hand
+// in index.html — same elements, classes, attributes and order — so the CSS,
+// the filter/sort logic and the share deep-links all keep working untouched.
+//
+// Everything goes through textContent and setAttribute, never innerHTML, which
+// keeps the codebase's property of having no XSS sink at all.
+function buildProjectTile(project) {
+  const el = (tag, className, text) => {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text != null) node.textContent = text;
+    return node;
+  };
+
+  const tile = el('article', 'project-tile scroll-animate');
+  tile.id = `project-${project.id}`;
+  tile.dataset.category = project.category;
+  tile.dataset.year = String(project.year);
+  tile.dataset.summary = project.summary;
+  tile.dataset.challenge = project.challenge;
+
+  const imageWrap = el('div', 'project-image');
+  const img = el('img');
+  img.src = project.thumb;
+  img.alt = project.thumbAlt;
+  img.loading = 'lazy';
+  img.decoding = 'async';
+  img.width = project.width;   // intrinsic size, set to prevent layout shift
+  img.height = project.height;
+  imageWrap.append(img);
+  if (project.isNew) imageWrap.append(el('span', 'project-badge-new', 'NEW'));
+
+  // Decorative hover overlay — hidden from assistive tech, as in the original markup.
+  const overlay = el('div', 'project-overlay');
+  overlay.setAttribute('aria-hidden', 'true');
+  // Per-project label, not a generic "VIEW PROJECT" — "3D SIMULATION",
+  // "BOOK TRACKER", "CSS LIBRARY"… all eleven are distinct.
+  overlay.append(el('span', 'view-project', project.overlayLabel));
+  imageWrap.append(overlay);
+
+  const info = el('div', 'project-info');
+  const desc = el('p', 'project-desc', project.desc);
+  desc.dataset.i18nUa = project.descUa;
+  desc.dataset.i18nEs = project.descEs;
+
+  const actions = el('div', 'project-actions');
+
+  // The translations are per-project: cyberpunk-ui links a demo, so its button
+  // reads Демо / Demo where the others read Відвідати / Visitar.
+  const visit = el('a', 'project-visit-btn', project.visitLabel);
+  visit.href = project.url;
+  visit.target = '_blank';
+  visit.rel = 'noopener noreferrer';
+  visit.setAttribute('aria-label', project.visitAria);
+  visit.dataset.i18nUa = project.visitUa;
+  visit.dataset.i18nEs = project.visitEs;
+
+  const inspect = el('button', 'project-inspect-btn', 'Inspect');
+  inspect.type = 'button';
+  inspect.setAttribute('aria-label', project.inspectAria);
+  inspect.dataset.i18nUa = 'Деталі';
+  inspect.dataset.i18nEs = 'Inspeccionar';
+
+  const share = el('button', 'project-share-btn');
+  share.type = 'button';
+  share.setAttribute('aria-label', project.shareAria);
+  const shareText = el('span', 'project-share-btn__text', 'Share');
+  shareText.dataset.i18nUa = 'Поділитися';
+  shareText.dataset.i18nEs = 'Compartir';
+  share.append(shareText);
+
+  actions.append(visit, inspect, share);
+  info.append(
+    el('h3', '', project.title),
+    el('p', 'project-tech', project.tech),
+    el('p', 'project-metrics', project.metrics),
+    desc,
+    el('p', 'project-devlog', `>_ ${project.devlog}`),
+    actions,
+  );
+
+  tile.append(imageWrap, info);
+  return tile;
+}
+
+// Renders the grid from projectsData, before the tile is ever queried below.
+// The "next project" placeholder is authored in index.html and stays last.
+function renderProjects() {
+  const grid = document.querySelector('.projects-grid');
+  if (!grid || grid.querySelector('.project-tile:not(.project-tile--next)')) return;
+
+  const nextTile = grid.querySelector('.project-tile--next');
+  for (const project of projectsData) grid.append(buildProjectTile(project));
+  if (nextTile) grid.append(nextTile);
+}
+
 export function initProjects() {
+  renderProjects();
+
   const projectTiles = [...document.querySelectorAll(".project-tile:not(.project-tile--next)")];
   const grid = document.querySelector(".projects-grid");
   const nextTile = document.querySelector(".project-tile--next");

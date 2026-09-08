@@ -20,6 +20,7 @@ const APP_SHELL = [
   '/js/motion.js',
   '/js/ui.js',
   '/js/projects.js',
+  '/js/projects-data.js',
   '/js/settings.js',
   '/js/i18n.js',
   '/js/sounds.js',

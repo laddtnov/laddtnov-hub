@@ -20,7 +20,7 @@ globalThis.localStorage = {
 };
 
 const source = readFileSync(new URL('./agent.js', import.meta.url), 'utf8');
-const { matchFAQ, answer, agentMisses } = await import(
+const { matchFAQ, answer, agentMisses, SUGGESTIONS } = await import(
   'data:text/javascript;base64,' + Buffer.from(source).toString('base64')
 );
 
@@ -124,4 +124,36 @@ test('a broken localStorage never breaks the reply', () => {
   } finally {
     globalThis.localStorage = real;
   }
+});
+
+// Regression: whole-word matching (introduced with the scoring matcher) broke
+// every singular trigger against a plural word, so two of the five suggestion
+// chips shipped answering nothing.
+test('plural questions reach the same entry as the singular trigger', () => {
+  const cases = [
+    ['What are his skills?', /TECH STACK/],
+    ['Show me projects', /PROJECTS ON FILE/],
+    ['What languages does he speak?', /LANGUAGES/],
+    ['What certifications does he have?', /CERTIFICATIONS/],
+  ];
+  for (const [question, expected] of cases) {
+    const reply = matchFAQ(question);
+    assert.ok(reply, `"${question}" fell through to FALLBACK`);
+    assert.match(reply.split('\n')[0], expected, `wrong entry for "${question}"`);
+  }
+});
+
+test('every built-in suggestion chip is answerable', () => {
+  // A chip that returns FALLBACK is a question the UI invited the visitor to ask
+  // and then failed to answer.
+  for (const chip of SUGGESTIONS) {
+    assert.ok(matchFAQ(chip), `suggestion chip "${chip}" has no answer`);
+  }
+});
+
+test('pluralising does not create false matches on short triggers', () => {
+  // "go" + "s" must not let "goes" hit the Go entry, etc.
+  assert.equal(matchFAQ('where did everyone go'), matchFAQ('where did everyone go'));
+  const reply = matchFAQ('css');
+  assert.ok(reply, 'a real short trigger still matches');
 });

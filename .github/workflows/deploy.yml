@@ -7,6 +7,25 @@ on:
     branches: [ main ]
 
 jobs:
+  # Runs on pull requests and on pushes to main, because deploy gates on it.
+  # No `if:` guard here on purpose — a job skipped by a condition still counts
+  # as satisfied by `needs:`, so guarding this would let a red build deploy.
+  test:
+    runs-on: ubuntu-latest
+    name: Tests
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+
+      # node:test is built in — no install step, no dependencies, nothing to cache.
+      - name: Run tests
+        run: node --test csp.test.mjs js/*.test.mjs
+
   build-check:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
@@ -77,6 +96,10 @@ jobs:
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # A stale CSP hash blocks the theme script silently — the page still renders,
+    # it just flashes the wrong theme. Gating the deploy is what stops that
+    # reaching production, since the failure is invisible in the output.
+    needs: test
     runs-on: ubuntu-latest
     name: Deploy to Vercel
     permissions:

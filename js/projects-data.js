@@ -212,7 +212,7 @@ export const projectsData = [
     descEs: 'Mi primer paquete en npm — un kit CSS cyberpunk con tokens neón, efectos glow/glitch/scanline y componentes, sin dependencias',
     devlog: 'First published npm package — learned CSS namespacing, theme-aware token architecture, and the npm publish pipeline',
     summary: 'First npm package — a zero-dependency cyberpunk neon CSS kit: design tokens, glow/glitch/scanline effects, and holo components, extracted from this very portfolio and published as @laddtnov/cyberpunk-ui.',
-    challenge: 'Turning battle-tested portfolio CSS into a real, published npm package — namespacing every class, making glows theme-aware with RGB-channel tokens, shipping a WCAG-safe light theme, and getting through the npm publish pipeline, all with no build step.',
+    challenge: 'Turning battle-tested portfolio CSS into a real, published npm package — namespacing every class, driving every glow from a token instead of a hardcoded colour, shipping a WCAG-safe light theme, and getting through the npm publish pipeline.',
     url: 'https://laddtnov.github.io/cyberpunk-ui/demo/',
     visitAria: 'Open cyberpunk-ui live demo in a new tab',
     inspectAria: 'Inspect cyberpunk-ui project',
